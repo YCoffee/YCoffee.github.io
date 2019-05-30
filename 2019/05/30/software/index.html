@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
     <meta name="baidu-site-verification" content="dIcXMeY8Ya">
     
-    <title>Git Bash的简单使用记录 | CoffeeY Blog</title>
+    <title>开发过程使用工具以及日常使用工具记录 | CoffeeY Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
     <meta name="keywords" content="Java 后端 Vue">
     <meta name="description" content="Coffee个人记录博客">
@@ -49,19 +49,19 @@
         <div class="dropnav icon-paragraph-justify" id="JELON__btnDropNav"></div>
         <ul class="menu hidden" id="JELON__menu">
             
-            <li rel="/2019/05/22/git_bash/index.html" class="item ">
+            <li rel="/2019/05/30/software/index.html" class="item ">
                 <a href="/" title="首页" class="icon-home">&nbsp;首页</a>
             </li>
             
-            <li rel="/2019/05/22/git_bash/index.html" class="item ">
+            <li rel="/2019/05/30/software/index.html" class="item ">
                 <a href="/code/" title="实验室" class="icon-lab">&nbsp;实验室</a>
             </li>
             
-            <li rel="/2019/05/22/git_bash/index.html" class="item ">
+            <li rel="/2019/05/30/software/index.html" class="item ">
                 <a href="/about/" title="关于" class="icon-about">&nbsp;关于</a>
             </li>
             
-            <li rel="/2019/05/22/git_bash/index.html" class="item ">
+            <li rel="/2019/05/30/software/index.html" class="item ">
                 <a href="/comment/" title="留言" class="icon-comment">&nbsp;留言</a>
             </li>
             
@@ -114,48 +114,34 @@
 <!-- 文章 -->
 <article class="post article">
     <header class="text-center">
-        <h3 class="post-title"><span>Git Bash的简单使用记录</span></h3>
+        <h3 class="post-title"><span>开发过程使用工具以及日常使用工具记录</span></h3>
     </header>
     <p class="post-meta text-center">
         CoffeeY 发表于
-        <time datetime="2019-05-22T08:41:57.000Z">2019-05-22</time>
+        <time datetime="2019-05-30T04:03:23.000Z">2019-05-30</time>
     </p>
     <div class="post-content">
-        <h2 id="Git简介"><a href="#Git简介" class="headerlink" title="Git简介"></a>Git简介</h2><p>git是一个分散式版本控制软件，最初由林纳斯·托瓦兹創作，於2005年以GPL釋出。最初目的是为更好地管理Linux核心开发而设计。应注意的是，这与GNU Interactive Tools（一个类似Norton Commander界面的文件管理器）有所不同。</p>
-<p>git最初的开发动力来自于BitKeeper和Monotone。git最初只是作为一个可以被其他前端（比如Cogito或Stgit）包装的后端而开发的，但后来git内核已经成熟到可以独立地用作版本控制。很多著名的软件都使用git进行版本控制，其中包括Linux核心、X.Org服务器和OLPC内核等项目的开发流程。</p>
-<h2 id="正题"><a href="#正题" class="headerlink" title="正题"></a>正题</h2><p>首先贴一段Wikipedia对git的说明，具体为何贴，先不管吧，进入正题。</p>
-<p>正巧电脑最近也出问题而傻BB的使用了自带的修复导致所有磁盘都被格式化了（问题的解决其实可以扩容C盘？或者重装系统？），此贴就一并将Git的安装记录下来吧</p>
-<p><a href="https://git-scm.com/downloads" title="Git官网下载地址" target="_blank" rel="noopener">Git官网下载地址</a></p>
-<h3 id="Windows版本"><a href="#Windows版本" class="headerlink" title="Windows版本"></a>Windows版本</h3><h4 id="安装流程"><a href="#安装流程" class="headerlink" title="安装流程"></a>安装流程</h4><p><center><img src="1.png" alt="安装步骤1"></center></p>
-<p><center><img src="2.png" alt="安装步骤2"></center></p>
+        <h3 id="Developer"><a href="#Developer" class="headerlink" title="Developer"></a>Developer</h3><h4 id="WinSCP"><a href="#WinSCP" class="headerlink" title="WinSCP"></a>WinSCP</h4><p>WinSCP 是一个 Windows 环境下使用的 SSH 的开源图形化 SFTP 客户端。同时支持 SCP 协议。它的主要功能是在本地与远程计算机间安全地复制文件，并且可以直接编辑文件。<br>下载地址：</p>
 <blockquote>
-<p>此处尽量将安装路径修改至其他盘符</p>
+<p>其他的图形化程序还有<br><a href="https://www.vandyke.com/products/securefx/" title="SecureFX ®" target="_blank" rel="noopener">SecureFX ®</a>等</p>
 </blockquote>
-<p>…<br>…<br>…</p>
-<p>之后的操作一直next就好了</p>
-<h4 id="检查是否安装完成"><a href="#检查是否安装完成" class="headerlink" title="检查是否安装完成"></a>检查是否安装完成</h4><p>Win+R打开运行输入cmd，在命令提示符（cmd）里输入git --version有版本信息则已成功了</p>
-<h3 id="Git-Bash的简单使用"><a href="#Git-Bash的简单使用" class="headerlink" title="Git Bash的简单使用"></a>Git Bash的简单使用</h3><h4 id="将项目代码上传至GitHub"><a href="#将项目代码上传至GitHub" class="headerlink" title="将项目代码上传至GitHub"></a>将项目代码上传至GitHub</h4><h5 id="1-安装路径下打开git-bash-exe"><a href="#1-安装路径下打开git-bash-exe" class="headerlink" title="1.安装路径下打开git-bash.exe"></a>1.安装路径下打开git-bash.exe</h5><p><center><img src="3.png" alt="git-bash界面"></center></p>
-<h5 id="2-进入项目目录"><a href="#2-进入项目目录" class="headerlink" title="2.进入项目目录"></a>2.进入项目目录</h5><p>一、<br>在项目目录右击，菜单栏里点击Git Bash<br>二、<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd Disk:/router/../folder</span><br><span class="line">//比如</span><br><span class="line">cd G:blog</span><br></pre></td></tr></table></figure></p>
-<h5 id="3-执行初始化"><a href="#3-执行初始化" class="headerlink" title="3.执行初始化"></a>3.执行初始化</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
-<p>此时你会发现在项目目录下出现.git文件夹（若没有则查看下隐藏项目/文件夹是否显示）</p>
-<h5 id="4-项目代码缓存如本地库"><a href="#4-项目代码缓存如本地库" class="headerlink" title="4.项目代码缓存如本地库"></a>4.项目代码缓存如本地库</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br></pre></td></tr></table></figure>
-<p>后面的.别忘记</p>
-<h5 id="5-项目代码提交至本地库"><a href="#5-项目代码提交至本地库" class="headerlink" title="5.项目代码提交至本地库"></a>5.项目代码提交至本地库</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m &quot;本次提交的信息&quot;</span><br></pre></td></tr></table></figure>
-<h5 id="6-GitHub创建项目获取https-URL并做关联"><a href="#6-GitHub创建项目获取https-URL并做关联" class="headerlink" title="6.GitHub创建项目获取https URL并做关联"></a>6.GitHub创建项目获取https URL并做关联</h5><p><center><img src="4.png" alt="获取项目地址"></center><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin https://github.com/996icu/996.ICU.git</span><br></pre></td></tr></table></figure></p>
-<h5 id="7-上传本地项目代码至GitHub"><a href="#7-上传本地项目代码至GitHub" class="headerlink" title="7.上传本地项目代码至GitHub"></a>7.上传本地项目代码至GitHub</h5><p>若首次上传请先pull<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git pull master --allow-unrelated-histories</span><br><span class="line"></span><br><span class="line">个别版本git 2.9以后需要增加这个【--allow-unrelated-histories】</span><br></pre></td></tr></table></figure></p>
-<p>上传本地项目代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure></p>
-<p><center><img src="5.png" alt="主要流程"></center></p>
-<h4 id="Github项目查看是否上传成功"><a href="#Github项目查看是否上传成功" class="headerlink" title="Github项目查看是否上传成功"></a>Github项目查看是否上传成功</h4>
+<h4 id="Xshell"><a href="#Xshell" class="headerlink" title="Xshell"></a>Xshell</h4><p>Xshell 是SSH会话管理工具</p>
+<p><center><img src="https://www.netsarang.com/wp-content/uploads/slider10/xshell-screenshot-1-2.png" alt></center></p>
+<blockquote>
+<p>其他的SSH会话管理程序还有<br><a href="http://www.hostbuf.com/" title="FinalShell" target="_blank" rel="noopener">FinalShell</a>、<a href="https://www.vandyke.com/products/securecrt/" title="官网" target="_blank" rel="noopener">SecureCRT（官网）</a>/<a href="https://www.portablesoft.org/securecrt-legacy-versions/" title="绿色版" target="_blank" rel="noopener">SecureCRT（绿色版）</a></p>
+</blockquote>
+<h4 id="VMware-vSphere"><a href="#VMware-vSphere" class="headerlink" title="VMware vSphere"></a>VMware vSphere</h4><p>介绍：服务器虚拟化管理工具<br><br>下载地址：<a href="https://my.vmware.com/cn/web/vmware/evalcenter?p=free-esxi6" target="_blank" rel="noopener">https://my.vmware.com/cn/web/vmware/evalcenter?p=free-esxi6</a></p>
+
     </div>
     <p class="post-meta">
         <span class="post-cat">分类：
-            <a class="cat-link" href="/categories/front-end/">前端</a>
+            <a class="cat-link" href="/categories/other/">其他</a>
         </span>
         <span class="post-tags">
             标签：
             
     
-        <a href="/tags/Git-Bash/" title="Git Bash">Git Bash</a>
+        <a href="/tags/软件工具/" title="软件工具">软件工具</a>
     
 
         </span>
@@ -181,20 +167,16 @@
     
     <span class="prev fl">
         上一篇<br>
-        <a href="/2019/05/23/npm/">
-            
-                NPM修改全局安装路径和缓存
-            
-        </a>
+        <a href="javascript: void(0);">没有上一篇了</a>
     </span>
     
 
     
     <span class="next fr">
         下一篇<br>
-        <a href="/2019/05/22/hello-world/">
+        <a href="/2019/05/28/ECMAScript/">
             
-                Hello World
+                js/es5/es6循环引用的问题
             
         </a>
     </span>
@@ -271,7 +253,7 @@
   <script>
   JELON.Comment({
     container: 'comments',
-    label: 'git_bash' || '2019/05/22/git_bash/',
+    label: 'software' || '2019/05/30/software/',
     owner: 'YCoffee',
     repo: 'blog_comments',
     clientId: '91c0a871a0d6570012db',
