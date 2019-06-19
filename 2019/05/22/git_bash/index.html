@@ -134,7 +134,7 @@
 <p>…<br>…<br>…</p>
 <p>之后的操作一直next就好了</p>
 <h4 id="检查是否安装完成"><a href="#检查是否安装完成" class="headerlink" title="检查是否安装完成"></a>检查是否安装完成</h4><p>Win+R打开运行输入cmd，在命令提示符（cmd）里输入git --version有版本信息则已成功了</p>
-<h3 id="Git-Bash的简单使用"><a href="#Git-Bash的简单使用" class="headerlink" title="Git Bash的简单使用"></a>Git Bash的简单使用</h3><h4 id="将项目代码上传至GitHub"><a href="#将项目代码上传至GitHub" class="headerlink" title="将项目代码上传至GitHub"></a>将项目代码上传至GitHub</h4><h5 id="1-安装路径下打开git-bash-exe"><a href="#1-安装路径下打开git-bash-exe" class="headerlink" title="1.安装路径下打开git-bash.exe"></a>1.安装路径下打开git-bash.exe</h5><p><center><img src="3.png" alt="git-bash界面"></center></p>
+<h3 id="Git-Bash的简单使用"><a href="#Git-Bash的简单使用" class="headerlink" title="Git Bash的简单使用"></a>Git Bash的简单使用</h3><h4 id="将项目代码上传至GitHub、GitLab等远程仓库"><a href="#将项目代码上传至GitHub、GitLab等远程仓库" class="headerlink" title="将项目代码上传至GitHub、GitLab等远程仓库"></a>将项目代码上传至GitHub、GitLab等远程仓库</h4><h5 id="1-安装路径下打开git-bash-exe"><a href="#1-安装路径下打开git-bash-exe" class="headerlink" title="1.安装路径下打开git-bash.exe"></a>1.安装路径下打开git-bash.exe</h5><p><center><img src="3.png" alt="git-bash界面"></center></p>
 <h5 id="2-进入项目目录"><a href="#2-进入项目目录" class="headerlink" title="2.进入项目目录"></a>2.进入项目目录</h5><p>一、<br>在项目目录右击，菜单栏里点击Git Bash<br>二、<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd Disk:/router/../folder</span><br><span class="line">//比如</span><br><span class="line">cd G:blog</span><br></pre></td></tr></table></figure></p>
 <h5 id="3-执行初始化"><a href="#3-执行初始化" class="headerlink" title="3.执行初始化"></a>3.执行初始化</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
 <p>此时你会发现在项目目录下出现.git文件夹（若没有则查看下隐藏项目/文件夹是否显示）</p>
@@ -145,17 +145,20 @@
 <h5 id="7-上传本地项目代码至GitHub"><a href="#7-上传本地项目代码至GitHub" class="headerlink" title="7.上传本地项目代码至GitHub"></a>7.上传本地项目代码至GitHub</h5><p>若首次上传请先pull<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git pull master --allow-unrelated-histories</span><br><span class="line"></span><br><span class="line">个别版本git 2.9以后需要增加这个【--allow-unrelated-histories】</span><br></pre></td></tr></table></figure></p>
 <p>上传本地项目代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure></p>
 <p><center><img src="5.png" alt="主要流程"></center></p>
-<h4 id="Github项目查看是否上传成功"><a href="#Github项目查看是否上传成功" class="headerlink" title="Github项目查看是否上传成功"></a>Github项目查看是否上传成功</h4>
+<h4 id="Github项目查看是否上传成功"><a href="#Github项目查看是否上传成功" class="headerlink" title="Github项目查看是否上传成功"></a>Github项目查看是否上传成功</h4><h4 id="设置全局和单个仓库账号和密码"><a href="#设置全局和单个仓库账号和密码" class="headerlink" title="设置全局和单个仓库账号和密码"></a>设置全局和单个仓库账号和密码</h4><p>配置全局仓库的账号和密码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;userName&quot;  //你的用户名</span><br><span class="line">git config --global user.email &quot;email address&quot; //你的邮箱地址</span><br></pre></td></tr></table></figure></p>
+<p>配置独立仓库账号和密码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config user.name &quot;userName&quot;  //你的用户名</span><br><span class="line">git config user.email &quot;email address&quot; //你的邮箱地址</span><br></pre></td></tr></table></figure></p>
+<p>查看账号密码情况<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --list   //查看git设置情况</span><br></pre></td></tr></table></figure></p>
+
     </div>
     <p class="post-meta">
         <span class="post-cat">分类：
-            <a class="cat-link" href="/categories/front-end/">前端</a>
+            <a class="cat-link" href="/categories/back-end/">后端</a>
         </span>
         <span class="post-tags">
             标签：
             
     
-        <a href="/tags/Git-Bash/" title="Git Bash">Git Bash</a>
+        <a href="/tags/git/" title="git">git</a>
     
 
         </span>
@@ -290,12 +293,22 @@
 <ul class="widget-bd">
     
     <li>
-        <a href="/categories/other/">其他</a>
-        <span class="badge">(3)</span>
+        <a href="/categories/categorie/">categorie</a>
+        <span class="badge">(1)</span>
     </li>
     
     <li>
         <a href="/categories/front-end/">前端</a>
+        <span class="badge">(2)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/back-end/">后端</a>
+        <span class="badge">(4)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/other/">其他</a>
         <span class="badge">(3)</span>
     </li>
     
@@ -308,19 +321,27 @@
         <!-- 文章标签 -->
 <div class="widget-bd tag-wrap">
   
+    <a class="tag-item" href="/tags/tag/" title="tag">tag (1)</a>
+  
+    <a class="tag-item" href="/tags/es5-6/" title="es5/6">es5/6 (1)</a>
+  
+    <a class="tag-item" href="/tags/git/" title="git">git (3)</a>
+  
+    <a class="tag-item" href="/tags/gitlab/" title="gitlab">gitlab (2)</a>
+  
+    <a class="tag-item" href="/tags/Maven/" title="Maven">Maven (1)</a>
+  
+    <a class="tag-item" href="/tags/idea/" title="idea">idea (1)</a>
+  
     <a class="tag-item" href="/tags/hexo/" title="hexo">hexo (1)</a>
   
     <a class="tag-item" href="/tags/blog/" title="blog">blog (1)</a>
   
-    <a class="tag-item" href="/tags/es5-6/" title="es5/6">es5/6 (1)</a>
-  
-    <a class="tag-item" href="/tags/Git-Bash/" title="Git Bash">Git Bash (1)</a>
+    <a class="tag-item" href="/tags/NPM/" title="NPM">NPM (1)</a>
   
     <a class="tag-item" href="/tags/windows文件夹共享/" title="windows文件夹共享">windows文件夹共享 (1)</a>
   
     <a class="tag-item" href="/tags/软件工具/" title="软件工具">软件工具 (1)</a>
-  
-    <a class="tag-item" href="/tags/NPM/" title="NPM">NPM (1)</a>
   
 </div>
     </section>

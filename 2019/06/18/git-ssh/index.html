@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
     <meta name="baidu-site-verification" content="dIcXMeY8Ya">
     
-    <title>win7/win10开启文件夹局域网共享 | CoffeeY Blog</title>
+    <title>Git使用SSH方式提交代码到远程仓库 | CoffeeY Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
     <meta name="keywords" content="Java 后端 Vue">
     <meta name="description" content="Coffee个人记录博客">
@@ -49,19 +49,19 @@
         <div class="dropnav icon-paragraph-justify" id="JELON__btnDropNav"></div>
         <ul class="menu hidden" id="JELON__menu">
             
-            <li rel="/2019/05/31/winshare/index.html" class="item ">
+            <li rel="/2019/06/18/git-ssh/index.html" class="item ">
                 <a href="/" title="首页" class="icon-home">&nbsp;首页</a>
             </li>
             
-            <li rel="/2019/05/31/winshare/index.html" class="item ">
+            <li rel="/2019/06/18/git-ssh/index.html" class="item ">
                 <a href="/code/" title="实验室" class="icon-lab">&nbsp;实验室</a>
             </li>
             
-            <li rel="/2019/05/31/winshare/index.html" class="item ">
+            <li rel="/2019/06/18/git-ssh/index.html" class="item ">
                 <a href="/about/" title="关于" class="icon-about">&nbsp;关于</a>
             </li>
             
-            <li rel="/2019/05/31/winshare/index.html" class="item ">
+            <li rel="/2019/06/18/git-ssh/index.html" class="item ">
                 <a href="/comment/" title="留言" class="icon-comment">&nbsp;留言</a>
             </li>
             
@@ -114,37 +114,36 @@
 <!-- 文章 -->
 <article class="post article">
     <header class="text-center">
-        <h3 class="post-title"><span>win7/win10开启文件夹局域网共享</span></h3>
+        <h3 class="post-title"><span>Git使用SSH方式提交代码到远程仓库</span></h3>
     </header>
     <p class="post-meta text-center">
         CoffeeY 发表于
-        <time datetime="2019-05-31T07:35:24.000Z">2019-05-31</time>
+        <time datetime="2019-06-18T09:21:52.000Z">2019-06-18</time>
     </p>
     <div class="post-content">
-        <blockquote>
-<p>本文实例在win10下操作，win7大体相同</p>
+        <p>使用SSH方式则涉及到SSH Key的问题，重点也是此问题。</p>
+<h4 id="生成新的SSH密钥"><a href="#生成新的SSH密钥" class="headerlink" title="生成新的SSH密钥"></a>生成新的SSH密钥</h4><p>1、打开Git Bash。</p>
+<p>2、粘贴下面的文本，替换您的电子邮件地址。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -b 4096 -C &quot;your_email@example.com&quot;</span><br></pre></td></tr></table></figure></p>
+<p>这将使用提供的电子邮件作为标签创建一个新的ssh密钥。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; Generating public/private rsa key pair.</span><br></pre></td></tr></table></figure></p>
+<p>3、当系统提示您“输入要保存密钥的文件”时，按Enter键。这接受默认文件位置。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; Enter a file in which to save the key (/c/Users/you/.ssh/id_rsa):[Press enter]</span><br></pre></td></tr></table></figure></p>
+<p>4、在提示符下，键入安全密码。有关更多信息，请参阅“使用SSH密钥密码”。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; Enter passphrase (empty for no passphrase): [Type a passphrase]</span><br><span class="line">&gt; Enter same passphrase again: [Type passphrase again]</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>暂无对此做相关了解，此处直接[Press enter]</p>
 </blockquote>
-<h4 id="1-win-R唤出运行窗口-并键入secpol-msc-而后回车打开本地安全策略"><a href="#1-win-R唤出运行窗口-并键入secpol-msc-而后回车打开本地安全策略" class="headerlink" title="1.win+R唤出运行窗口,并键入secpol.msc,而后回车打开本地安全策略"></a>1.win+R唤出运行窗口,并键入secpol.msc,而后回车打开本地安全策略</h4><blockquote>
-<p>此步骤也可在控制面板\系统和安全\管理工具下双击本地安全策略</p>
-</blockquote>
-<center><img src="1.png" alt></center>
-
-<h4 id="2-点击【本地策略】-gt-【用户权限分配】，在右侧菜单中找到-拒绝从网络访问这台计算机-项，双击将Guest用户删除"><a href="#2-点击【本地策略】-gt-【用户权限分配】，在右侧菜单中找到-拒绝从网络访问这台计算机-项，双击将Guest用户删除" class="headerlink" title="2.点击【本地策略】-&gt;【用户权限分配】，在右侧菜单中找到[拒绝从网络访问这台计算机]项，双击将Guest用户删除"></a>2.点击【本地策略】-&gt;【用户权限分配】，在右侧菜单中找到[拒绝从网络访问这台计算机]项，双击将Guest用户删除</h4><center><img src="2.png" alt></center>
-
-<h4 id="3-点击【本地策略】-gt-【安全选项】，在右侧菜单中找到-网络访问-本地账户的共享和安全模型-，双击打开属性将-经典-…-改为来-仅来宾-…"><a href="#3-点击【本地策略】-gt-【安全选项】，在右侧菜单中找到-网络访问-本地账户的共享和安全模型-，双击打开属性将-经典-…-改为来-仅来宾-…" class="headerlink" title="3.点击【本地策略】-&gt;【安全选项】，在右侧菜单中找到[网络访问:本地账户的共享和安全模型]，双击打开属性将[经典-…]改为来[仅来宾-…]"></a>3.点击【本地策略】-&gt;【安全选项】，在右侧菜单中找到[网络访问:本地账户的共享和安全模型]，双击打开属性将[经典-…]改为来[仅来宾-…]</h4><center><img src="3.png" alt></center>
-
-<p>未完待续……</p>
-
+<h4 id="将SSH密钥添加到ssh-agent"><a href="#将SSH密钥添加到ssh-agent" class="headerlink" title="将SSH密钥添加到ssh-agent"></a>将SSH密钥添加到ssh-agent</h4><p>在将新的SSH密钥添加到ssh-agent以管理密钥之前，您应该检查现有的SSH密钥并生成新的SSH密钥。<br>如果安装了GitHub Desktop，则可以使用它来克隆存储库而不处理SSH密钥。它还附带了Git Bash工具，这是git在Windows上运行命令的首选方式。</p>
+<p>1、确保ssh-agent正在运行：<br>如果您使用的是与GitHub Desktop一起安装的Git Shell，则应该运行ssh-agent。<br>如果您正在使用其他终端提示，例如Git for Windows，则可以使用“ 使用SSH密钥密码 ”中的“自动启动ssh-agent”说明，或手动启动它：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># start the ssh-agent in the background（后台启动ssh-agent）</span><br><span class="line">$ eval $(ssh-agent -s)</span><br><span class="line">&gt; Agent pid 59566</span><br></pre></td></tr></table></figure></p>
+<p>2、将SSH私钥添加到ssh-agent。如果使用其他名称创建密钥，或者要添加具有不同名称的现有密钥，请将命令中的id_rsa替换为私钥文件的名称。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-add ~/.ssh/id_rsa</span><br></pre></td></tr></table></figure></p>
+<center><img src="1.png" alt="Git Bash演示"></center>
     </div>
     <p class="post-meta">
         <span class="post-cat">分类：
-            <a class="cat-link" href="/categories/other/">其他</a>
+            <a class="cat-link" href="/categories/categorie/">categorie</a>
         </span>
         <span class="post-tags">
             标签：
             
     
-        <a href="/tags/windows文件夹共享/" title="windows文件夹共享">windows文件夹共享</a>
+        <a href="/tags/tag/" title="tag">tag</a>
     
 
         </span>
@@ -170,20 +169,16 @@
     
     <span class="prev fl">
         上一篇<br>
-        <a href="/2019/06/01/gitLab/">
-            
-                GitLab搭建记录
-            
-        </a>
+        <a href="javascript: void(0);">没有上一篇了</a>
     </span>
     
 
     
     <span class="next fr">
         下一篇<br>
-        <a href="/2019/05/30/software/">
+        <a href="/2019/06/04/maven-package/">
             
-                开发过程使用工具以及日常使用工具记录
+                Maven打包项目（包括spring boot项目）
             
         </a>
     </span>
@@ -260,7 +255,7 @@
   <script>
   JELON.Comment({
     container: 'comments',
-    label: 'winshare' || '2019/05/31/winshare/',
+    label: 'git-ssh' || '2019/06/18/git-ssh/',
     owner: 'YCoffee',
     repo: 'blog_comments',
     clientId: '91c0a871a0d6570012db',
