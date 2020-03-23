@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
     <meta name="baidu-site-verification" content="dIcXMeY8Ya">
     
-    <title>NPM修改全局安装路径和缓存 | CoffeeY Blog</title>
+    <title>各个PROXY记录 | CoffeeY Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
     <meta name="keywords" content="Java 后端 Vue">
     <meta name="description" content="Coffee个人记录博客">
@@ -49,19 +49,19 @@
         <div class="dropnav icon-paragraph-justify" id="JELON__btnDropNav"></div>
         <ul class="menu hidden" id="JELON__menu">
             
-            <li rel="/2019/05/23/npm/index.html" class="item ">
+            <li rel="/2020/01/23/proxy/index.html" class="item ">
                 <a href="/" title="首页" class="icon-home">&nbsp;首页</a>
             </li>
             
-            <li rel="/2019/05/23/npm/index.html" class="item ">
+            <li rel="/2020/01/23/proxy/index.html" class="item ">
                 <a href="/code/" title="实验室" class="icon-lab">&nbsp;实验室</a>
             </li>
             
-            <li rel="/2019/05/23/npm/index.html" class="item ">
+            <li rel="/2020/01/23/proxy/index.html" class="item ">
                 <a href="/about/" title="关于" class="icon-about">&nbsp;关于</a>
             </li>
             
-            <li rel="/2019/05/23/npm/index.html" class="item ">
+            <li rel="/2020/01/23/proxy/index.html" class="item ">
                 <a href="/comment/" title="留言" class="icon-comment">&nbsp;留言</a>
             </li>
             
@@ -114,27 +114,61 @@
 <!-- 文章 -->
 <article class="post article">
     <header class="text-center">
-        <h3 class="post-title"><span>NPM修改全局安装路径和缓存</span></h3>
+        <h3 class="post-title"><span>各个PROXY记录</span></h3>
     </header>
     <p class="post-meta text-center">
         CoffeeY 发表于
-        <time datetime="2019-05-23T08:16:17.000Z">2019-05-23</time>
+        <time datetime="2020-01-23T06:00:25.000Z">2020-01-23</time>
     </p>
     <div class="post-content">
-        <p>window 下 npm 安装的模块、缓存 默认都安装在 C盘</p>
-<h4 id="修改命令如下"><a href="#修改命令如下" class="headerlink" title="修改命令如下"></a>修改命令如下</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm config set prefix &quot;D:\nodejs\node_global&quot;</span><br><span class="line">npm config set cache &quot;D:\nodejs\node_cache&quot;</span><br></pre></td></tr></table></figure>
-<h4 id="修改环境变量"><a href="#修改环境变量" class="headerlink" title="修改环境变量"></a>修改环境变量</h4><p>因为修改了全局的安装模块地址，所以环境变量上要将修改后的地址配置进去，本例即将D:\nodejs\node_global配置进环境变量path</p>
+        <h2 id="一、Shadowsocks"><a href="#一、Shadowsocks" class="headerlink" title="一、Shadowsocks"></a>一、Shadowsocks</h2><p>写本文时已弃用该方式</p>
+<h2 id="二、V2ray"><a href="#二、V2ray" class="headerlink" title="二、V2ray"></a>二、V2ray</h2><h3 id="SSL证书相关"><a href="#SSL证书相关" class="headerlink" title="SSL证书相关"></a>SSL证书相关</h3><h4 id="证书配置"><a href="#证书配置" class="headerlink" title="证书配置"></a>证书配置</h4><pre><code>//新建一个文件夹用于存放证书
+sudo mkdir /usr/local/etc/certfiles
+//将证书文件夹所有者改为acme，使得用户acme有权限写入证书
+sudo chown -R acme:acme /usr/local/etc/certfiles
 
+//切换到用户acme
+sudo su -l -s /bin/bash acme
+//安装acme.sh
+curl  https://get.acme.sh | sh
+//退出当前用户
+exit
+//再次切换到用户acme
+sudo su -l -s /bin/bash acme
+</code></pre><blockquote>
+<p>两次切换用户的操作不能省略，因为安装完acme.sh之后要重新登录当前用户，否则无法识别出acme.sh命令</p>
+</blockquote>
+<h4 id="cloudflare-Global-CA-Key"><a href="#cloudflare-Global-CA-Key" class="headerlink" title="cloudflare Global CA Key"></a>cloudflare Global CA Key</h4><p>需要让acme.sh自动管理你的证书，所以需要添加cloudflare的API。登录cloudflare之后定位到：头像&gt;&gt;My Profile&gt;&gt;API Tokens。可以看到这里有两个API Keys。我们需要的是Global API Key。Origin CA Key是不可以使用的。点击View即可查看，注意查看之后自己保存下来，每天可查看次数是有限制的。</p>
+<font color="red">示例代码需要手动修改的地方都使用&lt;&gt;包裹。</font>
+
+<pre><code>export CF_Key=&quot;&lt;Your Global API Key&gt;&quot;
+export CF_Email=&quot;&lt;Your cloudflare account Email&gt;&quot;
+//执行如下命令（注意域名&lt;coffeey.tk&gt;改为你自己的域名），等待一会儿。
+acme.sh --issue --dns dns_cf -d &lt;coffeey.tk&gt;
+</code></pre><blockquote>
+<p>申请失败怎么办？证书申请失败的可能性一般有：1. CF_Key或CF_Email填写错误；证书申请次数超限等。此时切忌反复尝试，原因是证书每一个周申请次数是有限制的（20次），如果超限了就需要等一个周或者更换域名了（这个限制是争对每一个子域单独做的限制，所以万一超限了还可以用子域名继续部署）。解决方案是：在上述命令后加–staging参数继续测试。测试通过之后，删除上图所示四个证书文件并取消–staging参数再执行一次。–staging参数申请的证书只作为测试用，客户端是无法认证通过的（提示SSL handshake failed: tlsv1 alert unknown ca），所以使用–staging参数申请到了证书之后要去掉–staging参数重新申请一次。</p>
+</blockquote>
+<pre><code>//使用acme.sh将证书安装到certfiles目录，这样acme.sh更新证书的时候会自动将新的证书安装到这里
+acme.sh --install-cert -d &lt;tdom.ml&gt; --key-file /usr/local/etc/certfiles/private.key --fullchain-file /usr/local/etc/certfiles/certificate.crt
+//配置acme.sh自动更新和自动更新证书
+acme.sh  --upgrade  --auto-upgrade
+</code></pre><h4 id="权限修改"><a href="#权限修改" class="headerlink" title="权限修改"></a>权限修改</h4><pre><code>//将证书文件夹所在用户组改为certusers
+chown -R acme:certusers /usr/local/etc/certfiles
+//赋予证书文件夹组内用户读取权限。
+chmod -R 750 /usr/local/etc/certfiles
+//退出用户acme
+exit
+</code></pre>
     </div>
     <p class="post-meta">
         <span class="post-cat">分类：
-            <a class="cat-link" href="/categories/front-end/">前端</a>
+            <a class="cat-link" href="/categories/back-end/">后端</a>
         </span>
         <span class="post-tags">
             标签：
             
     
-        <a href="/tags/NPM/" title="NPM">NPM</a>
+        <a href="/tags/proxy/" title="proxy">proxy</a>
     
 
         </span>
@@ -160,9 +194,9 @@
     
     <span class="prev fl">
         上一篇<br>
-        <a href="/2019/05/28/ECMAScript/">
+        <a href="/2020/02/17/ehcache/">
             
-                js/es5/es6循环引用的问题
+                ehcache
             
         </a>
     </span>
@@ -171,9 +205,9 @@
     
     <span class="next fr">
         下一篇<br>
-        <a href="/2019/05/22/git_bash/">
+        <a href="/2019/10/11/oraclesql/">
             
-                Git Bash的简单使用记录
+                记一次Oracle数据库慢查询SQL优化
             
         </a>
     </span>
@@ -250,7 +284,7 @@
   <script>
   JELON.Comment({
     container: 'comments',
-    label: 'npm' || '2019/05/23/npm/',
+    label: 'proxy' || '2020/01/23/proxy/',
     owner: 'YCoffee',
     repo: 'blog_comments',
     clientId: '91c0a871a0d6570012db',
