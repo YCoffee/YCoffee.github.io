@@ -122,9 +122,9 @@
     </p>
     <div class="post-content">
         <h5 id="问题简介"><a href="#问题简介" class="headerlink" title="问题简介"></a>问题简介</h5><p>近期在开发一个菜单管理操作Array增加元素的时候出现一个循环引用的问题</p>
-<h5 id="问题代码段"><a href="#问题代码段" class="headerlink" title="问题代码段"></a>问题代码段</h5><p><font color="red"><br>Uncaught (in promise) TypeError: Converting circular structure to JSON<br>    –&gt; starting at object with constructor ‘Array’<br>    |     index 0 -&gt; object with constructor ‘Object’<br>    — property ‘sub_button’ closes the circle<br>    at JSON.stringify (<anonymous>)<br>    at transformRequest (defaults.js?2822:51)<br>    at transform (transformData.js?4cd5:16)<br>    at Object.forEach (utils.js?7061:224)<br>    at transformData (transformData.js?4cd5:15)<br>    at dispatchRequest (dispatchRequest.js?c4bb:37)<br></anonymous></font><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">const buttonIndex = this.buttons.indexOf(this.selectMenu);</span><br><span class="line">const buttonElement = this.buttons[buttonIndex];</span><br><span class="line">this.dialog.key = md5(new Date().toString());</span><br><span class="line">//防止出现循环引用</span><br><span class="line">this.dialog.sub_button = [];</span><br><span class="line">buttonElement.sub_button.push(Object.assign(&#123;&#125;, this.dialog));</span><br><span class="line">this.$message(&#123;</span><br><span class="line">  type: &apos;success&apos;,</span><br><span class="line">  message: &apos;一级菜单 &lt;&apos; + buttonElement.name + &apos;&gt; 下增加二级菜单 &lt;&apos; + this.dialog.name + &apos;&gt; 成功!&apos;</span><br><span class="line">&#125;);</span><br><span class="line">this.dialogVisible = false;</span><br></pre></td></tr></table></figure></p>
+<h5 id="问题代码段"><a href="#问题代码段" class="headerlink" title="问题代码段"></a>问题代码段</h5><p><font color="red"><br>Uncaught (in promise) TypeError: Converting circular structure to JSON<br>    –&gt; starting at object with constructor ‘Array’<br>    |     index 0 -&gt; object with constructor ‘Object’<br>    — property ‘sub_button’ closes the circle<br>    at JSON.stringify (<anonymous>)<br>    at transformRequest (defaults.js?2822:51)<br>    at transform (transformData.js?4cd5:16)<br>    at Object.forEach (utils.js?7061:224)<br>    at transformData (transformData.js?4cd5:15)<br>    at dispatchRequest (dispatchRequest.js?c4bb:37)<br></anonymous></font><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> buttonIndex = <span class="keyword">this</span>.buttons.indexOf(<span class="keyword">this</span>.selectMenu);</span><br><span class="line"><span class="keyword">const</span> buttonElement = <span class="keyword">this</span>.buttons[buttonIndex];</span><br><span class="line"><span class="keyword">this</span>.dialog.key = md5(<span class="keyword">new</span> <span class="built_in">Date</span>().toString());</span><br><span class="line"><span class="comment">//防止出现循环引用</span></span><br><span class="line"><span class="keyword">this</span>.dialog.sub_button = [];</span><br><span class="line">buttonElement.sub_button.push(<span class="built_in">Object</span>.assign(&#123;&#125;, <span class="keyword">this</span>.dialog));</span><br><span class="line"><span class="keyword">this</span>.$message(&#123;</span><br><span class="line">  type: <span class="string">'success'</span>,</span><br><span class="line">  message: <span class="string">'一级菜单 &lt;'</span> + buttonElement.name + <span class="string">'&gt; 下增加二级菜单 &lt;'</span> + <span class="keyword">this</span>.dialog.name + <span class="string">'&gt; 成功!'</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">this</span>.dialogVisible = <span class="literal">false</span>;</span><br></pre></td></tr></table></figure></p>
 <h5 id="问题详细"><a href="#问题详细" class="headerlink" title="问题详细"></a>问题详细</h5><p>代码写下来后按代码逻辑审阅是将出现符合心理预期的Array数组的，在数组以菜单展示时还未曾发现问题，在提交数据转换JSON格式就报错了，检查最后发现每一层子元素即sub_button[]下都有一个this.dialog数组，最后定位为循环引用导致</p>
-<h5 id="解决方式"><a href="#解决方式" class="headerlink" title="解决方式"></a>解决方式</h5><p>push子元素时重置子元素中子元素例sub_button值，致其为空,即[]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">this.dialog.key = md5(new Date().toString());</span><br><span class="line">//防止出现循环引用</span><br><span class="line">this.dialog.sub_button = [];</span><br><span class="line">buttonElement.sub_button.push(Object.assign(&#123;&#125;, this.dialog));</span><br></pre></td></tr></table></figure></p>
+<h5 id="解决方式"><a href="#解决方式" class="headerlink" title="解决方式"></a>解决方式</h5><p>push子元素时重置子元素中子元素例sub_button值，致其为空,即[]<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="keyword">this</span>.dialog.key = md5(<span class="keyword">new</span> <span class="built_in">Date</span>().toString());</span><br><span class="line"><span class="comment">//防止出现循环引用</span></span><br><span class="line"><span class="keyword">this</span>.dialog.sub_button = [];</span><br><span class="line">buttonElement.sub_button.push(<span class="built_in">Object</span>.assign(&#123;&#125;, <span class="keyword">this</span>.dialog));</span><br></pre></td></tr></table></figure></p>
 
     </div>
     <p class="post-meta">
@@ -254,8 +254,8 @@
     label: 'ECMAScript' || '2019/05/28/ECMAScript/',
     owner: 'YCoffee',
     repo: 'blog_comments',
-    clientId: '91c0a871a0d6570012db',
-    clientSecret: 'b16559cda969a4e582e9c9254124202c27ff2e98'
+    clientId: '21c38f588ab8ee604593',
+    clientSecret: '7afc59b35b552ea83bf8d7a461bed89fe1f7f0c9'
   });
   </script>
 
@@ -276,12 +276,27 @@
     
     <li>
         <a href="/categories/back-end/">后端</a>
-        <span class="badge">(11)</span>
+        <span class="badge">(13)</span>
     </li>
     
     <li>
         <a href="/categories/other/">其他</a>
         <span class="badge">(3)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/categorie/">categorie</a>
+        <span class="badge">(2)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/后台/">后台</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/后台/版本控制/">版本控制</a>
+        <span class="badge">(1)</span>
     </li>
     
 </ul>
@@ -295,21 +310,15 @@
   
     <a class="tag-item" href="/tags/es5-6/" title="es5/6">es5/6 (1)</a>
   
-    <a class="tag-item" href="/tags/git/" title="git">git (4)</a>
-  
-    <a class="tag-item" href="/tags/gitlab/" title="gitlab">gitlab (2)</a>
+    <a class="tag-item" href="/tags/tomcat/" title="tomcat">tomcat (2)</a>
   
     <a class="tag-item" href="/tags/ehcache/" title="ehcache">ehcache (1)</a>
   
-    <a class="tag-item" href="/tags/centos/" title="centos">centos (1)</a>
+    <a class="tag-item" href="/tags/linux/" title="linux">linux (1)</a>
   
-    <a class="tag-item" href="/tags/tomcat/" title="tomcat">tomcat (2)</a>
+    <a class="tag-item" href="/tags/git/" title="git">git (4)</a>
   
-    <a class="tag-item" href="/tags/NPM/" title="NPM">NPM (1)</a>
-  
-    <a class="tag-item" href="/tags/Maven/" title="Maven">Maven (1)</a>
-  
-    <a class="tag-item" href="/tags/proxy/" title="proxy">proxy (1)</a>
+    <a class="tag-item" href="/tags/gitlab/" title="gitlab">gitlab (2)</a>
   
     <a class="tag-item" href="/tags/idea/" title="idea">idea (1)</a>
   
@@ -317,13 +326,25 @@
   
     <a class="tag-item" href="/tags/blog/" title="blog">blog (1)</a>
   
-    <a class="tag-item" href="/tags/windows文件夹共享/" title="windows文件夹共享">windows文件夹共享 (1)</a>
+    <a class="tag-item" href="/tags/Maven/" title="Maven">Maven (1)</a>
   
-    <a class="tag-item" href="/tags/软件工具/" title="软件工具">软件工具 (1)</a>
+    <a class="tag-item" href="/tags/tag/" title="tag">tag (2)</a>
+  
+    <a class="tag-item" href="/tags/NPM/" title="NPM">NPM (1)</a>
   
     <a class="tag-item" href="/tags/oracle/" title="oracle">oracle (1)</a>
   
-    <a class="tag-item" href="/tags/sql/" title="sql">sql (1)</a>
+    <a class="tag-item" href="/tags/sql/" title="sql">sql (2)</a>
+  
+    <a class="tag-item" href="/tags/proxy/" title="proxy">proxy (1)</a>
+  
+    <a class="tag-item" href="/tags/软件工具/" title="软件工具">软件工具 (1)</a>
+  
+    <a class="tag-item" href="/tags/springboot/" title="springboot">springboot (1)</a>
+  
+    <a class="tag-item" href="/tags/svn/" title="svn">svn (1)</a>
+  
+    <a class="tag-item" href="/tags/windows文件夹共享/" title="windows文件夹共享">windows文件夹共享 (1)</a>
   
 </div>
     </section>

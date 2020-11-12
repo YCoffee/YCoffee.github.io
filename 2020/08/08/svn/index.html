@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
+    <meta name="baidu-site-verification" content="dIcXMeY8Ya">
+    
+    <title>svn | CoffeeY Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="keywords" content="Java 后端 Vue">
+    <meta name="description" content="Coffee个人记录博客">
+
+    
+    <link rel="alternative" href="/atom.xml" title="CoffeeY Blog" type="application/atom+xml">
+    
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <!--[if lt IE 9]>
+    <script src="/js/html5.js"></script>
+    <![endif]-->
+    
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?fd459238242776d173cdc64918fb32f2";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+</head>
+</html>
+<body class="home">
+    <!-- 博客头部 -->
+    <header class="header">
+    <section class="container header-main">
+        <div class="logo">
+            <a href="/">
+                <div class="cover">
+                    <span class="name">CoffeeY Blog</span>
+                    <span class="description">JAVA VUE SQL LINUX</span>
+                </div>
+            </a>
+        </div>
+        <div class="dropnav icon-paragraph-justify" id="JELON__btnDropNav"></div>
+        <ul class="menu hidden" id="JELON__menu">
+            
+            <li rel="/2020/08/08/svn/index.html" class="item ">
+                <a href="/" title="首页" class="icon-home">&nbsp;首页</a>
+            </li>
+            
+            <li rel="/2020/08/08/svn/index.html" class="item ">
+                <a href="/code/" title="实验室" class="icon-lab">&nbsp;实验室</a>
+            </li>
+            
+            <li rel="/2020/08/08/svn/index.html" class="item ">
+                <a href="/about/" title="关于" class="icon-about">&nbsp;关于</a>
+            </li>
+            
+            <li rel="/2020/08/08/svn/index.html" class="item ">
+                <a href="/comment/" title="留言" class="icon-comment">&nbsp;留言</a>
+            </li>
+            
+        </ul>
+        <div class="profile clearfix">
+            <div class="feeds fl">
+                
+                
+                <p class="links">
+                    
+                        <a href="https://github.com/YCoffee" target="_blank">Github</a>
+                        |
+                    
+                        <a href target="_blank">Reserved Link Location</a>
+                        
+                    
+                </p>
+                <p class="sns">
+                    
+                        <!-- <a href="" class="sinaweibo" target="_blank"><b>■</b> Reserved</a> -->
+                        <a href="javascript: void(0);" class="sinaweibo" target="_blank"><b>■</b> Reserved</a>
+                    
+                        <!-- <a href="" class="qqweibo" target="_blank"><b>■</b> Reserved</a> -->
+                        <a href="javascript: void(0);" class="qqweibo" target="_blank"><b>■</b> Reserved</a>
+                    
+                    <a href="javascript: void(0);" class="wechat">
+                        <b>■</b>
+                        Reserved
+                        <span class="popover">
+                            <img src="/img/wechat.png" width="120" height="120" alt="我的微信号">
+                            <i class="arrow"></i>
+                        </span>
+                    </a>
+                </p>
+                
+            </div>
+            <div class="avatar fr">
+                <img src="/img/coffee.gif" alt="avatar" title="Coffee">
+            </div>
+        </div>
+    </section>
+</header>
+
+
+    <!-- 博客正文 -->
+    <div class="container body clearfix">
+        <section class="content">
+            <div class="content-main widget">
+                <!-- 文章页 -->
+<!-- 文章 -->
+<article class="post article">
+    <header class="text-center">
+        <h3 class="post-title"><span>svn</span></h3>
+    </header>
+    <p class="post-meta text-center">
+        CoffeeY 发表于
+        <time datetime="2020-08-08T01:08:48.000Z">2020-08-08</time>
+    </p>
+    <div class="post-content">
+        <h2 id="Git和SVN及其区别"><a href="#Git和SVN及其区别" class="headerlink" title="Git和SVN及其区别"></a>Git和SVN及其区别</h2><h3 id="一、Git（分布式版本控制）"><a href="#一、Git（分布式版本控制）" class="headerlink" title="一、Git（分布式版本控制）"></a>一、Git（分布式版本控制）</h3><p>Git 旨在快速，高效地处理从小型到大型项目的所有事务。Git 易于学习， 具有闪电般快速的性能和廉价本地分支，便捷的临时区域、多个工作流程等功能。</p>
+<p>git每台电脑都有一个版本库，可以在本地做版本管理。而且每个工作成员可以任意在自己的本地版本库开启无限个分支，并且Git的分支名可以使用不同名字的。</p>
+<p>但是Git 没有严格的权限管理控制，一般通过系统设置文件读写权限的方式来做权限控制。工作目录只能是整个项目。比如 checkout，建分支，都是基于整个项目的。而 svn 可以基于项目中的某一个目录。</p>
+<h3 id="二、SVN（集中式版本控制）"><a href="#二、SVN（集中式版本控制）" class="headerlink" title="二、SVN（集中式版本控制）"></a>二、SVN（集中式版本控制）</h3><p>SVN就是用于多个人共同开发同一个项目，共用资源的目的。SVN允许一个文件有任意多的可命名属性，功能十分完全。在SVN，分支是一个完整的目录，且这个目录拥有完整的实际文件。</p>
+<h3 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h3><p>1、GIT是分布式的，SVN不是分布式。</p>
+<p>2、GIT把内容按元数据方式存储，而SVN是按文件。</p>
+<p>3、GIT分支和SVN的分支不同。</p>
+<p>4、GIT没有一个全局的版本号，而SVN有。</p>
+<p>5、GIT的内容完整性要优于SVN。</p>
+<h2 id="SVN在Windows上上传新项目以及更新代码"><a href="#SVN在Windows上上传新项目以及更新代码" class="headerlink" title="SVN在Windows上上传新项目以及更新代码"></a>SVN在Windows上上传新项目以及更新代码</h2><h3 id="一、新项目上传至svn"><a href="#一、新项目上传至svn" class="headerlink" title="一、新项目上传至svn"></a>一、新项目上传至svn</h3><p>1、安装<a href="https://tortoisesvn.net/downloads.html" target="_blank" rel="noopener">TortoiseSVN</a>，安装后应用如图</p>
+<center><img src="1.png" alt="TortoiseSVN"></center>
+
+<p>2、安装成功后打开TortoiseSVN Repository Browser并输入SVN远程地址</p>
+<p>3、在您所需的目录位置新建项目文件夹，此处文件夹管理规则参照IDEA上传自动创建规则（branches[分支]，tags[标签]，trunk[主干]）</p>
+<center><img src="2.png" alt="TortoiseSVN"></center>
+
+<p>4、在您所需上传的项目目录下右键选择SVN Checkout，URL of repository填写SVN远程地址（地址涵盖到所需上传至的目录），此贴首次提交直接上传至trunk主干，其他默认，点击确认后项目目录下会出现.svn文件夹（注意是否开启隐藏文件夹查看），此时进行下一步</p>
+<blockquote>
+<p>因为在已有项目Checkout，点确认后此时会提示Targer folder is not empty，因为我们远程仓库目前并没有任何文件代码，所以直接点击Checkout继续</p>
+</blockquote>
+<center><img src="3.png" alt="TortoiseSVN"></center>
+
+<center><img src="4.png" alt="TortoiseSVN"></center>
+
+<p>5、项目目录右键选择TortoiseSVN –&gt; Propertites,按图选择和填写忽略上传文件和文件夹，点击确认后进行下一步</p>
+<center><img src="5.png" alt="TortoiseSVN"></center>
+
+<center><img src="6.png" alt="TortoiseSVN"></center>
+
+<p>6、项目目录右键选择TortoiseSVN –&gt; add，查看勾选文件是否都是所需上传的文件，确认后点击ok，等待加载入本地仓库</p>
+<p>7、项目目录右键选择SVN Commit…，弹窗Message处填写相应提交信息，点击ok提交，等待Commit远程仓库完成</p>
+<h3 id="二、更新项目代码"><a href="#二、更新项目代码" class="headerlink" title="二、更新项目代码"></a>二、更新项目代码</h3><p>1、远程仓库有更新时，pull代码则项目目录右键选择SVN Update</p>
+<p>2、本地代码更新提交远程仓库，步骤同新项目上传6、7步骤</p>
+<h2 id="SVN在IDE上上传新项目以及更新代码"><a href="#SVN在IDE上上传新项目以及更新代码" class="headerlink" title="SVN在IDE上上传新项目以及更新代码"></a>SVN在IDE上上传新项目以及更新代码</h2><h3 id="一、IDEA（操作版本2020-2）"><a href="#一、IDEA（操作版本2020-2）" class="headerlink" title="一、IDEA（操作版本2020.2）"></a>一、IDEA（操作版本2020.2）</h3><p>1、安装<a href="https://tortoisesvn.net/downloads.html" target="_blank" rel="noopener">TortoiseSVN</a>，安装后应用如图</p>
+<p>2、IDEA界面下点击打开File -&gt; Settings(Ctrl+Alt+S) -&gt;Version Control -&gt;Subversion，在红框处选择TortoiseSVN安装目录下bin里的svn.exe</p>
+<center><img src="7.png" alt="TortoiseSVN"></center>
+
+<p>3、点击打开File -&gt; Settings(Ctrl+Alt+S) -&gt;Version Control，按图点击红色添加按钮并填写橙色框内项目文件夹地址及相应版本管理形式（此处选择Subversion），而后点击Apply并点击OK，无误则项目文件变为红色</p>
+<blockquote>
+<p>存在版本在主页左上角点击选择VCS -&gt; Enable Version Control Integration，选择框中选择Subversion项目便可加入版本管理且项目文件变红，操作和3中橙色框内选择时非选Directory而选Project一致</p>
+</blockquote>
+<center><img src="8.png" alt="TortoiseSVN"></center>
+
+<p>4、按图中指示箭头从左到右点击，最左点击为右击项目名称，最后点击弹窗如图2，点击红框+号填写SVN服务器项目存放地址，此处可能会验证您的信息，相应的账号密码请自行按提示填写，完成后点击Share，其他默认（如1.8 format），等待创建远程仓库文件夹和项目入本地仓库，等带项目文件变绿时，则表示入库本地成功</p>
+<center><img src="9.png" alt="TortoiseSVN"></center><br><center><img src="10.png" alt="TortoiseSVN"></center>
+
+<p>5、忽略无需上传文件和文件夹，操作如图，弹框选择和填写如图，完成后点击OK。</p>
+<center><img src="11.png" alt="TortoiseSVN"></center><br><center><img src="12.png" alt="TortoiseSVN"></center>
+
+<p>重复图一（右键项目 -&gt; Subversion -&gt; Revert…），最后箭头选择将Set Property改为Revert，弹窗里选择前面填写忽略的文件或文件夹，大致如图，<font color="red">切记红框处需取消勾选</font>，点击Revert后相应文件或文件夹变为橙色</p>
+<center><img src="13.png" alt="TortoiseSVN"></center>
+
+<p>6、提交至远程仓库，右键项目 -&gt; Subversion -&gt; Commit Directory…，弹框里确认Push项目文件是否有误，Commit Message处填写相应提交信息，点击Commit，弹窗继续点击Commit，而后等待Push项目至远程SVN仓库完成，完成后会有提示且项目各文件和文件夹名称变为白色</p>
+<p>至此完成项目提交至SVN</p>
+<h3 id="二、Eclipse"><a href="#二、Eclipse" class="headerlink" title="二、Eclipse"></a>二、Eclipse</h3>
+    </div>
+    <p class="post-meta">
+        <span class="post-cat">分类：
+            <a class="cat-link" href="/categories/后台/">后台</a>|<a class="cat-link" href="/categories/后台/版本控制/">版本控制</a>
+        </span>
+        <span class="post-tags">
+            标签：
+            
+    
+        <a href="/tags/svn/" title="svn">svn</a>
+    
+
+        </span>
+    </p>
+</article>
+<!-- 分享按钮 -->
+
+  <div class="article-share clearfix text-center">
+    <div class="share-area">
+      <span class="share-txt">分享到：</span>
+      <a href="javascript: window.open('http://service.weibo.com/share/share.php?url=' + encodeURIComponent(location.href) + '&title=' + document.title + '&language=zh_cn');" class="share-icon weibo"></a>
+      <a href="javascript: alert('请复制链接到微信并发送');" class="share-icon wechat"></a>
+      <a href="javascript: window.open('http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=' + encodeURIComponent(location.href) + '&title=' + document.title);" class="share-icon qqzone"></a>
+      <a href="javascript: window.open('http://connect.qq.com/widget/shareqq/index.html?url=' + encodeURIComponent(location.href) + '&desc=CoffeeY个人博客&title=' + document.title + '&callback=' + encodeURIComponent(location.href));" class="share-icon qq"></a>
+      <a href="javascript: window.open('http://shuo.douban.com/!service/share?href=' + encodeURIComponent(location.href) + '&name=' + document.title + '&text=' + document.title);" class="share-icon douban"></a>
+    </div>
+  </div>
+
+
+<!-- 上一篇/下一篇 -->
+
+<div class="article-nav clearfix">
+    
+    <span class="prev fl">
+        上一篇<br>
+        <a href="/2020/08/13/springboot-params/">
+            
+                Spring SpringMvc SpringBoot对象取值为空字段大小写问题
+            
+        </a>
+    </span>
+    
+
+    
+    <span class="next fr">
+        下一篇<br>
+        <a href="/2020/07/17/sql-statements/">
+            
+                Mysql Create Or Update的两种方式
+            
+        </a>
+    </span>
+    
+</div>
+
+<!-- 文章评论 -->
+
+  <script src="/js/comment.js"></script>
+  <div id="comments" class="comment">
+    <!--
+    <div class="sign-bar">
+      GitHub 已登录!
+      <span class="sign-link">登出</span>
+    </div>
+    <section class="box">
+      <div class="com-avatar"><img src="/img/jelon.jpg" alt="avatar"></div>
+      <div class="com-text">
+        <div class="main">
+          <textarea class="text-area-edited show" placeholder="欢迎评论！"></textarea>
+          <div class="text-area-preview"></div>
+        </div>
+        <div class="switch">
+          <div class="switch-item on">编辑</div>
+          <div class="switch-item">预览</div>
+        </div>
+        <div class="button">提交</div>
+      </div>
+    </section>
+    <section class="tips">注：评论支持 markdown 语法！</section>
+    <section class="list-wrap">
+      <ul class="list">
+        <li>
+          <div class="user-avatar">
+            <a href="/">
+              <img src="/img/jelon.jpg" alt="user-avatar">
+            </a>
+          </div>
+          <div class="user-comment">
+            <div class="user-comment-header">
+              <span class="post-name">张德龙</span>
+              <span class="post-time">2017年12月12日</span>
+              <span class="like liked">已赞</span>
+              <span class="like-num">2</span>
+            </div>
+            <div class="user-comment-body">333333</div>
+          </div>
+        </li>
+        <li>
+          <div class="user-avatar">
+            <a href="/">
+              <img src="/img/jelon.jpg" alt="user-avatar">
+            </a>
+          </div>
+          <div class="user-comment">
+            <div class="user-comment-header">
+              <span class="post-name">刘德华</span>
+              <span class="post-time">2017年12月12日</span>
+              <span class="like">点赞</span>
+              <span class="like-num">2</span>
+            </div>
+            <div class="user-comment-body">vvvvv</div>
+          </div>
+        </li>
+      </ul>
+      <div class="page-nav">
+        <a href="javascript: void(0);" class="item">1</a>
+        <a href="javascript: void(0);" class="item">2</a>
+        <a href="javascript: void(0);" class="item current">3</a>
+      </div>
+    </section>
+    -->
+  </div>
+  <script>
+  JELON.Comment({
+    container: 'comments',
+    label: 'svn' || '2020/08/08/svn/',
+    owner: 'YCoffee',
+    repo: 'blog_comments',
+    clientId: '21c38f588ab8ee604593',
+    clientSecret: '7afc59b35b552ea83bf8d7a461bed89fe1f7f0c9'
+  });
+  </script>
+
+
+            </div>
+        </section>
+        <!-- 侧栏部分 -->
+<aside class="sidebar">
+    <section class="widget">
+        <h3 class="widget-hd"><strong>文章分类</strong></h3>
+        <!-- 文章分类 -->
+<ul class="widget-bd">
+    
+    <li>
+        <a href="/categories/front-end/">前端</a>
+        <span class="badge">(2)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/back-end/">后端</a>
+        <span class="badge">(13)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/other/">其他</a>
+        <span class="badge">(3)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/categorie/">categorie</a>
+        <span class="badge">(2)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/后台/">后台</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/后台/版本控制/">版本控制</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+</ul>
+    </section>
+
+    
+    <section class="widget">
+        <h3 class="widget-hd"><strong>热门标签</strong></h3>
+        <!-- 文章标签 -->
+<div class="widget-bd tag-wrap">
+  
+    <a class="tag-item" href="/tags/es5-6/" title="es5/6">es5/6 (1)</a>
+  
+    <a class="tag-item" href="/tags/tomcat/" title="tomcat">tomcat (2)</a>
+  
+    <a class="tag-item" href="/tags/ehcache/" title="ehcache">ehcache (1)</a>
+  
+    <a class="tag-item" href="/tags/linux/" title="linux">linux (1)</a>
+  
+    <a class="tag-item" href="/tags/git/" title="git">git (4)</a>
+  
+    <a class="tag-item" href="/tags/gitlab/" title="gitlab">gitlab (2)</a>
+  
+    <a class="tag-item" href="/tags/idea/" title="idea">idea (1)</a>
+  
+    <a class="tag-item" href="/tags/hexo/" title="hexo">hexo (1)</a>
+  
+    <a class="tag-item" href="/tags/blog/" title="blog">blog (1)</a>
+  
+    <a class="tag-item" href="/tags/Maven/" title="Maven">Maven (1)</a>
+  
+    <a class="tag-item" href="/tags/tag/" title="tag">tag (2)</a>
+  
+    <a class="tag-item" href="/tags/NPM/" title="NPM">NPM (1)</a>
+  
+    <a class="tag-item" href="/tags/oracle/" title="oracle">oracle (1)</a>
+  
+    <a class="tag-item" href="/tags/sql/" title="sql">sql (2)</a>
+  
+    <a class="tag-item" href="/tags/proxy/" title="proxy">proxy (1)</a>
+  
+    <a class="tag-item" href="/tags/软件工具/" title="软件工具">软件工具 (1)</a>
+  
+    <a class="tag-item" href="/tags/springboot/" title="springboot">springboot (1)</a>
+  
+    <a class="tag-item" href="/tags/svn/" title="svn">svn (1)</a>
+  
+    <a class="tag-item" href="/tags/windows文件夹共享/" title="windows文件夹共享">windows文件夹共享 (1)</a>
+  
+</div>
+    </section>
+    
+
+    
+
+    
+    <!-- 友情链接 -->
+    <section class="widget">
+        <h3 class="widget-hd"><strong>友情链接</strong></h3>
+        <!-- 文章分类 -->
+<ul class="widget-bd">
+    
+        <li>
+            <a href="https://www.baidu.com" target="_blank" title="百度搜索">百度</a>
+        </li>
+    
+</ul>
+    </section>
+    
+</aside>
+<!-- / 侧栏部分 -->
+    </div>
+
+    <!-- 博客底部 -->
+    <footer class="footer">
+    &copy;
+    
+        2018-2020
+    
+
+    <a href="/">Ycoffee</a>
+    <a> PowerBy</a>
+    <a href="https://github.com/hexojs/hexo" target="_blank">HEXO</a>
+    <a> ThemeBy</a>
+    <a href="https://github.com/jangdelong/hexo-theme-xups" target="_blank">XUPS</a>
+</footer>
+<div class="back-to-top" id="JELON__backToTop" title="返回顶部">返回顶部</div>
+
+    <!--博客js脚本 -->
+    <!-- 这里放网站js脚本 -->
+<script src="/js/main.js"></script>
+</body>
+</html>
