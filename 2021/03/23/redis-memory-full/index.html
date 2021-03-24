@@ -1,0 +1,545 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8" >
+    <meta name="baidu-site-verification" content="dIcXMeY8Ya" />
+    
+    <title>内存耗尽后Redis会发生什么？ | CoffeeY Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" >
+    <meta name="keywords" content="Java 后端 Vue" >
+    <meta name="description" content="Coffee个人记录博客" >
+
+    
+    <link rel="alternative" href="/atom.xml" title="CoffeeY Blog" type="application/atom+xml" >
+    
+    
+    <link rel="icon" href="/favicon.ico" >
+    
+    
+<link rel="stylesheet" href="/css/style.css?v=1616552640774.css">
+
+    <!--[if lt IE 9]>
+    
+<script src="/js/html5.js"></script>
+
+    <![endif]-->
+    
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="home">
+    <!--[if lt IE 9]>
+    <div class="browsehappy">
+        当前网页 <strong>不支持</strong>
+        你正在使用的浏览器. 为了正常的访问, 请 <a target="_blank" rel="noopener" href="http://browsehappy.com/">升级你的浏览器</a>.
+    </div>
+    <![endif]-->
+
+    <!-- 博客头部 -->
+    <header class="header">
+    <section class="container header-main">
+        <div class="logo">
+            <a href="/">
+                <div class="cover">
+                    <span class="name">CoffeeY Blog</span>
+                    <span class="description">JAVA VUE SQL LINUX</span>
+                </div>
+            </a>
+        </div>
+        <div class="dropnav iconfont icon-nav" id="JELON__btnDropNav"></div>
+        <ul class="menu hidden" id="JELON__menu">
+            
+            <li rel="/2021/03/23/redis-memory-full/index.html" class="item ">
+                <a href="/" title="首页" class="iconfont icon-home">&nbsp;首页</a>
+            </li>
+            
+            <li rel="/2021/03/23/redis-memory-full/index.html" class="item ">
+                <a href="/archives/" title="归档" class="iconfont icon-archives">&nbsp;归档</a>
+            </li>
+            
+            <li rel="/2021/03/23/redis-memory-full/index.html" class="item ">
+                <a href="/about/" title="关于" class="iconfont icon-staff">&nbsp;关于</a>
+            </li>
+            
+            <li rel="/2021/03/23/redis-memory-full/index.html" class="item ">
+                <a href="/comment/" title="留言" class="iconfont icon-comment">&nbsp;留言</a>
+            </li>
+            
+        </ul>
+        <div class="profile clearfix">
+            <div class="feeds fl">
+                
+                
+                <p class="links">
+                    
+                        <a href="https://github.com/YCoffee" target="_blank">Github</a>
+                        |
+                    
+                        <a href="" target="_blank">Reserved Link Location</a>
+                        
+                    
+                </p>
+                <p class="sns">
+                    
+                        <!-- <a href="" class="sinaweibo" target="_blank"><b>■</b> Reserved</a> -->
+						<a href="javascript: void(0);" class="sinaweibo" target="_blank"><b>■</b> Reserved</a>
+                    
+                        <!-- <a href="" class="qqweibo" target="_blank"><b>■</b> Reserved</a> -->
+						<a href="javascript: void(0);" class="qqweibo" target="_blank"><b>■</b> Reserved</a>
+                    
+                    <a href="javascript: void(0);" class="wechat">
+                        <b>■</b>
+                        微信
+                        <span class="popover">
+                            <img src="/img/wechat.png" width="120" height="120" alt="我的微信号">
+                            <i class="arrow"></i>
+                        </span>
+                    </a>
+                </p>
+                
+            </div>
+            <div class="avatar fr">
+                <img src="/img/coffee.gif" alt="avatar" title="Jelon" >
+            </div>
+        </div>
+    </section>
+</header>
+
+
+    <!-- 博客正文 -->
+    <div class="container body clearfix">
+        <section class="content">
+            <div class="content-main widget">
+                <!-- 文章页 -->
+<!-- 文章 -->
+<article class="post article">
+    <header class="text-center">
+        <h3 class="post-title"><span>内存耗尽后Redis会发生什么？</span></h3>
+    </header>
+    <p class="post-meta text-center">
+        Jelon 发表于
+        <time datetime="2021-03-23T02:50:02.000Z">2021-03-23</time>
+    </p>
+    <div id="JELON__articlePostContent" class="post-content">
+        <p>作为一台服务器来说，内存并不是无限的，所以总会存在内存耗尽的情况，那么当 <code>Redis</code> 服务器的内存耗尽后，如果继续执行请求命令，<code>Redis</code> 会如何处理呢？</p>
+<h3 id="设置有效期"><a href="#设置有效期" class="headerlink" title="设置有效期"></a>设置有效期</h3><p>使用<code>Redis</code> 服务时，很多情况下某些键值对只会在特定的时间内有效，为了防止这种类型的数据一直占有内存，我们可以给键值对设置有效期。<code>Redis</code>中可以通过 <code>4</code> 个独立的命令来给一个键设置过期时间：</p>
+<ul>
+<li><code>expire key ttl</code>：将 <code>key</code> 值的过期时间设置为 <code>ttl</code> <strong>秒</strong>。</li>
+<li><code>pexpire key ttl</code>：将 <code>key</code> 值的过期时间设置为 <code>ttl</code> <strong>毫秒</strong>。</li>
+<li><code>expireat key timestamp</code>：将 <code>key</code> 值的过期时间设置为指定的<code>timestamp</code> <strong>秒数</strong>。</li>
+<li><code>pexpireat key timestamp</code>：将 <code>key</code> 值的过期时间设置为指定的<code>timestamp</code> <strong>毫秒数</strong>。</li>
+</ul>
+<p>PS：不管使用哪一个命令，最终 <code>Redis</code> 底层都是使用 <code>pexpireat</code> 命令来实现的。另外，<code>set</code> 等命令也可以设置 <code>key</code> 的同时加上过期时间，这样可以保证设值和设过期时间的原子性。</p>
+<p>设置了有效期后，可以通过 <code>ttl</code> 和 <code>pttl</code> 两个命令来查询剩余过期时间（如果未设置过期时间则下面两个命令返回 <code>-1</code>，如果设置了一个非法的过期时间，则都返回 <code>-2</code>）：</p>
+<ul>
+<li><code>ttl key</code> 返回 <code>key</code> 剩余过期秒数。</li>
+<li><code>pttl key</code> 返回 <code>key</code> 剩余过期的毫秒数。</li>
+</ul>
+<h3 id="过期策略"><a href="#过期策略" class="headerlink" title="过期策略"></a>过期策略</h3><p>如果将一个过期的键删除，我们一般都会有三种策略：</p>
+<ul>
+<li><strong>定时删除</strong> ：为每个键设置一个定时器，一旦过期时间到了，则将键删除。这种策略对内存很友好，但是对 <code>CPU</code> 不友好，因为每个定时器都会占用一定的<code>CPU</code> 资源。</li>
+<li><strong>惰性删除</strong> ：不管键有没有过期都不主动删除，等到每次去获取键时再判断是否过期，如果过期就删除该键，否则返回键对应的值。这种策略对内存不够友好，可能会浪费很多内存。</li>
+<li><strong>定期扫描</strong> ：系统每隔一段时间就定期扫描一次，发现过期的键就进行删除。这种策略相对来说是上面两种策略的折中方案，需要注意的是这个定期的频率要结合实际情况掌控好，使用这种方案有一个缺陷就是可能会出现已经过期的键也被返回。</li>
+</ul>
+<p>在 <code>Redis</code> 当中，其选择的是策略 <code>2</code> 和策略 <code>3</code> 的综合使用。不过 <code>Redis</code> 的定期扫描只会扫描设置了过期时间的键，因为设置了过期时间的键 <code>Redis</code> 会单独存储，所以不会出现扫描所有键的情况：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">redisDb</span> &#123;</span></span><br><span class="line">   dict *dict; <span class="comment">//所有的键值对</span></span><br><span class="line">   dict *expires; <span class="comment">//设置了过期时间的键值对</span></span><br><span class="line">   dict *blocking_keys; <span class="comment">//被阻塞的key,如客户端执行BLPOP等阻塞指令时</span></span><br><span class="line">   dict *watched_keys; <span class="comment">//WATCHED keys</span></span><br><span class="line">   <span class="keyword">int</span> id; <span class="comment">//Database ID</span></span><br><span class="line">   <span class="comment">//... 省略了其他属性</span></span><br><span class="line">&#125; redisDb;</span><br></pre></td></tr></table></figure>
+
+<h3 id="8-种淘汰策略"><a href="#8-种淘汰策略" class="headerlink" title="8 种淘汰策略"></a>8 种淘汰策略</h3><p>假如 <code>Redis</code> 当中所有的键都没有过期，而且此时内存满了，那么客户端继续执行 <code>set</code> 等命令时 <code>Redis</code> 会怎么处理呢？<code>Redis</code> 当中提供了不同的淘汰策略来处理这种场景。</p>
+<p>首先 <code>Redis</code> 提供了一个参数 <code>maxmemory</code> 来配置 <code>Redis</code> 最大使用内存：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">maxmemory &lt;bytes&gt;</span><br></pre></td></tr></table></figure>
+
+<p>或者也可以通过命令 <code>config set maxmemory 1GB</code> 来动态修改。</p>
+<p>如果没有设置该参数，那么在 <code>32</code> 位的操作系统中 <code>Redis</code> 最多使用 <code>3GB</code> 内存，而在 <code>64</code> 位的操作系统中则不作限制。</p>
+<p><code>Redis</code> 中提供了 <code>8</code> 种淘汰策略，可以通过参数 <code>maxmemory-policy</code> 进行配置：</p>
+<table>
+<thead>
+<tr>
+<th align="left">淘汰策略</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">volatile-lru</td>
+<td align="left">根据 LRU 算法删除设置了过期时间的键，直到腾出可用空间。如果没有可删除的键对象，且内存还是不够用时，则报错</td>
+</tr>
+<tr>
+<td align="left">allkeys-lru</td>
+<td align="left">根据 LRU 算法删除所有的键，直到腾出可用空间。如果没有可删除的键对象，且内存还是不够用时，则报错</td>
+</tr>
+<tr>
+<td align="left">volatile-lfu</td>
+<td align="left">根据 LFU 算法删除设置了过期时间的键，直到腾出可用空间。如果没有可删除的键对象，且内存还是不够用时，则报错</td>
+</tr>
+<tr>
+<td align="left">allkeys-lfu</td>
+<td align="left">根据 LFU 算法删除所有的键，直到腾出可用空间。如果没有可删除的键对象，且内存还是不够用时，则报错</td>
+</tr>
+<tr>
+<td align="left">volatile-random</td>
+<td align="left">随机删除设置了过期时间的键，直到腾出可用空间。如果没有可删除的键对象，且内存还是不够用时，则报错</td>
+</tr>
+<tr>
+<td align="left">allkeys-random</td>
+<td align="left">随机删除所有键，直到腾出可用空间。如果没有可删除的键对象，且内存还是不够用时，则报错</td>
+</tr>
+<tr>
+<td align="left">volatile-ttl</td>
+<td align="left">根据键值对象的 ttl 属性， 删除最近将要过期数据。如果没有，则直接报错</td>
+</tr>
+<tr>
+<td align="left">noeviction</td>
+<td align="left">默认策略，不作任何处理，直接报错</td>
+</tr>
+</tbody></table>
+<p>PS：淘汰策略也可以直接使用命令 <code>config set maxmemory-policy &lt;策略&gt;</code>来进行动态配置。</p>
+<h3 id="LRU-算法"><a href="#LRU-算法" class="headerlink" title="LRU 算法"></a>LRU 算法</h3><p><code>LRU</code> 全称为：<code>Least Recently Used</code>。即：最近最长时间未被使用。这个主要针对的是使用时间。</p>
+<h4 id="Redis-改进后的-LRU-算法"><a href="#Redis-改进后的-LRU-算法" class="headerlink" title="Redis 改进后的 LRU 算法"></a>Redis 改进后的 LRU 算法</h4><p>在 <code>Redis</code> 当中，并没有采用传统的 <code>LRU</code> 算法，因为传统的 <code>LRU</code> 算法存在<code>2</code> 个问题：</p>
+<ul>
+<li>需要额外的空间进行存储。</li>
+<li>可能存在某些 <code>key</code> 值使用很频繁，但是最近没被使用，从而被 <code>LRU</code> 算法删除。</li>
+</ul>
+<p>为了避免以上 <code>2</code> 个问题，<code>Redis</code> 当中对传统的 <code>LRU</code> 算法进行了改造，<strong>通过抽样的方式进行删除</strong>。</p>
+<p>配置文件中提供了一个属性 <code>maxmemory_samples 5</code>，默认值就是 <code>5</code>，表示随机抽取 <code>5</code> 个 <code>key</code> 值，然后对这 <code>5</code> 个 <code>key</code> 值按照 <code>LRU</code> 算法进行删除，所以很明显，<code>key</code> 值越大，删除的准确度越高。</p>
+<p>对抽样 <code>LRU</code> 算法和传统的 <code>LRU</code> 算法，<code>Redis</code> 官网当中有一个对比图：</p>
+<ul>
+<li>浅灰色带是被删除的对象。</li>
+<li>灰色带是未被删除的对象。</li>
+<li>绿色是添加的对象。</li>
+</ul>
+<center><img src="/2021/03/23/redis-memory-full/1.png" class=""></center>
+
+<p>左上角第一幅图代表的是传统 <code>LRU</code> 算法，可以看到，当抽样数达到 <code>10</code> 个（右上角），已经和传统的 <code>LRU</code> 算法非常接近了。</p>
+<h4 id="Redis-如何管理热度数据"><a href="#Redis-如何管理热度数据" class="headerlink" title="Redis 如何管理热度数据"></a>Redis 如何管理热度数据</h4><p>前面我们讲述字符串对象时，提到了 <code>redisObject</code> 对象中存在一个 <code>lru</code> 属性：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">typedef struct redisObject &#123;</span><br><span class="line">    unsigned type:4;&#x2F;&#x2F;对象类型（4位&#x3D;0.5字节）</span><br><span class="line">    unsigned encoding:4;&#x2F;&#x2F;编码（4位&#x3D;0.5字节）</span><br><span class="line">    unsigned lru:LRU_BITS;&#x2F;&#x2F;记录对象最后一次被应用程序访问的时间（24位&#x3D;3字节）</span><br><span class="line">    int refcount;&#x2F;&#x2F;引用计数。等于0时表示可以被垃圾回收（32位&#x3D;4字节）</span><br><span class="line">    void *ptr;&#x2F;&#x2F;指向底层实际的数据存储结构，如：SDS等(8字节)</span><br><span class="line">&#125; robj;</span><br></pre></td></tr></table></figure>
+
+<p><code>lru</code> 属性是创建对象的时候写入，对象被访问到时也会进行更新。正常人的思路就是最后决定要不要删除某一个键肯定是用当前时间戳减去 <code>lru</code>，差值最大的就优先被删除。但是 <code>Redis</code> 里面并不是这么做的，<code>Redis</code> 中维护了一个全局属性 <code>lru_clock</code>，这个属性是通过一个全局函数 <code>serverCron</code> 每隔<code>100</code> 毫秒执行一次来更新的，记录的是当前 <code>unix</code> 时间戳。</p>
+<p>最后决定删除的数据是通过 <code>lru_clock</code> 减去对象的 <code>lru</code> 属性而得出的。那么为什么 <code>Redis</code> 要这么做呢？直接取全局时间不是更准确吗？</p>
+<p>这是因为这么做可以避免每次更新对象的 <code>lru</code> 属性的时候可以直接取全局属性，而不需要去调用系统函数来获取系统时间，从而提升效率（<code>Redis</code> 当中有很多这种细节考虑来提升性能，可以说是对性能尽可能的优化到极致）。</p>
+<p>不过这里还有一个问题，我们看到，<code>redisObject</code> 对象中的 <code>lru</code> 属性只有 <code>24</code> 位，<code>24</code> 位只能存储 <code>194</code> 天的时间戳大小，一旦超过 <code>194</code> 天之后就会重新从 <code>0</code> 开始计算，所以这时候就可能会出现 <code>redisObject</code> 对象中的 <code>lru</code>属性大于全局的 <code>lru_clock</code> 属性的情况。</p>
+<p>正因为如此，所以计算的时候也需要分为 <code>2</code> 种情况：</p>
+<ul>
+<li>当全局 <code>lruclock</code> &gt; <code>lru</code>，则使用 <code>lruclock</code> - <code>lru</code> 得到空闲时间。</li>
+<li>当全局 <code>lruclock</code> &lt; <code>lru</code>，则使用 <code>lruclock_max</code>（即 <code>194</code> 天） - <code>lru</code> +<code>lruclock</code> 得到空闲时间。</li>
+</ul>
+<p>需要注意的是，这种计算方式并不能保证抽样的数据中一定能删除空闲时间最长的。这是因为首先超过 <code>194</code> 天还不被使用的情况很少，再次只有<code>lruclock</code> 第 <code>2</code> 轮继续超过 <code>lru</code> 属性时，计算才会出问题。</p>
+<p>比如对象 <code>A</code> 记录的 <code>lru</code> 是 <code>1</code> 天，而 <code>lruclock</code> 第二轮都到 <code>10</code> 天了，这时候就会导致计算结果只有 <code>10-1=9</code> 天，实际上应该是 <code>194+10-1=203</code> 天。但是这种情况可以说又是更少发生，所以说这种处理方式是可能存在删除不准确的情况，但是本身这种算法就是一种近似的算法，所以并不会有太大影响。</p>
+<h3 id="LFU-算法"><a href="#LFU-算法" class="headerlink" title="LFU 算法"></a>LFU 算法</h3><p><code>LFU</code> 全称为：<code>Least Frequently Used</code>。即：最近最少频率使用，这个主要针对的是使用频率。这个属性也是记录在<code>redisObject</code> 中的 <code>lru</code> 属性内。</p>
+<p>当我们采用 <code>LFU</code> 回收策略时，<code>lru</code> 属性的高 <code>16</code> 位用来记录访问时间（last decrement time：ldt，单位为分钟），低 <code>8</code> 位用来记录访问频率（logistic counter：logc），简称 <code>counter</code>。</p>
+<h4 id="访问频次递增"><a href="#访问频次递增" class="headerlink" title="访问频次递增"></a>访问频次递增</h4><p><code>LFU</code> 计数器每个键只有 <code>8</code> 位，它能表示的最大值是 <code>255</code>，所以 <code>Redis</code> 使用的是一种基于概率的对数器来实现 <code>counter</code> 的递增。r</p>
+<p>给定一个旧的访问频次，当一个键被访问时，<code>counter</code> 按以下方式递增：</p>
+<ol>
+<li>提取 <code>0</code> 和 <code>1</code> 之间的随机数 <code>R</code>。</li>
+<li><code>counter</code> - 初始值（默认为 <code>5</code>），得到一个基础差值，如果这个差值小于<code>0</code>，则直接取 <code>0</code>，为了方便计算，把这个差值记为 <code>baseval</code>。</li>
+<li>概率 <code>P</code> 计算公式为：<code>1/(baseval * lfu_log_factor + 1)</code>。</li>
+<li>如果 <code>R &lt; P</code> 时，频次进行递增（<code>counter++</code>）。</li>
+</ol>
+<p>公式中的 <code>lfu_log_factor</code> 称之为对数因子，默认是 <code>10</code> ，可以通过参数来进行控制：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lfu_log_factor 10</span><br></pre></td></tr></table></figure>
+
+<p>下图就是对数因子 <code>lfu_log_factor</code> 和频次 <code>counter</code> 增长的关系图：</p>
+<center><img src="/2021/03/23/redis-memory-full/2.png" class=""></center>
+
+<p>可以看到，当对数因子 <code>lfu_log_factor</code> 为 <code>100</code> 时，大概是 <code>10M（1000万）</code> 次访问才会将访问 <code>counter</code> 增长到 <code>255</code>，而默认的 <code>10</code> 也能支持到 <code>1M（100万）</code> 次访问 <code>counter</code> 才能达到 <code>255</code> 上限，这在大部分场景都是足够满足需求的。</p>
+<h4 id="访问频次递减"><a href="#访问频次递减" class="headerlink" title="访问频次递减"></a>访问频次递减</h4><p>如果访问频次 <code>counter</code> 只是一直在递增，那么迟早会全部都到 <code>255</code>，也就是说 <code>counter</code> 一直递增不能完全反应一个 <code>key</code> 的热度的，所以当某一个 <code>key</code> 一段时间不被访问之后，<code>counter</code> 也需要对应减少。</p>
+<p><code>counter</code> 的减少速度由参数 <code>lfu-decay-time</code> 进行控制，默认是 <code>1</code>，单位是分钟。默认值 <code>1</code> 表示：<code>N</code> 分钟内没有访问，<code>counter</code> 就要减 <code>N</code>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lfu-decay-time 1</span><br></pre></td></tr></table></figure>
+
+<p>具体算法如下：</p>
+<ol>
+<li>获取当前时间戳，转化为<strong>分钟</strong>后取低 <code>16</code> 位（为了方便后续计算，这个值记为<code>now</code>）。</li>
+<li>取出对象内的 <code>lru</code> 属性中的高 <code>16</code> 位（为了方便后续计算，这个值记为<code>ldt</code>）。</li>
+<li>当 <code>lru</code> &gt; <code>now</code> 时，默认为过了一个周期（<code>16</code> 位，最大 <code>65535</code>)，则取差值 <code>65535-ldt+now</code>：当 <code>lru</code> &lt;= <code>now</code> 时，取差值 <code>now-ldt</code>（为了方便后续计算，这个差值记为 <code>idle_time</code>）。</li>
+<li>取出配置文件中的 <code>lfu_decay_time</code> 值，然后计算：<code>idle_time / lfu_decay_time</code>（为了方便后续计算，这个值记为<code>num_periods</code>）。</li>
+<li>最后将<code>counter</code>减少：<code>counter - num_periods</code>。</li>
+</ol>
+<p>看起来这么复杂，其实计算公式就是一句话：取出当前的时间戳和对象中的 <code>lru</code> 属性进行对比，计算出当前多久没有被访问到，比如计算得到的结果是 <code>100</code> 分钟没有被访问，然后再去除配置参数 <code>lfu_decay_time</code>，如果这个配置默认为 <code>1</code>也即是 <code>100/1=100</code>，代表 <code>100</code> 分钟没访问，所以 <code>counter</code> 就减少 <code>100</code>。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>本文主要介绍了 <code>Redis</code> 过期键的处理策略，以及当服务器内存不够时<code>Redis</code> 的 <code>8</code> 种淘汰策略，最后介绍了 <code>Redis</code> 中的两种主要的淘汰算法<code>LRU</code> 和 <code>LFU</code>。</p>
+<p>原文地址：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/lonely-wolf/p/14403264.html">https://www.cnblogs.com/lonely-wolf/p/14403264.html</a></p>
+
+    </div>
+    <p class="eof">-- EOF --</p>
+    <p class="post-meta">
+        <span class="post-cat">分类：
+            <a class="cat-link" href="/categories/back-end/">后端</a>
+        </span>
+        <span class="post-tags">
+            标签：
+            
+    
+        <a href="/tags/redis/" title="redis">redis</a> / 
+    
+        <a href="/tags/reprint/" title="reprint">reprint</a>
+    
+
+        </span>
+    </p>
+</article>
+<!-- 分享按钮 -->
+
+  <div class="article-share clearfix text-center">
+    <div class="share-area">
+      <span class="share-txt">分享到：</span>
+      <a href="javascript: window.open('http://service.weibo.com/share/share.php?url=' + encodeURIComponent(location.href) + '&title=' + document.title + '&language=zh_cn');" class="share-icon weibo"></a>
+      <a href="javascript: alert('请复制链接到微信并发送');" class="share-icon wechat"></a>
+      <a href="javascript: window.open('http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=' + encodeURIComponent(location.href) + '&title=' + document.title);" class="share-icon qqzone"></a>
+      <a href="javascript: window.open('http://connect.qq.com/widget/shareqq/index.html?url=' + encodeURIComponent(location.href) + '&desc=Jelon个人博客&title=' + document.title + '&callback=' + encodeURIComponent(location.href));" class="share-icon qq"></a>
+      <a href="javascript: window.open('http://shuo.douban.com/!service/share?href=' + encodeURIComponent(location.href) + '&name=' + document.title + '&text=' + document.title);" class="share-icon douban"></a>
+    </div>
+  </div>
+
+
+<!-- 上一篇/下一篇 -->
+
+<div class="article-nav clearfix">
+    
+    <span class="prev fl">
+        上一篇<br >
+        <a href="/2021/03/24/sql-performance/">
+            
+                sql-performance
+            
+        </a>
+    </span>
+    
+
+    
+    <span class="next fr">
+        下一篇<br >
+        <a href="/2020/10/24/linux/">
+            
+                linux
+            
+        </a>
+    </span>
+    
+</div>
+
+<!-- 文章评论 -->
+
+  
+<script src="/js/comment.js?v=1616552640615.js"></script>
+
+  <div id="comments" class="comment">
+    <!--
+    <div class="sign-bar">
+      GitHub 已登录!
+      <span class="sign-link">登出</span>
+    </div>
+    <section class="box">
+      <div class="com-avatar"><img src="/img/jelon.jpg" alt="avatar"></div>
+      <div class="com-text">
+        <div class="main">
+          <textarea class="text-area-edited show" placeholder="欢迎评论！"></textarea>
+          <div class="text-area-preview"></div>
+        </div>
+        <div class="switch">
+          <div class="switch-item on">编辑</div>
+          <div class="switch-item">预览</div>
+        </div>
+        <div class="button">提交</div>
+      </div>
+    </section>
+    <section class="tips">注：评论支持 markdown 语法！</section>
+    <section class="list-wrap">
+      <ul class="list">
+        <li>
+          <div class="user-avatar">
+            <a href="/">
+              <img src="/img/jelon.jpg" alt="user-avatar">
+            </a>
+          </div>
+          <div class="user-comment">
+            <div class="user-comment-header">
+              <span class="post-name">张德龙</span>
+              <span class="post-time">2017年12月12日</span>
+              <span class="like liked">已赞</span>
+              <span class="like-num">2</span>
+            </div>
+            <div class="user-comment-body">333333</div>
+          </div>
+        </li>
+        <li>
+          <div class="user-avatar">
+            <a href="/">
+              <img src="/img/jelon.jpg" alt="user-avatar">
+            </a>
+          </div>
+          <div class="user-comment">
+            <div class="user-comment-header">
+              <span class="post-name">刘德华</span>
+              <span class="post-time">2017年12月12日</span>
+              <span class="like">点赞</span>
+              <span class="like-num">2</span>
+            </div>
+            <div class="user-comment-body">vvvvv</div>
+          </div>
+        </li>
+      </ul>
+      <div class="page-nav">
+        <a href="javascript: void(0);" class="item">1</a>
+        <a href="javascript: void(0);" class="item">2</a>
+        <a href="javascript: void(0);" class="item current">3</a>
+      </div>
+    </section>
+    -->
+  </div>
+  <script>
+  JELON.Comment({
+    container: 'comments',
+    label: 'redis-memory-full' || '2021/03/23/redis-memory-full/',
+    owner: 'YCoffee',
+    repo: 'blog_comments',
+    clientId: '21c38f588ab8ee604593',
+    clientSecret: '7afc59b35b552ea83bf8d7a461bed89fe1f7f0c9'
+  });
+  </script>
+
+
+
+            </div>
+        </section>
+        <!-- 侧栏部分 -->
+<aside class="sidebar">
+    
+    <section class="widget">
+        <h3 class="widget-hd"><strong>文章搜索</strong></h3>
+        <div class="search-form">
+  <form
+    id="searchForm"
+    method="GET"
+    action="https://www.baidu.com/s"
+    ectype="application/x-www-form-urlencoded"
+    target="_blank"
+    autocomplete="false"
+    onsubmit="javascript: return false;">
+    <input
+      id="searchKeyword"
+      type="text"
+      class="form-control"
+      placeholder="输入关键字搜索"
+      autocomplete="false"
+    />
+    <input id="searchKeywordHidden" type="hidden" name="wd" />
+    <input id="searchButton" class="btn" type="submit" value="搜索" />
+  </form>
+</div>
+    </section>
+    
+
+    <section class="widget">
+        <h3 class="widget-hd"><strong>文章分类</strong></h3>
+        <!-- 文章分类 -->
+<ul class="widget-bd">
+    
+    <li>
+        <a href="/categories/front-end/">前端</a>
+        <span class="badge">(2)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/back-end/">后端</a>
+        <span class="badge">(18)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/other/">其他</a>
+        <span class="badge">(3)</span>
+    </li>
+    
+</ul>
+    </section>
+
+    
+    <section class="widget">
+        <h3 class="widget-hd"><strong>热门标签</strong></h3>
+        <!-- 文章标签 -->
+<div class="widget-bd tag-wrap">
+  
+    <a class="tag-item" href="/tags/git/" title="git">git (4)</a>
+  
+    <a class="tag-item" href="/tags/sql/" title="sql">sql (3)</a>
+  
+    <a class="tag-item" href="/tags/tomcat/" title="tomcat">tomcat (2)</a>
+  
+    <a class="tag-item" href="/tags/linux/" title="linux">linux (2)</a>
+  
+    <a class="tag-item" href="/tags/gitlab/" title="gitlab">gitlab (2)</a>
+  
+    <a class="tag-item" href="/tags/springboot/" title="springboot">springboot (2)</a>
+  
+    <a class="tag-item" href="/tags/es5-6/" title="es5/6">es5/6 (1)</a>
+  
+    <a class="tag-item" href="/tags/ehcache/" title="ehcache">ehcache (1)</a>
+  
+    <a class="tag-item" href="/tags/idea/" title="idea">idea (1)</a>
+  
+    <a class="tag-item" href="/tags/hexo/" title="hexo">hexo (1)</a>
+  
+    <a class="tag-item" href="/tags/blog/" title="blog">blog (1)</a>
+  
+    <a class="tag-item" href="/tags/npm/" title="npm">npm (1)</a>
+  
+    <a class="tag-item" href="/tags/maven/" title="maven">maven (1)</a>
+  
+    <a class="tag-item" href="/tags/oracle/" title="oracle">oracle (1)</a>
+  
+    <a class="tag-item" href="/tags/proxy/" title="proxy">proxy (1)</a>
+  
+    <a class="tag-item" href="/tags/redis/" title="redis">redis (1)</a>
+  
+    <a class="tag-item" href="/tags/reprint/" title="reprint">reprint (1)</a>
+  
+    <a class="tag-item" href="/tags/Software%E3%80%81Tool/" title="Software、Tool">Software、Tool (1)</a>
+  
+    <a class="tag-item" href="/tags/svn/" title="svn">svn (1)</a>
+  
+    <a class="tag-item" href="/tags/windows%E6%96%87%E4%BB%B6%E5%A4%B9%E5%85%B1%E4%BA%AB/" title="windows文件夹共享">windows文件夹共享 (1)</a>
+  
+</div>
+    </section>
+    
+
+    
+
+    
+    <!-- 友情链接 -->
+    <section class="widget">
+        <h3 class="widget-hd"><strong>友情链接</strong></h3>
+        <!-- 文章分类 -->
+<ul class="widget-bd">
+    
+        <li>
+            <a href="https://gitee.com/z525989" target="_blank" title="Profile">Sakura Profile</a>
+        </li>
+    
+</ul>
+    </section>
+    
+</aside>
+<!-- / 侧栏部分 -->
+    </div>
+
+    <!-- 博客底部 -->
+    <footer class="footer">
+    &copy;
+    
+        2018-2021
+    
+
+    <a href="/">Ycoffee</a>
+    <a> PowerBy</a>
+    <a href="https://github.com/hexojs/hexo" target="_blank">HEXO</a>
+    <a> ThemeBy</a>
+    <a href="https://github.com/jangdelong/hexo-theme-xups" target="_blank">XUPS</a>
+</footer>
+<div class="back-to-top" id="JELON__backToTop" title="返回顶部">返回顶部</div>
+
+    <!--博客js脚本 -->
+    <!-- 这里放网站js脚本 -->
+
+<script src="/js/main.js?v=1616552640775.js"></script>
+
+
+</body>
+</html>

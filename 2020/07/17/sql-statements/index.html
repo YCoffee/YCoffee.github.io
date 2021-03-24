@@ -1,40 +1,41 @@
 <!doctype html>
 <html lang="zh-CN">
-<head><meta name="generator" content="Hexo 3.8.0">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
-    <meta name="baidu-site-verification" content="dIcXMeY8Ya">
+<head>
+    <meta charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8" >
+    <meta name="baidu-site-verification" content="dIcXMeY8Ya" />
     
     <title>Mysql Create Or Update的两种方式 | CoffeeY Blog</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-    <meta name="keywords" content="Java 后端 Vue">
-    <meta name="description" content="Coffee个人记录博客">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" >
+    <meta name="keywords" content="Java 后端 Vue" >
+    <meta name="description" content="Coffee个人记录博客" >
 
     
-    <link rel="alternative" href="/atom.xml" title="CoffeeY Blog" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="CoffeeY Blog" type="application/atom+xml" >
     
     
-    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="icon" href="/favicon.ico" >
     
-    <link rel="stylesheet" href="/css/style.css">
+    
+<link rel="stylesheet" href="/css/style.css?v=1616552640783.css">
+
     <!--[if lt IE 9]>
-    <script src="/js/html5.js"></script>
+    
+<script src="/js/html5.js"></script>
+
     <![endif]-->
     
-<script>
-    var _hmt = _hmt || [];
-    (function() {
-        var hm = document.createElement("script");
-        hm.src = "//hm.baidu.com/hm.js?fd459238242776d173cdc64918fb32f2";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-    })();
-</script>
 
+<meta name="generator" content="Hexo 5.4.0"></head>
 
-</head>
-</html>
 <body class="home">
+    <!--[if lt IE 9]>
+    <div class="browsehappy">
+        当前网页 <strong>不支持</strong>
+        你正在使用的浏览器. 为了正常的访问, 请 <a target="_blank" rel="noopener" href="http://browsehappy.com/">升级你的浏览器</a>.
+    </div>
+    <![endif]-->
+
     <!-- 博客头部 -->
     <header class="header">
     <section class="container header-main">
@@ -46,23 +47,23 @@
                 </div>
             </a>
         </div>
-        <div class="dropnav icon-paragraph-justify" id="JELON__btnDropNav"></div>
+        <div class="dropnav iconfont icon-nav" id="JELON__btnDropNav"></div>
         <ul class="menu hidden" id="JELON__menu">
             
             <li rel="/2020/07/17/sql-statements/index.html" class="item ">
-                <a href="/" title="首页" class="icon-home">&nbsp;首页</a>
+                <a href="/" title="首页" class="iconfont icon-home">&nbsp;首页</a>
             </li>
             
             <li rel="/2020/07/17/sql-statements/index.html" class="item ">
-                <a href="/code/" title="实验室" class="icon-lab">&nbsp;实验室</a>
+                <a href="/archives/" title="归档" class="iconfont icon-archives">&nbsp;归档</a>
             </li>
             
             <li rel="/2020/07/17/sql-statements/index.html" class="item ">
-                <a href="/about/" title="关于" class="icon-about">&nbsp;关于</a>
+                <a href="/about/" title="关于" class="iconfont icon-staff">&nbsp;关于</a>
             </li>
             
             <li rel="/2020/07/17/sql-statements/index.html" class="item ">
-                <a href="/comment/" title="留言" class="icon-comment">&nbsp;留言</a>
+                <a href="/comment/" title="留言" class="iconfont icon-comment">&nbsp;留言</a>
             </li>
             
         </ul>
@@ -75,21 +76,21 @@
                         <a href="https://github.com/YCoffee" target="_blank">Github</a>
                         |
                     
-                        <a href target="_blank">Reserved Link Location</a>
+                        <a href="" target="_blank">Reserved Link Location</a>
                         
                     
                 </p>
                 <p class="sns">
                     
                         <!-- <a href="" class="sinaweibo" target="_blank"><b>■</b> Reserved</a> -->
-                        <a href="javascript: void(0);" class="sinaweibo" target="_blank"><b>■</b> Reserved</a>
+						<a href="javascript: void(0);" class="sinaweibo" target="_blank"><b>■</b> Reserved</a>
                     
                         <!-- <a href="" class="qqweibo" target="_blank"><b>■</b> Reserved</a> -->
-                        <a href="javascript: void(0);" class="qqweibo" target="_blank"><b>■</b> Reserved</a>
+						<a href="javascript: void(0);" class="qqweibo" target="_blank"><b>■</b> Reserved</a>
                     
                     <a href="javascript: void(0);" class="wechat">
                         <b>■</b>
-                        Reserved
+                        微信
                         <span class="popover">
                             <img src="/img/wechat.png" width="120" height="120" alt="我的微信号">
                             <i class="arrow"></i>
@@ -99,7 +100,7 @@
                 
             </div>
             <div class="avatar fr">
-                <img src="/img/coffee.gif" alt="avatar" title="Coffee">
+                <img src="/img/coffee.gif" alt="avatar" title="Jelon" >
             </div>
         </div>
     </section>
@@ -117,23 +118,27 @@
         <h3 class="post-title"><span>Mysql Create Or Update的两种方式</span></h3>
     </header>
     <p class="post-meta text-center">
-        CoffeeY 发表于
+        Jelon 发表于
         <time datetime="2020-07-17T03:55:53.000Z">2020-07-17</time>
     </p>
-    <div class="post-content">
-        <h4 id="一、使用replace-into语句"><a href="#一、使用replace-into语句" class="headerlink" title="一、使用replace into语句"></a>一、使用replace into语句</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">replace</span> <span class="keyword">into</span> <span class="keyword">test</span>(<span class="keyword">id</span>,<span class="keyword">name</span>) <span class="keyword">values</span> (<span class="string">'asdaa'</span>,<span class="string">'123141'</span>);</span><br></pre></td></tr></table></figure>
+    <div id="JELON__articlePostContent" class="post-content">
+        <h4 id="一、使用replace-into语句"><a href="#一、使用replace-into语句" class="headerlink" title="一、使用replace into语句"></a>一、使用replace into语句</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">replace <span class="keyword">into</span> test(id,name) <span class="keyword">values</span> (<span class="string">&#x27;asdaa&#x27;</span>,<span class="string">&#x27;123141&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
 <ol>
 <li>如果发现表中已经有此行数据（根据主键或者唯一索引判断）则先删除此行数据，然后插入新的数据。 </li>
 <li>否则，直接插入新数据。</li>
 </ol>
-<h4 id="二、使用ON-DUPLICATE-KEY-UPDATE"><a href="#二、使用ON-DUPLICATE-KEY-UPDATE" class="headerlink" title="二、使用ON DUPLICATE KEY UPDATE"></a>二、使用ON DUPLICATE KEY UPDATE</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="keyword">test</span>(<span class="keyword">id</span>,<span class="keyword">name</span>) <span class="keyword">value</span> (<span class="string">'11123'</span>,<span class="string">'3wfwad'</span>)</span><br><span class="line"><span class="keyword">ON</span> <span class="keyword">DUPLICATE</span> <span class="keyword">KEY</span> <span class="keyword">UPDATE</span> <span class="keyword">name</span> = <span class="string">'fssss'</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="二、使用ON-DUPLICATE-KEY-UPDATE"><a href="#二、使用ON-DUPLICATE-KEY-UPDATE" class="headerlink" title="二、使用ON DUPLICATE KEY UPDATE"></a>二、使用ON DUPLICATE KEY UPDATE</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> test(id,name) <span class="keyword">value</span> (<span class="string">&#x27;11123&#x27;</span>,<span class="string">&#x27;3wfwad&#x27;</span>)</span><br><span class="line"><span class="keyword">ON</span> DUPLICATE KEY UPDATE name <span class="operator">=</span> <span class="string">&#x27;fssss&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
 <p>贴一个mybatis上使用的案例（已做脱敏处理）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">insert into test</span><br><span class="line">        (</span><br><span class="line">        paycode,</span><br><span class="line">        amount,</span><br><span class="line">        idcard,</span><br><span class="line">        name,</span><br><span class="line">        product_name,</span><br><span class="line">        time,</span><br><span class="line">        status</span><br><span class="line">        ) value</span><br><span class="line">        &lt;foreach collection=&quot;trans&quot; index=&quot;index&quot; item=&quot;item&quot; separator=&quot;,&quot;&gt;</span><br><span class="line">          (#&#123;item.paycode&#125;,#&#123;item.amount&#125;,#&#123;item.idcard&#125;,#&#123;item.name&#125;,#&#123;item.product_name&#125;,#&#123;item.time&#125;,#&#123;item.status&#125;)</span><br><span class="line">        &lt;/foreach&gt;</span><br><span class="line">        ON DUPLICATE KEY UPDATE</span><br><span class="line">amount=values(amount),idcard=values(idcard),name=values(name),product_name=values(product_name),time=values(time),status=IF(status=&apos;01&apos;,&apos;01&apos;,values(status));</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">insert into test</span><br><span class="line">        (</span><br><span class="line">        paycode,</span><br><span class="line">        amount,</span><br><span class="line">        idcard,</span><br><span class="line">        name,</span><br><span class="line">        product_name,</span><br><span class="line">        time,</span><br><span class="line">        status</span><br><span class="line">        ) value</span><br><span class="line">        &lt;foreach collection&#x3D;&quot;trans&quot; index&#x3D;&quot;index&quot; item&#x3D;&quot;item&quot; separator&#x3D;&quot;,&quot;&gt;</span><br><span class="line">          (#&#123;item.paycode&#125;,#&#123;item.amount&#125;,#&#123;item.idcard&#125;,#&#123;item.name&#125;,#&#123;item.product_name&#125;,#&#123;item.time&#125;,#&#123;item.status&#125;)</span><br><span class="line">        &lt;&#x2F;foreach&gt;</span><br><span class="line">        ON DUPLICATE KEY UPDATE</span><br><span class="line">amount&#x3D;values(amount),idcard&#x3D;values(idcard),name&#x3D;values(name),product_name&#x3D;values(product_name),time&#x3D;values(time),status&#x3D;IF(status&#x3D;&#39;01&#39;,&#39;01&#39;,values(status));</span><br></pre></td></tr></table></figure>
+
 <h3 id="二者区别"><a href="#二者区别" class="headerlink" title="二者区别"></a>二者区别</h3><p>1、当插入数据主键或者unique索引没有冲突：<br>replace into和on duplicate key update的做法都是直接插入数据</p>
 <p>2、出现主键或者unique索引冲突时：<br>replace into ：先删除此行数据，然后插入新的数据</p>
 <p>on duplicate key update：只是执行update后面的字段更新，其余字段不变。</p>
 
     </div>
+    <p class="eof">-- EOF --</p>
     <p class="post-meta">
         <span class="post-cat">分类：
             <a class="cat-link" href="/categories/back-end/">后端</a>
@@ -156,7 +161,7 @@
       <a href="javascript: window.open('http://service.weibo.com/share/share.php?url=' + encodeURIComponent(location.href) + '&title=' + document.title + '&language=zh_cn');" class="share-icon weibo"></a>
       <a href="javascript: alert('请复制链接到微信并发送');" class="share-icon wechat"></a>
       <a href="javascript: window.open('http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=' + encodeURIComponent(location.href) + '&title=' + document.title);" class="share-icon qqzone"></a>
-      <a href="javascript: window.open('http://connect.qq.com/widget/shareqq/index.html?url=' + encodeURIComponent(location.href) + '&desc=CoffeeY个人博客&title=' + document.title + '&callback=' + encodeURIComponent(location.href));" class="share-icon qq"></a>
+      <a href="javascript: window.open('http://connect.qq.com/widget/shareqq/index.html?url=' + encodeURIComponent(location.href) + '&desc=Jelon个人博客&title=' + document.title + '&callback=' + encodeURIComponent(location.href));" class="share-icon qq"></a>
       <a href="javascript: window.open('http://shuo.douban.com/!service/share?href=' + encodeURIComponent(location.href) + '&name=' + document.title + '&text=' + document.title);" class="share-icon douban"></a>
     </div>
   </div>
@@ -167,7 +172,7 @@
 <div class="article-nav clearfix">
     
     <span class="prev fl">
-        上一篇<br>
+        上一篇<br >
         <a href="/2020/08/08/svn/">
             
                 svn
@@ -178,7 +183,7 @@
 
     
     <span class="next fr">
-        下一篇<br>
+        下一篇<br >
         <a href="/2020/02/17/ehcache/">
             
                 ehcache
@@ -190,7 +195,9 @@
 
 <!-- 文章评论 -->
 
-  <script src="/js/comment.js"></script>
+  
+<script src="/js/comment.js?v=1616552640624.js"></script>
+
   <div id="comments" class="comment">
     <!--
     <div class="sign-bar">
@@ -267,10 +274,37 @@
   </script>
 
 
+
             </div>
         </section>
         <!-- 侧栏部分 -->
 <aside class="sidebar">
+    
+    <section class="widget">
+        <h3 class="widget-hd"><strong>文章搜索</strong></h3>
+        <div class="search-form">
+  <form
+    id="searchForm"
+    method="GET"
+    action="https://www.baidu.com/s"
+    ectype="application/x-www-form-urlencoded"
+    target="_blank"
+    autocomplete="false"
+    onsubmit="javascript: return false;">
+    <input
+      id="searchKeyword"
+      type="text"
+      class="form-control"
+      placeholder="输入关键字搜索"
+      autocomplete="false"
+    />
+    <input id="searchKeywordHidden" type="hidden" name="wd" />
+    <input id="searchButton" class="btn" type="submit" value="搜索" />
+  </form>
+</div>
+    </section>
+    
+
     <section class="widget">
         <h3 class="widget-hd"><strong>文章分类</strong></h3>
         <!-- 文章分类 -->
@@ -283,27 +317,12 @@
     
     <li>
         <a href="/categories/back-end/">后端</a>
-        <span class="badge">(13)</span>
+        <span class="badge">(18)</span>
     </li>
     
     <li>
         <a href="/categories/other/">其他</a>
         <span class="badge">(3)</span>
-    </li>
-    
-    <li>
-        <a href="/categories/categorie/">categorie</a>
-        <span class="badge">(2)</span>
-    </li>
-    
-    <li>
-        <a href="/categories/后台/">后台</a>
-        <span class="badge">(1)</span>
-    </li>
-    
-    <li>
-        <a href="/categories/后台/版本控制/">版本控制</a>
-        <span class="badge">(1)</span>
     </li>
     
 </ul>
@@ -315,15 +334,19 @@
         <!-- 文章标签 -->
 <div class="widget-bd tag-wrap">
   
-    <a class="tag-item" href="/tags/es5-6/" title="es5/6">es5/6 (1)</a>
+    <a class="tag-item" href="/tags/git/" title="git">git (4)</a>
   
-    <a class="tag-item" href="/tags/linux/" title="linux">linux (1)</a>
+    <a class="tag-item" href="/tags/sql/" title="sql">sql (3)</a>
   
     <a class="tag-item" href="/tags/tomcat/" title="tomcat">tomcat (2)</a>
   
-    <a class="tag-item" href="/tags/git/" title="git">git (4)</a>
+    <a class="tag-item" href="/tags/linux/" title="linux">linux (2)</a>
   
     <a class="tag-item" href="/tags/gitlab/" title="gitlab">gitlab (2)</a>
+  
+    <a class="tag-item" href="/tags/springboot/" title="springboot">springboot (2)</a>
+  
+    <a class="tag-item" href="/tags/es5-6/" title="es5/6">es5/6 (1)</a>
   
     <a class="tag-item" href="/tags/ehcache/" title="ehcache">ehcache (1)</a>
   
@@ -333,25 +356,23 @@
   
     <a class="tag-item" href="/tags/blog/" title="blog">blog (1)</a>
   
-    <a class="tag-item" href="/tags/tag/" title="tag">tag (2)</a>
+    <a class="tag-item" href="/tags/npm/" title="npm">npm (1)</a>
   
-    <a class="tag-item" href="/tags/Maven/" title="Maven">Maven (1)</a>
-  
-    <a class="tag-item" href="/tags/NPM/" title="NPM">NPM (1)</a>
+    <a class="tag-item" href="/tags/maven/" title="maven">maven (1)</a>
   
     <a class="tag-item" href="/tags/oracle/" title="oracle">oracle (1)</a>
   
-    <a class="tag-item" href="/tags/sql/" title="sql">sql (2)</a>
-  
     <a class="tag-item" href="/tags/proxy/" title="proxy">proxy (1)</a>
   
-    <a class="tag-item" href="/tags/软件工具/" title="软件工具">软件工具 (1)</a>
+    <a class="tag-item" href="/tags/redis/" title="redis">redis (1)</a>
   
-    <a class="tag-item" href="/tags/springboot/" title="springboot">springboot (1)</a>
+    <a class="tag-item" href="/tags/reprint/" title="reprint">reprint (1)</a>
+  
+    <a class="tag-item" href="/tags/Software%E3%80%81Tool/" title="Software、Tool">Software、Tool (1)</a>
   
     <a class="tag-item" href="/tags/svn/" title="svn">svn (1)</a>
   
-    <a class="tag-item" href="/tags/windows文件夹共享/" title="windows文件夹共享">windows文件夹共享 (1)</a>
+    <a class="tag-item" href="/tags/windows%E6%96%87%E4%BB%B6%E5%A4%B9%E5%85%B1%E4%BA%AB/" title="windows文件夹共享">windows文件夹共享 (1)</a>
   
 </div>
     </section>
@@ -367,7 +388,7 @@
 <ul class="widget-bd">
     
         <li>
-            <a href="https://www.baidu.com" target="_blank" title="百度搜索">百度</a>
+            <a href="https://gitee.com/z525989" target="_blank" title="Profile">Sakura Profile</a>
         </li>
     
 </ul>
@@ -381,7 +402,7 @@
     <footer class="footer">
     &copy;
     
-        2018-2020
+        2018-2021
     
 
     <a href="/">Ycoffee</a>
@@ -394,6 +415,9 @@
 
     <!--博客js脚本 -->
     <!-- 这里放网站js脚本 -->
-<script src="/js/main.js"></script>
+
+<script src="/js/main.js?v=1616552640784.js"></script>
+
+
 </body>
 </html>

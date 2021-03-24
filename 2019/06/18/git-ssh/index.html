@@ -1,40 +1,41 @@
 <!doctype html>
 <html lang="zh-CN">
-<head><meta name="generator" content="Hexo 3.8.0">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
-    <meta name="baidu-site-verification" content="dIcXMeY8Ya">
+<head>
+    <meta charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8" >
+    <meta name="baidu-site-verification" content="dIcXMeY8Ya" />
     
     <title>Git使用SSH方式提交代码到远程仓库 | CoffeeY Blog</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-    <meta name="keywords" content="Java 后端 Vue">
-    <meta name="description" content="Coffee个人记录博客">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" >
+    <meta name="keywords" content="Java 后端 Vue" >
+    <meta name="description" content="Coffee个人记录博客" >
 
     
-    <link rel="alternative" href="/atom.xml" title="CoffeeY Blog" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="CoffeeY Blog" type="application/atom+xml" >
     
     
-    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="icon" href="/favicon.ico" >
     
-    <link rel="stylesheet" href="/css/style.css">
+    
+<link rel="stylesheet" href="/css/style.css?v=1616552640798.css">
+
     <!--[if lt IE 9]>
-    <script src="/js/html5.js"></script>
+    
+<script src="/js/html5.js"></script>
+
     <![endif]-->
     
-<script>
-    var _hmt = _hmt || [];
-    (function() {
-        var hm = document.createElement("script");
-        hm.src = "//hm.baidu.com/hm.js?fd459238242776d173cdc64918fb32f2";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-    })();
-</script>
 
+<meta name="generator" content="Hexo 5.4.0"></head>
 
-</head>
-</html>
 <body class="home">
+    <!--[if lt IE 9]>
+    <div class="browsehappy">
+        当前网页 <strong>不支持</strong>
+        你正在使用的浏览器. 为了正常的访问, 请 <a target="_blank" rel="noopener" href="http://browsehappy.com/">升级你的浏览器</a>.
+    </div>
+    <![endif]-->
+
     <!-- 博客头部 -->
     <header class="header">
     <section class="container header-main">
@@ -46,23 +47,23 @@
                 </div>
             </a>
         </div>
-        <div class="dropnav icon-paragraph-justify" id="JELON__btnDropNav"></div>
+        <div class="dropnav iconfont icon-nav" id="JELON__btnDropNav"></div>
         <ul class="menu hidden" id="JELON__menu">
             
             <li rel="/2019/06/18/git-ssh/index.html" class="item ">
-                <a href="/" title="首页" class="icon-home">&nbsp;首页</a>
+                <a href="/" title="首页" class="iconfont icon-home">&nbsp;首页</a>
             </li>
             
             <li rel="/2019/06/18/git-ssh/index.html" class="item ">
-                <a href="/code/" title="实验室" class="icon-lab">&nbsp;实验室</a>
+                <a href="/archives/" title="归档" class="iconfont icon-archives">&nbsp;归档</a>
             </li>
             
             <li rel="/2019/06/18/git-ssh/index.html" class="item ">
-                <a href="/about/" title="关于" class="icon-about">&nbsp;关于</a>
+                <a href="/about/" title="关于" class="iconfont icon-staff">&nbsp;关于</a>
             </li>
             
             <li rel="/2019/06/18/git-ssh/index.html" class="item ">
-                <a href="/comment/" title="留言" class="icon-comment">&nbsp;留言</a>
+                <a href="/comment/" title="留言" class="iconfont icon-comment">&nbsp;留言</a>
             </li>
             
         </ul>
@@ -75,21 +76,21 @@
                         <a href="https://github.com/YCoffee" target="_blank">Github</a>
                         |
                     
-                        <a href target="_blank">Reserved Link Location</a>
+                        <a href="" target="_blank">Reserved Link Location</a>
                         
                     
                 </p>
                 <p class="sns">
                     
                         <!-- <a href="" class="sinaweibo" target="_blank"><b>■</b> Reserved</a> -->
-                        <a href="javascript: void(0);" class="sinaweibo" target="_blank"><b>■</b> Reserved</a>
+						<a href="javascript: void(0);" class="sinaweibo" target="_blank"><b>■</b> Reserved</a>
                     
                         <!-- <a href="" class="qqweibo" target="_blank"><b>■</b> Reserved</a> -->
-                        <a href="javascript: void(0);" class="qqweibo" target="_blank"><b>■</b> Reserved</a>
+						<a href="javascript: void(0);" class="qqweibo" target="_blank"><b>■</b> Reserved</a>
                     
                     <a href="javascript: void(0);" class="wechat">
                         <b>■</b>
-                        Reserved
+                        微信
                         <span class="popover">
                             <img src="/img/wechat.png" width="120" height="120" alt="我的微信号">
                             <i class="arrow"></i>
@@ -99,7 +100,7 @@
                 
             </div>
             <div class="avatar fr">
-                <img src="/img/coffee.gif" alt="avatar" title="Coffee">
+                <img src="/img/coffee.gif" alt="avatar" title="Jelon" >
             </div>
         </div>
     </section>
@@ -117,28 +118,33 @@
         <h3 class="post-title"><span>Git使用SSH方式提交代码到远程仓库</span></h3>
     </header>
     <p class="post-meta text-center">
-        CoffeeY 发表于
+        Jelon 发表于
         <time datetime="2019-06-18T09:21:52.000Z">2019-06-18</time>
     </p>
-    <div class="post-content">
+    <div id="JELON__articlePostContent" class="post-content">
         <p>使用SSH方式则涉及到SSH Key的问题，重点也是此问题。</p>
 <h4 id="生成新的SSH密钥"><a href="#生成新的SSH密钥" class="headerlink" title="生成新的SSH密钥"></a>生成新的SSH密钥</h4><p><b>1、打开Git Bash。</b></p>
-<p><b>2、粘贴下面的文本，替换您的电子邮件地址。</b><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -b 4096 -C &quot;your_email@example.com&quot;</span><br></pre></td></tr></table></figure></p>
-<p>这将使用提供的电子邮件作为标签创建一个新的ssh密钥。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; Generating public/private rsa key pair.</span><br></pre></td></tr></table></figure></p>
-<p><b>3、当系统提示您“输入要保存密钥的文件”时，按Enter键。这接受默认文件位置。</b><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; Enter a file in which to save the key (/c/Users/you/.ssh/id_rsa):[Press enter]</span><br></pre></td></tr></table></figure></p>
-<p><b>4、在提示符下，键入安全密码。有关更多信息，请参阅“使用SSH密钥密码”。</b><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; Enter passphrase (empty for no passphrase): [Type a passphrase]</span><br><span class="line">&gt; Enter same passphrase again: [Type passphrase again]</span><br></pre></td></tr></table></figure></p>
+<p><b>2、粘贴下面的文本，替换您的电子邮件地址。</b></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -b 4096 -C &quot;your_email@example.com&quot;</span><br></pre></td></tr></table></figure>
+<p>这将使用提供的电子邮件作为标签创建一个新的ssh密钥。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; Generating public&#x2F;private rsa key pair.</span><br></pre></td></tr></table></figure>
+<p><b>3、当系统提示您“输入要保存密钥的文件”时，按Enter键。这接受默认文件位置。</b></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; Enter a file in which to save the key (&#x2F;c&#x2F;Users&#x2F;you&#x2F;.ssh&#x2F;id_rsa):[Press enter]</span><br></pre></td></tr></table></figure>
+<p><b>4、在提示符下，键入安全密码。有关更多信息，请参阅“使用SSH密钥密码”。</b></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; Enter passphrase (empty for no passphrase): [Type a passphrase]</span><br><span class="line">&gt; Enter same passphrase again: [Type passphrase again]</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>暂无对此做相关了解，此处直接[Press enter]</p>
 </blockquote>
 <h4 id="将SSH密钥添加到ssh-agent"><a href="#将SSH密钥添加到ssh-agent" class="headerlink" title="将SSH密钥添加到ssh-agent"></a>将SSH密钥添加到ssh-agent</h4><p>在将新的SSH密钥添加到ssh-agent以管理密钥之前，您应该检查现有的SSH密钥并生成新的SSH密钥。<br>如果安装了GitHub Desktop，则可以使用它来克隆存储库而不处理SSH密钥。它还附带了Git Bash工具，这是git在Windows上运行命令的首选方式。</p>
-<p><b>1、确保ssh-agent正在运行：</b><br>如果您使用的是与GitHub Desktop一起安装的Git Shell，则应该运行ssh-agent。<br>如果您正在使用其他终端提示，例如Git for Windows，则可以使用“ 使用SSH密钥密码 ”中的“自动启动ssh-agent”说明，或手动启动它：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># start the ssh-agent in the background（后台启动ssh-agent）</span><br><span class="line">$ eval $(ssh-agent -s)</span><br><span class="line">&gt; Agent pid 59566</span><br></pre></td></tr></table></figure></p>
-<p><b>2、将SSH私钥添加到ssh-agent。如果使用其他名称创建密钥，或者要添加具有不同名称的现有密钥，请将命令中的id_rsa替换为私钥文件的名称。</b><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-add ~/.ssh/id_rsa</span><br></pre></td></tr></table></figure></p>
-<p><center><img src="1.png" alt="Git Bash演示"></center></p>
-<blockquote>
-<p>git remote set-url origin …<br>语句为修改远程仓库地址</p>
-</blockquote>
-
+<p><b>1、确保ssh-agent正在运行：</b><br>如果您使用的是与GitHub Desktop一起安装的Git Shell，则应该运行ssh-agent。<br>如果您正在使用其他终端提示，例如Git for Windows，则可以使用“ 使用SSH密钥密码 ”中的“自动启动ssh-agent”说明，或手动启动它：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># start the ssh-agent in the background（后台启动ssh-agent）</span><br><span class="line">$ eval $(ssh-agent -s)</span><br><span class="line">&gt; Agent pid 59566</span><br></pre></td></tr></table></figure>
+<p><b>2、将SSH私钥添加到ssh-agent。如果使用其他名称创建密钥，或者要添加具有不同名称的现有密钥，请将命令中的id_rsa替换为私钥文件的名称。</b></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-add ~&#x2F;.ssh&#x2F;id_rsa</span><br></pre></td></tr></table></figure>
+<center><img src="/2019/06/18/git-ssh/1.png" class=""></center>
+> git remote set-url origin ...
+> 语句为修改远程仓库地址
     </div>
+    <p class="eof">-- EOF --</p>
     <p class="post-meta">
         <span class="post-cat">分类：
             <a class="cat-link" href="/categories/back-end/">后端</a>
@@ -161,7 +167,7 @@
       <a href="javascript: window.open('http://service.weibo.com/share/share.php?url=' + encodeURIComponent(location.href) + '&title=' + document.title + '&language=zh_cn');" class="share-icon weibo"></a>
       <a href="javascript: alert('请复制链接到微信并发送');" class="share-icon wechat"></a>
       <a href="javascript: window.open('http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=' + encodeURIComponent(location.href) + '&title=' + document.title);" class="share-icon qqzone"></a>
-      <a href="javascript: window.open('http://connect.qq.com/widget/shareqq/index.html?url=' + encodeURIComponent(location.href) + '&desc=CoffeeY个人博客&title=' + document.title + '&callback=' + encodeURIComponent(location.href));" class="share-icon qq"></a>
+      <a href="javascript: window.open('http://connect.qq.com/widget/shareqq/index.html?url=' + encodeURIComponent(location.href) + '&desc=Jelon个人博客&title=' + document.title + '&callback=' + encodeURIComponent(location.href));" class="share-icon qq"></a>
       <a href="javascript: window.open('http://shuo.douban.com/!service/share?href=' + encodeURIComponent(location.href) + '&name=' + document.title + '&text=' + document.title);" class="share-icon douban"></a>
     </div>
   </div>
@@ -172,7 +178,7 @@
 <div class="article-nav clearfix">
     
     <span class="prev fl">
-        上一篇<br>
+        上一篇<br >
         <a href="/2019/09/05/centos/">
             
                 CentOs/Linux常用命令及常用工具配置
@@ -183,7 +189,7 @@
 
     
     <span class="next fr">
-        下一篇<br>
+        下一篇<br >
         <a href="/2019/06/04/maven-package/">
             
                 Maven打包项目（包括spring boot项目）
@@ -195,7 +201,9 @@
 
 <!-- 文章评论 -->
 
-  <script src="/js/comment.js"></script>
+  
+<script src="/js/comment.js?v=1616552640635.js"></script>
+
   <div id="comments" class="comment">
     <!--
     <div class="sign-bar">
@@ -272,10 +280,37 @@
   </script>
 
 
+
             </div>
         </section>
         <!-- 侧栏部分 -->
 <aside class="sidebar">
+    
+    <section class="widget">
+        <h3 class="widget-hd"><strong>文章搜索</strong></h3>
+        <div class="search-form">
+  <form
+    id="searchForm"
+    method="GET"
+    action="https://www.baidu.com/s"
+    ectype="application/x-www-form-urlencoded"
+    target="_blank"
+    autocomplete="false"
+    onsubmit="javascript: return false;">
+    <input
+      id="searchKeyword"
+      type="text"
+      class="form-control"
+      placeholder="输入关键字搜索"
+      autocomplete="false"
+    />
+    <input id="searchKeywordHidden" type="hidden" name="wd" />
+    <input id="searchButton" class="btn" type="submit" value="搜索" />
+  </form>
+</div>
+    </section>
+    
+
     <section class="widget">
         <h3 class="widget-hd"><strong>文章分类</strong></h3>
         <!-- 文章分类 -->
@@ -288,27 +323,12 @@
     
     <li>
         <a href="/categories/back-end/">后端</a>
-        <span class="badge">(13)</span>
+        <span class="badge">(18)</span>
     </li>
     
     <li>
         <a href="/categories/other/">其他</a>
         <span class="badge">(3)</span>
-    </li>
-    
-    <li>
-        <a href="/categories/categorie/">categorie</a>
-        <span class="badge">(2)</span>
-    </li>
-    
-    <li>
-        <a href="/categories/后台/">后台</a>
-        <span class="badge">(1)</span>
-    </li>
-    
-    <li>
-        <a href="/categories/后台/版本控制/">版本控制</a>
-        <span class="badge">(1)</span>
     </li>
     
 </ul>
@@ -320,15 +340,19 @@
         <!-- 文章标签 -->
 <div class="widget-bd tag-wrap">
   
-    <a class="tag-item" href="/tags/es5-6/" title="es5/6">es5/6 (1)</a>
+    <a class="tag-item" href="/tags/git/" title="git">git (4)</a>
   
-    <a class="tag-item" href="/tags/linux/" title="linux">linux (1)</a>
+    <a class="tag-item" href="/tags/sql/" title="sql">sql (3)</a>
   
     <a class="tag-item" href="/tags/tomcat/" title="tomcat">tomcat (2)</a>
   
-    <a class="tag-item" href="/tags/git/" title="git">git (4)</a>
+    <a class="tag-item" href="/tags/linux/" title="linux">linux (2)</a>
   
     <a class="tag-item" href="/tags/gitlab/" title="gitlab">gitlab (2)</a>
+  
+    <a class="tag-item" href="/tags/springboot/" title="springboot">springboot (2)</a>
+  
+    <a class="tag-item" href="/tags/es5-6/" title="es5/6">es5/6 (1)</a>
   
     <a class="tag-item" href="/tags/ehcache/" title="ehcache">ehcache (1)</a>
   
@@ -338,25 +362,23 @@
   
     <a class="tag-item" href="/tags/blog/" title="blog">blog (1)</a>
   
-    <a class="tag-item" href="/tags/tag/" title="tag">tag (2)</a>
+    <a class="tag-item" href="/tags/npm/" title="npm">npm (1)</a>
   
-    <a class="tag-item" href="/tags/Maven/" title="Maven">Maven (1)</a>
-  
-    <a class="tag-item" href="/tags/NPM/" title="NPM">NPM (1)</a>
+    <a class="tag-item" href="/tags/maven/" title="maven">maven (1)</a>
   
     <a class="tag-item" href="/tags/oracle/" title="oracle">oracle (1)</a>
   
-    <a class="tag-item" href="/tags/sql/" title="sql">sql (2)</a>
-  
     <a class="tag-item" href="/tags/proxy/" title="proxy">proxy (1)</a>
   
-    <a class="tag-item" href="/tags/软件工具/" title="软件工具">软件工具 (1)</a>
+    <a class="tag-item" href="/tags/redis/" title="redis">redis (1)</a>
   
-    <a class="tag-item" href="/tags/springboot/" title="springboot">springboot (1)</a>
+    <a class="tag-item" href="/tags/reprint/" title="reprint">reprint (1)</a>
+  
+    <a class="tag-item" href="/tags/Software%E3%80%81Tool/" title="Software、Tool">Software、Tool (1)</a>
   
     <a class="tag-item" href="/tags/svn/" title="svn">svn (1)</a>
   
-    <a class="tag-item" href="/tags/windows文件夹共享/" title="windows文件夹共享">windows文件夹共享 (1)</a>
+    <a class="tag-item" href="/tags/windows%E6%96%87%E4%BB%B6%E5%A4%B9%E5%85%B1%E4%BA%AB/" title="windows文件夹共享">windows文件夹共享 (1)</a>
   
 </div>
     </section>
@@ -372,7 +394,7 @@
 <ul class="widget-bd">
     
         <li>
-            <a href="https://www.baidu.com" target="_blank" title="百度搜索">百度</a>
+            <a href="https://gitee.com/z525989" target="_blank" title="Profile">Sakura Profile</a>
         </li>
     
 </ul>
@@ -386,7 +408,7 @@
     <footer class="footer">
     &copy;
     
-        2018-2020
+        2018-2021
     
 
     <a href="/">Ycoffee</a>
@@ -399,6 +421,9 @@
 
     <!--博客js脚本 -->
     <!-- 这里放网站js脚本 -->
-<script src="/js/main.js"></script>
+
+<script src="/js/main.js?v=1616552640799.js"></script>
+
+
 </body>
 </html>

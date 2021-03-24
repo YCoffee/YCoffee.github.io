@@ -1,40 +1,41 @@
 <!doctype html>
 <html lang="zh-CN">
-<head><meta name="generator" content="Hexo 3.8.0">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
-    <meta name="baidu-site-verification" content="dIcXMeY8Ya">
+<head>
+    <meta charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8" >
+    <meta name="baidu-site-verification" content="dIcXMeY8Ya" />
     
     <title>Git Bash的简单使用记录 | CoffeeY Blog</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-    <meta name="keywords" content="Java 后端 Vue">
-    <meta name="description" content="Coffee个人记录博客">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" >
+    <meta name="keywords" content="Java 后端 Vue" >
+    <meta name="description" content="Coffee个人记录博客" >
 
     
-    <link rel="alternative" href="/atom.xml" title="CoffeeY Blog" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="CoffeeY Blog" type="application/atom+xml" >
     
     
-    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="icon" href="/favicon.ico" >
     
-    <link rel="stylesheet" href="/css/style.css">
+    
+<link rel="stylesheet" href="/css/style.css?v=1616552640814.css">
+
     <!--[if lt IE 9]>
-    <script src="/js/html5.js"></script>
+    
+<script src="/js/html5.js"></script>
+
     <![endif]-->
     
-<script>
-    var _hmt = _hmt || [];
-    (function() {
-        var hm = document.createElement("script");
-        hm.src = "//hm.baidu.com/hm.js?fd459238242776d173cdc64918fb32f2";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-    })();
-</script>
 
+<meta name="generator" content="Hexo 5.4.0"></head>
 
-</head>
-</html>
 <body class="home">
+    <!--[if lt IE 9]>
+    <div class="browsehappy">
+        当前网页 <strong>不支持</strong>
+        你正在使用的浏览器. 为了正常的访问, 请 <a target="_blank" rel="noopener" href="http://browsehappy.com/">升级你的浏览器</a>.
+    </div>
+    <![endif]-->
+
     <!-- 博客头部 -->
     <header class="header">
     <section class="container header-main">
@@ -46,23 +47,23 @@
                 </div>
             </a>
         </div>
-        <div class="dropnav icon-paragraph-justify" id="JELON__btnDropNav"></div>
+        <div class="dropnav iconfont icon-nav" id="JELON__btnDropNav"></div>
         <ul class="menu hidden" id="JELON__menu">
             
             <li rel="/2019/05/22/git_bash/index.html" class="item ">
-                <a href="/" title="首页" class="icon-home">&nbsp;首页</a>
+                <a href="/" title="首页" class="iconfont icon-home">&nbsp;首页</a>
             </li>
             
             <li rel="/2019/05/22/git_bash/index.html" class="item ">
-                <a href="/code/" title="实验室" class="icon-lab">&nbsp;实验室</a>
+                <a href="/archives/" title="归档" class="iconfont icon-archives">&nbsp;归档</a>
             </li>
             
             <li rel="/2019/05/22/git_bash/index.html" class="item ">
-                <a href="/about/" title="关于" class="icon-about">&nbsp;关于</a>
+                <a href="/about/" title="关于" class="iconfont icon-staff">&nbsp;关于</a>
             </li>
             
             <li rel="/2019/05/22/git_bash/index.html" class="item ">
-                <a href="/comment/" title="留言" class="icon-comment">&nbsp;留言</a>
+                <a href="/comment/" title="留言" class="iconfont icon-comment">&nbsp;留言</a>
             </li>
             
         </ul>
@@ -75,21 +76,21 @@
                         <a href="https://github.com/YCoffee" target="_blank">Github</a>
                         |
                     
-                        <a href target="_blank">Reserved Link Location</a>
+                        <a href="" target="_blank">Reserved Link Location</a>
                         
                     
                 </p>
                 <p class="sns">
                     
                         <!-- <a href="" class="sinaweibo" target="_blank"><b>■</b> Reserved</a> -->
-                        <a href="javascript: void(0);" class="sinaweibo" target="_blank"><b>■</b> Reserved</a>
+						<a href="javascript: void(0);" class="sinaweibo" target="_blank"><b>■</b> Reserved</a>
                     
                         <!-- <a href="" class="qqweibo" target="_blank"><b>■</b> Reserved</a> -->
-                        <a href="javascript: void(0);" class="qqweibo" target="_blank"><b>■</b> Reserved</a>
+						<a href="javascript: void(0);" class="qqweibo" target="_blank"><b>■</b> Reserved</a>
                     
                     <a href="javascript: void(0);" class="wechat">
                         <b>■</b>
-                        Reserved
+                        微信
                         <span class="popover">
                             <img src="/img/wechat.png" width="120" height="120" alt="我的微信号">
                             <i class="arrow"></i>
@@ -99,7 +100,7 @@
                 
             </div>
             <div class="avatar fr">
-                <img src="/img/coffee.gif" alt="avatar" title="Coffee">
+                <img src="/img/coffee.gif" alt="avatar" title="Jelon" >
             </div>
         </div>
     </section>
@@ -117,40 +118,55 @@
         <h3 class="post-title"><span>Git Bash的简单使用记录</span></h3>
     </header>
     <p class="post-meta text-center">
-        CoffeeY 发表于
+        Jelon 发表于
         <time datetime="2019-05-22T08:41:57.000Z">2019-05-22</time>
     </p>
-    <div class="post-content">
+    <div id="JELON__articlePostContent" class="post-content">
         <h2 id="Git简介"><a href="#Git简介" class="headerlink" title="Git简介"></a>Git简介</h2><p>git是一个分散式版本控制软件，最初由林纳斯·托瓦兹創作，於2005年以GPL釋出。最初目的是为更好地管理Linux核心开发而设计。应注意的是，这与GNU Interactive Tools（一个类似Norton Commander界面的文件管理器）有所不同。</p>
 <p>git最初的开发动力来自于BitKeeper和Monotone。git最初只是作为一个可以被其他前端（比如Cogito或Stgit）包装的后端而开发的，但后来git内核已经成熟到可以独立地用作版本控制。很多著名的软件都使用git进行版本控制，其中包括Linux核心、X.Org服务器和OLPC内核等项目的开发流程。</p>
 <h2 id="正题"><a href="#正题" class="headerlink" title="正题"></a>正题</h2><p>首先贴一段Wikipedia对git的说明，具体为何贴，先不管吧，进入正题。</p>
 <p>正巧电脑最近也出问题而傻BB的使用了自带的修复导致所有磁盘都被格式化了（问题的解决其实可以扩容C盘？或者重装系统？），此贴就一并将Git的安装记录下来吧</p>
-<p><a href="https://git-scm.com/downloads" title="Git官网下载地址" target="_blank" rel="noopener">Git官网下载地址</a></p>
-<h3 id="Windows版本"><a href="#Windows版本" class="headerlink" title="Windows版本"></a>Windows版本</h3><h4 id="安装流程"><a href="#安装流程" class="headerlink" title="安装流程"></a>安装流程</h4><p><center><img src="1.png" alt="安装步骤1"></center></p>
-<p><center><img src="2.png" alt="安装步骤2"></center></p>
+<p><a target="_blank" rel="noopener" href="https://git-scm.com/downloads" title="Git官网下载地址">Git官网下载地址</a></p>
+<h3 id="Windows版本"><a href="#Windows版本" class="headerlink" title="Windows版本"></a>Windows版本</h3><h4 id="安装流程"><a href="#安装流程" class="headerlink" title="安装流程"></a>安装流程</h4><center><img src="/2019/05/22/git_bash/1.png" class=""></center>
+<center><img src="/2019/05/22/git_bash/2.png" class=""></center>
+
 <blockquote>
 <p>此处尽量将安装路径修改至其他盘符</p>
 </blockquote>
 <p>…<br>…<br>…</p>
 <p>之后的操作一直next就好了</p>
 <h4 id="检查是否安装完成"><a href="#检查是否安装完成" class="headerlink" title="检查是否安装完成"></a>检查是否安装完成</h4><p>Win+R打开运行输入cmd，在命令提示符（cmd）里输入git --version有版本信息则已成功了</p>
-<h3 id="Git-Bash的简单使用"><a href="#Git-Bash的简单使用" class="headerlink" title="Git Bash的简单使用"></a>Git Bash的简单使用</h3><h4 id="将项目代码上传至GitHub、GitLab等远程仓库"><a href="#将项目代码上传至GitHub、GitLab等远程仓库" class="headerlink" title="将项目代码上传至GitHub、GitLab等远程仓库"></a>将项目代码上传至GitHub、GitLab等远程仓库</h4><h5 id="1-安装路径下打开git-bash-exe"><a href="#1-安装路径下打开git-bash-exe" class="headerlink" title="1.安装路径下打开git-bash.exe"></a>1.安装路径下打开git-bash.exe</h5><p><center><img src="3.png" alt="git-bash界面"></center></p>
-<h5 id="2-进入项目目录"><a href="#2-进入项目目录" class="headerlink" title="2.进入项目目录"></a>2.进入项目目录</h5><p>一、<br>在项目目录右击，菜单栏里点击Git Bash<br>二、<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd Disk:/router/../folder</span><br><span class="line">//比如</span><br><span class="line">cd G:blog</span><br></pre></td></tr></table></figure></p>
+<h3 id="Git-Bash的简单使用"><a href="#Git-Bash的简单使用" class="headerlink" title="Git Bash的简单使用"></a>Git Bash的简单使用</h3><h4 id="将项目代码上传至GitHub、GitLab等远程仓库"><a href="#将项目代码上传至GitHub、GitLab等远程仓库" class="headerlink" title="将项目代码上传至GitHub、GitLab等远程仓库"></a>将项目代码上传至GitHub、GitLab等远程仓库</h4><h5 id="1-安装路径下打开git-bash-exe"><a href="#1-安装路径下打开git-bash-exe" class="headerlink" title="1.安装路径下打开git-bash.exe"></a>1.安装路径下打开git-bash.exe</h5><center><img src="/2019/05/22/git_bash/3.png" class=""></center>
+
+<h5 id="2-进入项目目录"><a href="#2-进入项目目录" class="headerlink" title="2.进入项目目录"></a>2.进入项目目录</h5><p>一、<br>在项目目录右击，菜单栏里点击Git Bash<br>二、</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd Disk:&#x2F;router&#x2F;..&#x2F;folder</span><br><span class="line">&#x2F;&#x2F;比如</span><br><span class="line">cd G:blog</span><br></pre></td></tr></table></figure>
+
 <h5 id="3-执行初始化"><a href="#3-执行初始化" class="headerlink" title="3.执行初始化"></a>3.执行初始化</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
 <p>此时你会发现在项目目录下出现.git文件夹（若没有则查看下隐藏项目/文件夹是否显示）</p>
 <h5 id="4-项目代码缓存如本地库"><a href="#4-项目代码缓存如本地库" class="headerlink" title="4.项目代码缓存如本地库"></a>4.项目代码缓存如本地库</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br></pre></td></tr></table></figure>
 <p>后面的.别忘记</p>
 <h5 id="5-项目代码提交至本地库"><a href="#5-项目代码提交至本地库" class="headerlink" title="5.项目代码提交至本地库"></a>5.项目代码提交至本地库</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m &quot;本次提交的信息&quot;</span><br></pre></td></tr></table></figure>
-<h5 id="6-GitHub创建项目获取https-URL并做关联"><a href="#6-GitHub创建项目获取https-URL并做关联" class="headerlink" title="6.GitHub创建项目获取https URL并做关联"></a>6.GitHub创建项目获取https URL并做关联</h5><p><center><img src="4.png" alt="获取项目地址"></center><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin https://github.com/996icu/996.ICU.git</span><br></pre></td></tr></table></figure></p>
-<h5 id="7-上传本地项目代码至GitHub"><a href="#7-上传本地项目代码至GitHub" class="headerlink" title="7.上传本地项目代码至GitHub"></a>7.上传本地项目代码至GitHub</h5><p>若首次上传请先pull<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git pull master --allow-unrelated-histories</span><br><span class="line"></span><br><span class="line">个别版本git 2.9以后需要增加这个【--allow-unrelated-histories】</span><br></pre></td></tr></table></figure></p>
-<p>上传本地项目代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure></p>
-<p><center><img src="5.png" alt="主要流程"></center></p>
-<h4 id="Github项目查看是否上传成功"><a href="#Github项目查看是否上传成功" class="headerlink" title="Github项目查看是否上传成功"></a>Github项目查看是否上传成功</h4><h4 id="设置全局和单个仓库账号和密码"><a href="#设置全局和单个仓库账号和密码" class="headerlink" title="设置全局和单个仓库账号和密码"></a>设置全局和单个仓库账号和密码</h4><p>配置全局仓库的账号和密码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;userName&quot;  //你的用户名</span><br><span class="line">git config --global user.email &quot;email address&quot; //你的邮箱地址</span><br></pre></td></tr></table></figure></p>
-<p>配置独立仓库账号和密码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config user.name &quot;userName&quot;  //你的用户名</span><br><span class="line">git config user.email &quot;email address&quot; //你的邮箱地址</span><br></pre></td></tr></table></figure></p>
-<p>查看账号密码情况<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --list   //查看git设置情况</span><br></pre></td></tr></table></figure></p>
-<p>更多参考命令：<a href="https://my.oschina.net/u/4116286/blog/4294289" target="_blank" rel="noopener">https://my.oschina.net/u/4116286/blog/4294289</a></p>
+
+<h5 id="6-GitHub创建项目获取https-URL并做关联"><a href="#6-GitHub创建项目获取https-URL并做关联" class="headerlink" title="6.GitHub创建项目获取https URL并做关联"></a>6.GitHub创建项目获取https URL并做关联</h5><center><img src="/2019/05/22/git_bash/4.png" class=""></center>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin https:&#x2F;&#x2F;github.com&#x2F;996icu&#x2F;996.ICU.git</span><br></pre></td></tr></table></figure>
+<h5 id="7-上传本地项目代码至GitHub"><a href="#7-上传本地项目代码至GitHub" class="headerlink" title="7.上传本地项目代码至GitHub"></a>7.上传本地项目代码至GitHub</h5><p>若首次上传请先pull </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git pull master --allow-unrelated-histories</span><br><span class="line"></span><br><span class="line">个别版本git 2.9以后需要增加这个【--allow-unrelated-histories】</span><br></pre></td></tr></table></figure>
+<p>上传本地项目代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
+<center><img src="/2019/05/22/git_bash/1.png" class="" title="主要流程" alt="主要流程"></center>
+
+<h4 id="Github项目查看是否上传成功"><a href="#Github项目查看是否上传成功" class="headerlink" title="Github项目查看是否上传成功"></a>Github项目查看是否上传成功</h4><h4 id="设置全局和单个仓库账号和密码"><a href="#设置全局和单个仓库账号和密码" class="headerlink" title="设置全局和单个仓库账号和密码"></a>设置全局和单个仓库账号和密码</h4><p>配置全局仓库的账号和密码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;userName&quot;  &#x2F;&#x2F;你的用户名</span><br><span class="line">git config --global user.email &quot;email address&quot; &#x2F;&#x2F;你的邮箱地址</span><br></pre></td></tr></table></figure>
+<p>配置独立仓库账号和密码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config user.name &quot;userName&quot;  &#x2F;&#x2F;你的用户名</span><br><span class="line">git config user.email &quot;email address&quot; &#x2F;&#x2F;你的邮箱地址</span><br></pre></td></tr></table></figure>
+<p>查看账号密码情况</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --list   &#x2F;&#x2F;查看git设置情况</span><br></pre></td></tr></table></figure>
+
+<p>更多参考命令：<a target="_blank" rel="noopener" href="https://my.oschina.net/u/4116286/blog/4294289">https://my.oschina.net/u/4116286/blog/4294289</a></p>
 
     </div>
+    <p class="eof">-- EOF --</p>
     <p class="post-meta">
         <span class="post-cat">分类：
             <a class="cat-link" href="/categories/back-end/">后端</a>
@@ -173,7 +189,7 @@
       <a href="javascript: window.open('http://service.weibo.com/share/share.php?url=' + encodeURIComponent(location.href) + '&title=' + document.title + '&language=zh_cn');" class="share-icon weibo"></a>
       <a href="javascript: alert('请复制链接到微信并发送');" class="share-icon wechat"></a>
       <a href="javascript: window.open('http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=' + encodeURIComponent(location.href) + '&title=' + document.title);" class="share-icon qqzone"></a>
-      <a href="javascript: window.open('http://connect.qq.com/widget/shareqq/index.html?url=' + encodeURIComponent(location.href) + '&desc=CoffeeY个人博客&title=' + document.title + '&callback=' + encodeURIComponent(location.href));" class="share-icon qq"></a>
+      <a href="javascript: window.open('http://connect.qq.com/widget/shareqq/index.html?url=' + encodeURIComponent(location.href) + '&desc=Jelon个人博客&title=' + document.title + '&callback=' + encodeURIComponent(location.href));" class="share-icon qq"></a>
       <a href="javascript: window.open('http://shuo.douban.com/!service/share?href=' + encodeURIComponent(location.href) + '&name=' + document.title + '&text=' + document.title);" class="share-icon douban"></a>
     </div>
   </div>
@@ -184,7 +200,7 @@
 <div class="article-nav clearfix">
     
     <span class="prev fl">
-        上一篇<br>
+        上一篇<br >
         <a href="/2019/05/23/npm/">
             
                 NPM修改全局安装路径和缓存
@@ -195,7 +211,7 @@
 
     
     <span class="next fr">
-        下一篇<br>
+        下一篇<br >
         <a href="/2019/05/22/hello-world/">
             
                 Hello World
@@ -207,7 +223,9 @@
 
 <!-- 文章评论 -->
 
-  <script src="/js/comment.js"></script>
+  
+<script src="/js/comment.js?v=1616552640652.js"></script>
+
   <div id="comments" class="comment">
     <!--
     <div class="sign-bar">
@@ -284,10 +302,37 @@
   </script>
 
 
+
             </div>
         </section>
         <!-- 侧栏部分 -->
 <aside class="sidebar">
+    
+    <section class="widget">
+        <h3 class="widget-hd"><strong>文章搜索</strong></h3>
+        <div class="search-form">
+  <form
+    id="searchForm"
+    method="GET"
+    action="https://www.baidu.com/s"
+    ectype="application/x-www-form-urlencoded"
+    target="_blank"
+    autocomplete="false"
+    onsubmit="javascript: return false;">
+    <input
+      id="searchKeyword"
+      type="text"
+      class="form-control"
+      placeholder="输入关键字搜索"
+      autocomplete="false"
+    />
+    <input id="searchKeywordHidden" type="hidden" name="wd" />
+    <input id="searchButton" class="btn" type="submit" value="搜索" />
+  </form>
+</div>
+    </section>
+    
+
     <section class="widget">
         <h3 class="widget-hd"><strong>文章分类</strong></h3>
         <!-- 文章分类 -->
@@ -300,27 +345,12 @@
     
     <li>
         <a href="/categories/back-end/">后端</a>
-        <span class="badge">(13)</span>
+        <span class="badge">(18)</span>
     </li>
     
     <li>
         <a href="/categories/other/">其他</a>
         <span class="badge">(3)</span>
-    </li>
-    
-    <li>
-        <a href="/categories/categorie/">categorie</a>
-        <span class="badge">(2)</span>
-    </li>
-    
-    <li>
-        <a href="/categories/后台/">后台</a>
-        <span class="badge">(1)</span>
-    </li>
-    
-    <li>
-        <a href="/categories/后台/版本控制/">版本控制</a>
-        <span class="badge">(1)</span>
     </li>
     
 </ul>
@@ -332,15 +362,19 @@
         <!-- 文章标签 -->
 <div class="widget-bd tag-wrap">
   
-    <a class="tag-item" href="/tags/es5-6/" title="es5/6">es5/6 (1)</a>
+    <a class="tag-item" href="/tags/git/" title="git">git (4)</a>
   
-    <a class="tag-item" href="/tags/linux/" title="linux">linux (1)</a>
+    <a class="tag-item" href="/tags/sql/" title="sql">sql (3)</a>
   
     <a class="tag-item" href="/tags/tomcat/" title="tomcat">tomcat (2)</a>
   
-    <a class="tag-item" href="/tags/git/" title="git">git (4)</a>
+    <a class="tag-item" href="/tags/linux/" title="linux">linux (2)</a>
   
     <a class="tag-item" href="/tags/gitlab/" title="gitlab">gitlab (2)</a>
+  
+    <a class="tag-item" href="/tags/springboot/" title="springboot">springboot (2)</a>
+  
+    <a class="tag-item" href="/tags/es5-6/" title="es5/6">es5/6 (1)</a>
   
     <a class="tag-item" href="/tags/ehcache/" title="ehcache">ehcache (1)</a>
   
@@ -350,25 +384,23 @@
   
     <a class="tag-item" href="/tags/blog/" title="blog">blog (1)</a>
   
-    <a class="tag-item" href="/tags/tag/" title="tag">tag (2)</a>
+    <a class="tag-item" href="/tags/npm/" title="npm">npm (1)</a>
   
-    <a class="tag-item" href="/tags/Maven/" title="Maven">Maven (1)</a>
-  
-    <a class="tag-item" href="/tags/NPM/" title="NPM">NPM (1)</a>
+    <a class="tag-item" href="/tags/maven/" title="maven">maven (1)</a>
   
     <a class="tag-item" href="/tags/oracle/" title="oracle">oracle (1)</a>
   
-    <a class="tag-item" href="/tags/sql/" title="sql">sql (2)</a>
-  
     <a class="tag-item" href="/tags/proxy/" title="proxy">proxy (1)</a>
   
-    <a class="tag-item" href="/tags/软件工具/" title="软件工具">软件工具 (1)</a>
+    <a class="tag-item" href="/tags/redis/" title="redis">redis (1)</a>
   
-    <a class="tag-item" href="/tags/springboot/" title="springboot">springboot (1)</a>
+    <a class="tag-item" href="/tags/reprint/" title="reprint">reprint (1)</a>
+  
+    <a class="tag-item" href="/tags/Software%E3%80%81Tool/" title="Software、Tool">Software、Tool (1)</a>
   
     <a class="tag-item" href="/tags/svn/" title="svn">svn (1)</a>
   
-    <a class="tag-item" href="/tags/windows文件夹共享/" title="windows文件夹共享">windows文件夹共享 (1)</a>
+    <a class="tag-item" href="/tags/windows%E6%96%87%E4%BB%B6%E5%A4%B9%E5%85%B1%E4%BA%AB/" title="windows文件夹共享">windows文件夹共享 (1)</a>
   
 </div>
     </section>
@@ -384,7 +416,7 @@
 <ul class="widget-bd">
     
         <li>
-            <a href="https://www.baidu.com" target="_blank" title="百度搜索">百度</a>
+            <a href="https://gitee.com/z525989" target="_blank" title="Profile">Sakura Profile</a>
         </li>
     
 </ul>
@@ -398,7 +430,7 @@
     <footer class="footer">
     &copy;
     
-        2018-2020
+        2018-2021
     
 
     <a href="/">Ycoffee</a>
@@ -411,6 +443,9 @@
 
     <!--博客js脚本 -->
     <!-- 这里放网站js脚本 -->
-<script src="/js/main.js"></script>
+
+<script src="/js/main.js?v=1616552640815.js"></script>
+
+
 </body>
 </html>

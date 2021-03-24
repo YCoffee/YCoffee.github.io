@@ -1,40 +1,41 @@
 <!doctype html>
 <html lang="zh-CN">
-<head><meta name="generator" content="Hexo 3.8.0">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
-    <meta name="baidu-site-verification" content="dIcXMeY8Ya">
+<head>
+    <meta charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8" >
+    <meta name="baidu-site-verification" content="dIcXMeY8Ya" />
     
     <title>Maven打包项目（包括spring boot项目） | CoffeeY Blog</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-    <meta name="keywords" content="Java 后端 Vue">
-    <meta name="description" content="Coffee个人记录博客">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" >
+    <meta name="keywords" content="Java 后端 Vue" >
+    <meta name="description" content="Coffee个人记录博客" >
 
     
-    <link rel="alternative" href="/atom.xml" title="CoffeeY Blog" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="CoffeeY Blog" type="application/atom+xml" >
     
     
-    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="icon" href="/favicon.ico" >
     
-    <link rel="stylesheet" href="/css/style.css">
+    
+<link rel="stylesheet" href="/css/style.css?v=1616552640799.css">
+
     <!--[if lt IE 9]>
-    <script src="/js/html5.js"></script>
+    
+<script src="/js/html5.js"></script>
+
     <![endif]-->
     
-<script>
-    var _hmt = _hmt || [];
-    (function() {
-        var hm = document.createElement("script");
-        hm.src = "//hm.baidu.com/hm.js?fd459238242776d173cdc64918fb32f2";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-    })();
-</script>
 
+<meta name="generator" content="Hexo 5.4.0"></head>
 
-</head>
-</html>
 <body class="home">
+    <!--[if lt IE 9]>
+    <div class="browsehappy">
+        当前网页 <strong>不支持</strong>
+        你正在使用的浏览器. 为了正常的访问, 请 <a target="_blank" rel="noopener" href="http://browsehappy.com/">升级你的浏览器</a>.
+    </div>
+    <![endif]-->
+
     <!-- 博客头部 -->
     <header class="header">
     <section class="container header-main">
@@ -46,23 +47,23 @@
                 </div>
             </a>
         </div>
-        <div class="dropnav icon-paragraph-justify" id="JELON__btnDropNav"></div>
+        <div class="dropnav iconfont icon-nav" id="JELON__btnDropNav"></div>
         <ul class="menu hidden" id="JELON__menu">
             
             <li rel="/2019/06/04/maven-package/index.html" class="item ">
-                <a href="/" title="首页" class="icon-home">&nbsp;首页</a>
+                <a href="/" title="首页" class="iconfont icon-home">&nbsp;首页</a>
             </li>
             
             <li rel="/2019/06/04/maven-package/index.html" class="item ">
-                <a href="/code/" title="实验室" class="icon-lab">&nbsp;实验室</a>
+                <a href="/archives/" title="归档" class="iconfont icon-archives">&nbsp;归档</a>
             </li>
             
             <li rel="/2019/06/04/maven-package/index.html" class="item ">
-                <a href="/about/" title="关于" class="icon-about">&nbsp;关于</a>
+                <a href="/about/" title="关于" class="iconfont icon-staff">&nbsp;关于</a>
             </li>
             
             <li rel="/2019/06/04/maven-package/index.html" class="item ">
-                <a href="/comment/" title="留言" class="icon-comment">&nbsp;留言</a>
+                <a href="/comment/" title="留言" class="iconfont icon-comment">&nbsp;留言</a>
             </li>
             
         </ul>
@@ -75,21 +76,21 @@
                         <a href="https://github.com/YCoffee" target="_blank">Github</a>
                         |
                     
-                        <a href target="_blank">Reserved Link Location</a>
+                        <a href="" target="_blank">Reserved Link Location</a>
                         
                     
                 </p>
                 <p class="sns">
                     
                         <!-- <a href="" class="sinaweibo" target="_blank"><b>■</b> Reserved</a> -->
-                        <a href="javascript: void(0);" class="sinaweibo" target="_blank"><b>■</b> Reserved</a>
+						<a href="javascript: void(0);" class="sinaweibo" target="_blank"><b>■</b> Reserved</a>
                     
                         <!-- <a href="" class="qqweibo" target="_blank"><b>■</b> Reserved</a> -->
-                        <a href="javascript: void(0);" class="qqweibo" target="_blank"><b>■</b> Reserved</a>
+						<a href="javascript: void(0);" class="qqweibo" target="_blank"><b>■</b> Reserved</a>
                     
                     <a href="javascript: void(0);" class="wechat">
                         <b>■</b>
-                        Reserved
+                        微信
                         <span class="popover">
                             <img src="/img/wechat.png" width="120" height="120" alt="我的微信号">
                             <i class="arrow"></i>
@@ -99,7 +100,7 @@
                 
             </div>
             <div class="avatar fr">
-                <img src="/img/coffee.gif" alt="avatar" title="Coffee">
+                <img src="/img/coffee.gif" alt="avatar" title="Jelon" >
             </div>
         </div>
     </section>
@@ -117,16 +118,20 @@
         <h3 class="post-title"><span>Maven打包项目（包括spring boot项目）</span></h3>
     </header>
     <p class="post-meta text-center">
-        CoffeeY 发表于
+        Jelon 发表于
         <time datetime="2019-06-04T07:21:28.000Z">2019-06-04</time>
     </p>
-    <div class="post-content">
-        <h4 id="一、排除错误打包配置"><a href="#一、排除错误打包配置" class="headerlink" title="一、排除错误打包配置"></a>一、排除错误打包配置</h4><h5 id="前景诉明："><a href="#前景诉明：" class="headerlink" title="前景诉明："></a>前景诉明：</h5><p>在Spring boot项目或SpringMvc等项目Maven打包时，因开发环境和线上环境的异域性，一些外部API调用或请求在开发环境会不同而导致报错，但线上环境并不影响，而开发环境在Maven打包时则会因此而打包不成功，所以记录下排除错误打包配置</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;build&gt;</span><br><span class="line">   &lt;plugins&gt;</span><br><span class="line">	...</span><br><span class="line">	...</span><br><span class="line">	&lt;plugin&gt;</span><br><span class="line">	 	&lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;</span><br><span class="line">	 	&lt;artifactId&gt;maven-surefire-plugin&lt;/artifactId&gt;</span><br><span class="line">	    &lt;configuration&gt;</span><br><span class="line">	    	&lt;skip&gt;true&lt;/skip&gt;</span><br><span class="line">	    &lt;/configuration&gt;</span><br><span class="line">	&lt;/plugin&gt;</span><br><span class="line">  	&lt;/plugins&gt;</span><br><span class="line">&lt;/build&gt;</span><br></pre></td></tr></table></figure>
-<h4 id="二、外部引用依赖打包配置"><a href="#二、外部引用依赖打包配置" class="headerlink" title="二、外部引用依赖打包配置"></a>二、外部引用依赖打包配置</h4><h5 id="前景诉明：-1"><a href="#前景诉明：-1" class="headerlink" title="前景诉明："></a>前景诉明：</h5><p>Springboot项目使用maven进行打包，maven的默认打包插件用的是spring-boot-maven-plugin，这个插件会把项目中的代码和相关依赖一起打包成一个jar包，此处记录因此打包jar太大或其他原因而配置依赖Jar外部引用，所有的jar文件都放在生成目录的jars/文件夹下，生成的项目jar包里面只包含项目代码部分。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">&lt;build&gt;</span><br><span class="line">   &lt;plugins&gt;</span><br><span class="line">	...</span><br><span class="line">	...</span><br><span class="line">	&lt;!-- 去除spring-boot-maven-plugin插件配置 --&gt;</span><br><span class="line">	&lt;!-- 插件指定jar包的启动类，还有lib文件目录 --&gt;</span><br><span class="line">	&lt;plugin&gt;</span><br><span class="line">           &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;</span><br><span class="line">           &lt;artifactId&gt;maven-jar-plugin&lt;/artifactId&gt;</span><br><span class="line">           &lt;configuration&gt;</span><br><span class="line">               &lt;archive&gt;</span><br><span class="line">                   &lt;manifest&gt;</span><br><span class="line">                       &lt;addClasspath&gt;true&lt;/addClasspath&gt;</span><br><span class="line">					&lt;!-- 依赖存储路径包名 --&gt;</span><br><span class="line">                       &lt;classpathPrefix&gt;jars/&lt;/classpathPrefix&gt;</span><br><span class="line">					&lt;!-- 启动类路径 --&gt;</span><br><span class="line">                       &lt;mainClass&gt;com.gy.api.GyApiApplication&lt;/mainClass&gt;</span><br><span class="line">                   &lt;/manifest&gt;</span><br><span class="line">               &lt;/archive&gt;</span><br><span class="line">           &lt;/configuration&gt;</span><br><span class="line">       &lt;/plugin&gt;</span><br><span class="line">	&lt;!-- 插件将依赖文件复制到jars文件夹下 --&gt;</span><br><span class="line">    &lt;plugin&gt;</span><br><span class="line">          &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;</span><br><span class="line">          &lt;artifactId&gt;maven-dependency-plugin&lt;/artifactId&gt;</span><br><span class="line">          &lt;executions&gt;</span><br><span class="line">              &lt;execution&gt;</span><br><span class="line">                  &lt;id&gt;copy-dependencies&lt;/id&gt;</span><br><span class="line">                  &lt;phase&gt;prepare-package&lt;/phase&gt;</span><br><span class="line">                  &lt;goals&gt;</span><br><span class="line">                      &lt;goal&gt;copy-dependencies&lt;/goal&gt;</span><br><span class="line">                  &lt;/goals&gt;</span><br><span class="line">                  &lt;configuration&gt;</span><br><span class="line">                      &lt;outputDirectory&gt;$&#123;project.build.directory&#125;/jars&lt;/outputDirectory&gt;</span><br><span class="line">                      &lt;overWriteReleases&gt;false&lt;/overWriteReleases&gt;</span><br><span class="line">                      &lt;overWriteSnapshots&gt;false&lt;/overWriteSnapshots&gt;</span><br><span class="line">                      &lt;overWriteIfNewer&gt;true&lt;/overWriteIfNewer&gt;</span><br><span class="line">                  &lt;/configuration&gt;</span><br><span class="line">              &lt;/execution&gt;</span><br><span class="line">          ecutions&gt;</span><br><span class="line">       &lt;/plugin&gt;</span><br><span class="line">  	&lt;/plugins&gt;</span><br><span class="line">&lt;/build&gt;</span><br></pre></td></tr></table></figure>
-<font color="red">spring-boot-maven-plugin插件配置去除勿忘</font>
+    <div id="JELON__articlePostContent" class="post-content">
+        <h4 id="一、排除错误打包配置"><a href="#一、排除错误打包配置" class="headerlink" title="一、排除错误打包配置"></a>一、排除错误打包配置</h4><h5 id="前景诉明："><a href="#前景诉明：" class="headerlink" title="前景诉明：#####"></a>前景诉明：#####</h5><p>在Spring boot项目或SpringMvc等项目Maven打包时，因开发环境和线上环境的异域性，一些外部API调用或请求在开发环境会不同而导致报错，但线上环境并不影响，而开发环境在Maven打包时则会因此而打包不成功，所以记录下排除错误打包配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;build&gt;</span><br><span class="line">   &lt;plugins&gt;</span><br><span class="line">	...</span><br><span class="line">	...</span><br><span class="line">	&lt;plugin&gt;</span><br><span class="line">	 	&lt;groupId&gt;org.apache.maven.plugins&lt;&#x2F;groupId&gt;</span><br><span class="line">	 	&lt;artifactId&gt;maven-surefire-plugin&lt;&#x2F;artifactId&gt;</span><br><span class="line">	    &lt;configuration&gt;</span><br><span class="line">	    	&lt;skip&gt;true&lt;&#x2F;skip&gt;</span><br><span class="line">	    &lt;&#x2F;configuration&gt;</span><br><span class="line">	&lt;&#x2F;plugin&gt;</span><br><span class="line">  	&lt;&#x2F;plugins&gt;</span><br><span class="line">&lt;&#x2F;build&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="二、外部引用依赖打包配置"><a href="#二、外部引用依赖打包配置" class="headerlink" title="二、外部引用依赖打包配置"></a>二、外部引用依赖打包配置</h4><h5 id="前景诉明：-1"><a href="#前景诉明：-1" class="headerlink" title="前景诉明：#####"></a>前景诉明：#####</h5><p>Springboot项目使用maven进行打包，maven的默认打包插件用的是spring-boot-maven-plugin，这个插件会把项目中的代码和相关依赖一起打包成一个jar包，此处记录因此打包jar太大或其他原因而配置依赖Jar外部引用，所有的jar文件都放在生成目录的jars/文件夹下，生成的项目jar包里面只包含项目代码部分。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">&lt;build&gt;</span><br><span class="line">   &lt;plugins&gt;</span><br><span class="line">	...</span><br><span class="line">	...</span><br><span class="line">	&lt;!-- 去除spring-boot-maven-plugin插件配置 --&gt;</span><br><span class="line">	&lt;!-- 插件指定jar包的启动类，还有lib文件目录 --&gt;</span><br><span class="line">	&lt;plugin&gt;</span><br><span class="line">           &lt;groupId&gt;org.apache.maven.plugins&lt;&#x2F;groupId&gt;</span><br><span class="line">           &lt;artifactId&gt;maven-jar-plugin&lt;&#x2F;artifactId&gt;</span><br><span class="line">           &lt;configuration&gt;</span><br><span class="line">               &lt;archive&gt;</span><br><span class="line">                   &lt;manifest&gt;</span><br><span class="line">                       &lt;addClasspath&gt;true&lt;&#x2F;addClasspath&gt;</span><br><span class="line">					&lt;!-- 依赖存储路径包名 --&gt;</span><br><span class="line">                       &lt;classpathPrefix&gt;jars&#x2F;&lt;&#x2F;classpathPrefix&gt;</span><br><span class="line">					&lt;!-- 启动类路径 --&gt;</span><br><span class="line">                       &lt;mainClass&gt;com.gy.api.GyApiApplication&lt;&#x2F;mainClass&gt;</span><br><span class="line">                   &lt;&#x2F;manifest&gt;</span><br><span class="line">               &lt;&#x2F;archive&gt;</span><br><span class="line">           &lt;&#x2F;configuration&gt;</span><br><span class="line">       &lt;&#x2F;plugin&gt;</span><br><span class="line">	&lt;!-- 插件将依赖文件复制到jars文件夹下 --&gt;</span><br><span class="line">    &lt;plugin&gt;</span><br><span class="line">          &lt;groupId&gt;org.apache.maven.plugins&lt;&#x2F;groupId&gt;</span><br><span class="line">          &lt;artifactId&gt;maven-dependency-plugin&lt;&#x2F;artifactId&gt;</span><br><span class="line">          &lt;executions&gt;</span><br><span class="line">              &lt;execution&gt;</span><br><span class="line">                  &lt;id&gt;copy-dependencies&lt;&#x2F;id&gt;</span><br><span class="line">                  &lt;phase&gt;prepare-package&lt;&#x2F;phase&gt;</span><br><span class="line">                  &lt;goals&gt;</span><br><span class="line">                      &lt;goal&gt;copy-dependencies&lt;&#x2F;goal&gt;</span><br><span class="line">                  &lt;&#x2F;goals&gt;</span><br><span class="line">                  &lt;configuration&gt;</span><br><span class="line">                      &lt;outputDirectory&gt;$&#123;project.build.directory&#125;&#x2F;jars&lt;&#x2F;outputDirectory&gt;</span><br><span class="line">                      &lt;overWriteReleases&gt;false&lt;&#x2F;overWriteReleases&gt;</span><br><span class="line">                      &lt;overWriteSnapshots&gt;false&lt;&#x2F;overWriteSnapshots&gt;</span><br><span class="line">                      &lt;overWriteIfNewer&gt;true&lt;&#x2F;overWriteIfNewer&gt;</span><br><span class="line">                  &lt;&#x2F;configuration&gt;</span><br><span class="line">              &lt;&#x2F;execution&gt;</span><br><span class="line">          ecutions&gt;</span><br><span class="line">       &lt;&#x2F;plugin&gt;</span><br><span class="line">  	&lt;&#x2F;plugins&gt;</span><br><span class="line">&lt;&#x2F;build&gt;</span><br></pre></td></tr></table></figure>
+
+<p><font color="red">spring-boot-maven-plugin插件配置去除勿忘</font></p>
+
     </div>
+    <p class="eof">-- EOF --</p>
     <p class="post-meta">
         <span class="post-cat">分类：
             <a class="cat-link" href="/categories/back-end/">后端</a>
@@ -135,7 +140,7 @@
             标签：
             
     
-        <a href="/tags/Maven/" title="Maven">Maven</a>
+        <a href="/tags/maven/" title="maven">maven</a>
     
 
         </span>
@@ -149,7 +154,7 @@
       <a href="javascript: window.open('http://service.weibo.com/share/share.php?url=' + encodeURIComponent(location.href) + '&title=' + document.title + '&language=zh_cn');" class="share-icon weibo"></a>
       <a href="javascript: alert('请复制链接到微信并发送');" class="share-icon wechat"></a>
       <a href="javascript: window.open('http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=' + encodeURIComponent(location.href) + '&title=' + document.title);" class="share-icon qqzone"></a>
-      <a href="javascript: window.open('http://connect.qq.com/widget/shareqq/index.html?url=' + encodeURIComponent(location.href) + '&desc=CoffeeY个人博客&title=' + document.title + '&callback=' + encodeURIComponent(location.href));" class="share-icon qq"></a>
+      <a href="javascript: window.open('http://connect.qq.com/widget/shareqq/index.html?url=' + encodeURIComponent(location.href) + '&desc=Jelon个人博客&title=' + document.title + '&callback=' + encodeURIComponent(location.href));" class="share-icon qq"></a>
       <a href="javascript: window.open('http://shuo.douban.com/!service/share?href=' + encodeURIComponent(location.href) + '&name=' + document.title + '&text=' + document.title);" class="share-icon douban"></a>
     </div>
   </div>
@@ -160,7 +165,7 @@
 <div class="article-nav clearfix">
     
     <span class="prev fl">
-        上一篇<br>
+        上一篇<br >
         <a href="/2019/06/18/git-ssh/">
             
                 Git使用SSH方式提交代码到远程仓库
@@ -171,7 +176,7 @@
 
     
     <span class="next fr">
-        下一篇<br>
+        下一篇<br >
         <a href="/2019/06/01/gitlabForIdea/">
             
                 IDEA集成GitLab管理项目
@@ -183,7 +188,9 @@
 
 <!-- 文章评论 -->
 
-  <script src="/js/comment.js"></script>
+  
+<script src="/js/comment.js?v=1616552640636.js"></script>
+
   <div id="comments" class="comment">
     <!--
     <div class="sign-bar">
@@ -260,10 +267,37 @@
   </script>
 
 
+
             </div>
         </section>
         <!-- 侧栏部分 -->
 <aside class="sidebar">
+    
+    <section class="widget">
+        <h3 class="widget-hd"><strong>文章搜索</strong></h3>
+        <div class="search-form">
+  <form
+    id="searchForm"
+    method="GET"
+    action="https://www.baidu.com/s"
+    ectype="application/x-www-form-urlencoded"
+    target="_blank"
+    autocomplete="false"
+    onsubmit="javascript: return false;">
+    <input
+      id="searchKeyword"
+      type="text"
+      class="form-control"
+      placeholder="输入关键字搜索"
+      autocomplete="false"
+    />
+    <input id="searchKeywordHidden" type="hidden" name="wd" />
+    <input id="searchButton" class="btn" type="submit" value="搜索" />
+  </form>
+</div>
+    </section>
+    
+
     <section class="widget">
         <h3 class="widget-hd"><strong>文章分类</strong></h3>
         <!-- 文章分类 -->
@@ -276,27 +310,12 @@
     
     <li>
         <a href="/categories/back-end/">后端</a>
-        <span class="badge">(13)</span>
+        <span class="badge">(18)</span>
     </li>
     
     <li>
         <a href="/categories/other/">其他</a>
         <span class="badge">(3)</span>
-    </li>
-    
-    <li>
-        <a href="/categories/categorie/">categorie</a>
-        <span class="badge">(2)</span>
-    </li>
-    
-    <li>
-        <a href="/categories/后台/">后台</a>
-        <span class="badge">(1)</span>
-    </li>
-    
-    <li>
-        <a href="/categories/后台/版本控制/">版本控制</a>
-        <span class="badge">(1)</span>
     </li>
     
 </ul>
@@ -308,15 +327,19 @@
         <!-- 文章标签 -->
 <div class="widget-bd tag-wrap">
   
-    <a class="tag-item" href="/tags/es5-6/" title="es5/6">es5/6 (1)</a>
+    <a class="tag-item" href="/tags/git/" title="git">git (4)</a>
   
-    <a class="tag-item" href="/tags/linux/" title="linux">linux (1)</a>
+    <a class="tag-item" href="/tags/sql/" title="sql">sql (3)</a>
   
     <a class="tag-item" href="/tags/tomcat/" title="tomcat">tomcat (2)</a>
   
-    <a class="tag-item" href="/tags/git/" title="git">git (4)</a>
+    <a class="tag-item" href="/tags/linux/" title="linux">linux (2)</a>
   
     <a class="tag-item" href="/tags/gitlab/" title="gitlab">gitlab (2)</a>
+  
+    <a class="tag-item" href="/tags/springboot/" title="springboot">springboot (2)</a>
+  
+    <a class="tag-item" href="/tags/es5-6/" title="es5/6">es5/6 (1)</a>
   
     <a class="tag-item" href="/tags/ehcache/" title="ehcache">ehcache (1)</a>
   
@@ -326,25 +349,23 @@
   
     <a class="tag-item" href="/tags/blog/" title="blog">blog (1)</a>
   
-    <a class="tag-item" href="/tags/tag/" title="tag">tag (2)</a>
+    <a class="tag-item" href="/tags/npm/" title="npm">npm (1)</a>
   
-    <a class="tag-item" href="/tags/Maven/" title="Maven">Maven (1)</a>
-  
-    <a class="tag-item" href="/tags/NPM/" title="NPM">NPM (1)</a>
+    <a class="tag-item" href="/tags/maven/" title="maven">maven (1)</a>
   
     <a class="tag-item" href="/tags/oracle/" title="oracle">oracle (1)</a>
   
-    <a class="tag-item" href="/tags/sql/" title="sql">sql (2)</a>
-  
     <a class="tag-item" href="/tags/proxy/" title="proxy">proxy (1)</a>
   
-    <a class="tag-item" href="/tags/软件工具/" title="软件工具">软件工具 (1)</a>
+    <a class="tag-item" href="/tags/redis/" title="redis">redis (1)</a>
   
-    <a class="tag-item" href="/tags/springboot/" title="springboot">springboot (1)</a>
+    <a class="tag-item" href="/tags/reprint/" title="reprint">reprint (1)</a>
+  
+    <a class="tag-item" href="/tags/Software%E3%80%81Tool/" title="Software、Tool">Software、Tool (1)</a>
   
     <a class="tag-item" href="/tags/svn/" title="svn">svn (1)</a>
   
-    <a class="tag-item" href="/tags/windows文件夹共享/" title="windows文件夹共享">windows文件夹共享 (1)</a>
+    <a class="tag-item" href="/tags/windows%E6%96%87%E4%BB%B6%E5%A4%B9%E5%85%B1%E4%BA%AB/" title="windows文件夹共享">windows文件夹共享 (1)</a>
   
 </div>
     </section>
@@ -360,7 +381,7 @@
 <ul class="widget-bd">
     
         <li>
-            <a href="https://www.baidu.com" target="_blank" title="百度搜索">百度</a>
+            <a href="https://gitee.com/z525989" target="_blank" title="Profile">Sakura Profile</a>
         </li>
     
 </ul>
@@ -374,7 +395,7 @@
     <footer class="footer">
     &copy;
     
-        2018-2020
+        2018-2021
     
 
     <a href="/">Ycoffee</a>
@@ -387,6 +408,9 @@
 
     <!--博客js脚本 -->
     <!-- 这里放网站js脚本 -->
-<script src="/js/main.js"></script>
+
+<script src="/js/main.js?v=1616552640802.js"></script>
+
+
 </body>
 </html>

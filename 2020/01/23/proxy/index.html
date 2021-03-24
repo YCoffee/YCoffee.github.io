@@ -1,40 +1,41 @@
 <!doctype html>
 <html lang="zh-CN">
-<head><meta name="generator" content="Hexo 3.8.0">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
-    <meta name="baidu-site-verification" content="dIcXMeY8Ya">
+<head>
+    <meta charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8" >
+    <meta name="baidu-site-verification" content="dIcXMeY8Ya" />
     
     <title>各个PROXY记录 | CoffeeY Blog</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-    <meta name="keywords" content="Java 后端 Vue">
-    <meta name="description" content="Coffee个人记录博客">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" >
+    <meta name="keywords" content="Java 后端 Vue" >
+    <meta name="description" content="Coffee个人记录博客" >
 
     
-    <link rel="alternative" href="/atom.xml" title="CoffeeY Blog" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="CoffeeY Blog" type="application/atom+xml" >
     
     
-    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="icon" href="/favicon.ico" >
     
-    <link rel="stylesheet" href="/css/style.css">
+    
+<link rel="stylesheet" href="/css/style.css?v=1616552640786.css">
+
     <!--[if lt IE 9]>
-    <script src="/js/html5.js"></script>
+    
+<script src="/js/html5.js"></script>
+
     <![endif]-->
     
-<script>
-    var _hmt = _hmt || [];
-    (function() {
-        var hm = document.createElement("script");
-        hm.src = "//hm.baidu.com/hm.js?fd459238242776d173cdc64918fb32f2";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-    })();
-</script>
 
+<meta name="generator" content="Hexo 5.4.0"></head>
 
-</head>
-</html>
 <body class="home">
+    <!--[if lt IE 9]>
+    <div class="browsehappy">
+        当前网页 <strong>不支持</strong>
+        你正在使用的浏览器. 为了正常的访问, 请 <a target="_blank" rel="noopener" href="http://browsehappy.com/">升级你的浏览器</a>.
+    </div>
+    <![endif]-->
+
     <!-- 博客头部 -->
     <header class="header">
     <section class="container header-main">
@@ -46,23 +47,23 @@
                 </div>
             </a>
         </div>
-        <div class="dropnav icon-paragraph-justify" id="JELON__btnDropNav"></div>
+        <div class="dropnav iconfont icon-nav" id="JELON__btnDropNav"></div>
         <ul class="menu hidden" id="JELON__menu">
             
             <li rel="/2020/01/23/proxy/index.html" class="item ">
-                <a href="/" title="首页" class="icon-home">&nbsp;首页</a>
+                <a href="/" title="首页" class="iconfont icon-home">&nbsp;首页</a>
             </li>
             
             <li rel="/2020/01/23/proxy/index.html" class="item ">
-                <a href="/code/" title="实验室" class="icon-lab">&nbsp;实验室</a>
+                <a href="/archives/" title="归档" class="iconfont icon-archives">&nbsp;归档</a>
             </li>
             
             <li rel="/2020/01/23/proxy/index.html" class="item ">
-                <a href="/about/" title="关于" class="icon-about">&nbsp;关于</a>
+                <a href="/about/" title="关于" class="iconfont icon-staff">&nbsp;关于</a>
             </li>
             
             <li rel="/2020/01/23/proxy/index.html" class="item ">
-                <a href="/comment/" title="留言" class="icon-comment">&nbsp;留言</a>
+                <a href="/comment/" title="留言" class="iconfont icon-comment">&nbsp;留言</a>
             </li>
             
         </ul>
@@ -75,21 +76,21 @@
                         <a href="https://github.com/YCoffee" target="_blank">Github</a>
                         |
                     
-                        <a href target="_blank">Reserved Link Location</a>
+                        <a href="" target="_blank">Reserved Link Location</a>
                         
                     
                 </p>
                 <p class="sns">
                     
                         <!-- <a href="" class="sinaweibo" target="_blank"><b>■</b> Reserved</a> -->
-                        <a href="javascript: void(0);" class="sinaweibo" target="_blank"><b>■</b> Reserved</a>
+						<a href="javascript: void(0);" class="sinaweibo" target="_blank"><b>■</b> Reserved</a>
                     
                         <!-- <a href="" class="qqweibo" target="_blank"><b>■</b> Reserved</a> -->
-                        <a href="javascript: void(0);" class="qqweibo" target="_blank"><b>■</b> Reserved</a>
+						<a href="javascript: void(0);" class="qqweibo" target="_blank"><b>■</b> Reserved</a>
                     
                     <a href="javascript: void(0);" class="wechat">
                         <b>■</b>
-                        Reserved
+                        微信
                         <span class="popover">
                             <img src="/img/wechat.png" width="120" height="120" alt="我的微信号">
                             <i class="arrow"></i>
@@ -99,7 +100,7 @@
                 
             </div>
             <div class="avatar fr">
-                <img src="/img/coffee.gif" alt="avatar" title="Coffee">
+                <img src="/img/coffee.gif" alt="avatar" title="Jelon" >
             </div>
         </div>
     </section>
@@ -117,10 +118,10 @@
         <h3 class="post-title"><span>各个PROXY记录</span></h3>
     </header>
     <p class="post-meta text-center">
-        CoffeeY 发表于
+        Jelon 发表于
         <time datetime="2020-01-23T06:00:25.000Z">2020-01-23</time>
     </p>
-    <div class="post-content">
+    <div id="JELON__articlePostContent" class="post-content">
         <h2 id="一、Shadowsocks"><a href="#一、Shadowsocks" class="headerlink" title="一、Shadowsocks"></a>一、Shadowsocks</h2><p>写本文时已弃用该方式</p>
 <h2 id="二、V2ray"><a href="#二、V2ray" class="headerlink" title="二、V2ray"></a>二、V2ray</h2><h3 id="SSL证书相关"><a href="#SSL证书相关" class="headerlink" title="SSL证书相关"></a>SSL证书相关</h3><h4 id="证书配置"><a href="#证书配置" class="headerlink" title="证书配置"></a>证书配置</h4><pre><code>//新建一个文件夹用于存放证书
 sudo mkdir /usr/local/etc/certfiles
@@ -135,32 +136,35 @@ curl  https://get.acme.sh | sh
 exit
 //再次切换到用户acme
 sudo su -l -s /bin/bash acme
-</code></pre><blockquote>
+</code></pre>
+<blockquote>
 <p>两次切换用户的操作不能省略，因为安装完acme.sh之后要重新登录当前用户，否则无法识别出acme.sh命令</p>
 </blockquote>
-<h4 id="cloudflare-Global-CA-Key"><a href="#cloudflare-Global-CA-Key" class="headerlink" title="cloudflare Global CA Key"></a>cloudflare Global CA Key</h4><p>需要让acme.sh自动管理你的证书，所以需要添加cloudflare的API。登录cloudflare之后定位到：头像&gt;&gt;My Profile&gt;&gt;API Tokens。可以看到这里有两个API Keys。我们需要的是Global API Key。Origin CA Key是不可以使用的。点击View即可查看，注意查看之后自己保存下来，每天可查看次数是有限制的。</p>
-<font color="red">示例代码需要手动修改的地方都使用&lt;&gt;包裹。</font>
-
+<h4 id="cloudflare-Global-CA-Key"><a href="#cloudflare-Global-CA-Key" class="headerlink" title="cloudflare Global CA Key"></a>cloudflare Global CA Key</h4><p>需要让acme.sh自动管理你的证书，所以需要添加cloudflare的API。登录cloudflare之后定位到：头像&gt;&gt;My Profile&gt;&gt;API Tokens。可以看到这里有两个API Keys。我们需要的是Global API Key。Origin CA Key是不可以使用的。点击View即可查看，注意查看之后自己保存下来，每天可查看次数是有限制的。<br><font color='red'>示例代码需要手动修改的地方都使用&lt;&gt;包裹。</font></p>
 <pre><code>export CF_Key=&quot;&lt;Your Global API Key&gt;&quot;
 export CF_Email=&quot;&lt;Your cloudflare account Email&gt;&quot;
 //执行如下命令（注意域名&lt;coffeey.tk&gt;改为你自己的域名），等待一会儿。
 acme.sh --issue --dns dns_cf -d &lt;coffeey.tk&gt;
-</code></pre><blockquote>
+</code></pre>
+<blockquote>
 <p>申请失败怎么办？证书申请失败的可能性一般有：1. CF_Key或CF_Email填写错误；证书申请次数超限等。此时切忌反复尝试，原因是证书每一个周申请次数是有限制的（20次），如果超限了就需要等一个周或者更换域名了（这个限制是争对每一个子域单独做的限制，所以万一超限了还可以用子域名继续部署）。解决方案是：在上述命令后加–staging参数继续测试。测试通过之后，删除上图所示四个证书文件并取消–staging参数再执行一次。–staging参数申请的证书只作为测试用，客户端是无法认证通过的（提示SSL handshake failed: tlsv1 alert unknown ca），所以使用–staging参数申请到了证书之后要去掉–staging参数重新申请一次。</p>
 </blockquote>
 <pre><code>//使用acme.sh将证书安装到certfiles目录，这样acme.sh更新证书的时候会自动将新的证书安装到这里
 acme.sh --install-cert -d &lt;tdom.ml&gt; --key-file /usr/local/etc/certfiles/private.key --fullchain-file /usr/local/etc/certfiles/certificate.crt
 //配置acme.sh自动更新和自动更新证书
 acme.sh  --upgrade  --auto-upgrade
-</code></pre><h4 id="权限修改"><a href="#权限修改" class="headerlink" title="权限修改"></a>权限修改</h4><pre><code>//将证书文件夹所在用户组改为certusers
+</code></pre>
+<h4 id="权限修改"><a href="#权限修改" class="headerlink" title="权限修改"></a>权限修改</h4><pre><code>//将证书文件夹所在用户组改为certusers
 chown -R acme:certusers /usr/local/etc/certfiles
 //赋予证书文件夹组内用户读取权限。
 chmod -R 750 /usr/local/etc/certfiles
 //退出用户acme
 exit
-</code></pre><h2 id="Trojan"><a href="#Trojan" class="headerlink" title="Trojan"></a>Trojan</h2><p>暂未应用<br><a href="https://trojan-tutor.github.io/2019/04/10/p41.html" title="全局模式" target="_blank" rel="noopener">https://trojan-tutor.github.io/2019/04/10/p41.html</a></p>
+</code></pre>
+<h2 id="Trojan"><a href="#Trojan" class="headerlink" title="Trojan"></a>Trojan</h2><p>暂未应用<br><a target="_blank" rel="noopener" href="https://trojan-tutor.github.io/2019/04/10/p41.html" title="全局模式">https://trojan-tutor.github.io/2019/04/10/p41.html</a></p>
 
     </div>
+    <p class="eof">-- EOF --</p>
     <p class="post-meta">
         <span class="post-cat">分类：
             <a class="cat-link" href="/categories/back-end/">后端</a>
@@ -183,7 +187,7 @@ exit
       <a href="javascript: window.open('http://service.weibo.com/share/share.php?url=' + encodeURIComponent(location.href) + '&title=' + document.title + '&language=zh_cn');" class="share-icon weibo"></a>
       <a href="javascript: alert('请复制链接到微信并发送');" class="share-icon wechat"></a>
       <a href="javascript: window.open('http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=' + encodeURIComponent(location.href) + '&title=' + document.title);" class="share-icon qqzone"></a>
-      <a href="javascript: window.open('http://connect.qq.com/widget/shareqq/index.html?url=' + encodeURIComponent(location.href) + '&desc=CoffeeY个人博客&title=' + document.title + '&callback=' + encodeURIComponent(location.href));" class="share-icon qq"></a>
+      <a href="javascript: window.open('http://connect.qq.com/widget/shareqq/index.html?url=' + encodeURIComponent(location.href) + '&desc=Jelon个人博客&title=' + document.title + '&callback=' + encodeURIComponent(location.href));" class="share-icon qq"></a>
       <a href="javascript: window.open('http://shuo.douban.com/!service/share?href=' + encodeURIComponent(location.href) + '&name=' + document.title + '&text=' + document.title);" class="share-icon douban"></a>
     </div>
   </div>
@@ -194,7 +198,7 @@ exit
 <div class="article-nav clearfix">
     
     <span class="prev fl">
-        上一篇<br>
+        上一篇<br >
         <a href="/2020/02/17/ehcache/">
             
                 ehcache
@@ -205,7 +209,7 @@ exit
 
     
     <span class="next fr">
-        下一篇<br>
+        下一篇<br >
         <a href="/2019/10/11/oraclesql/">
             
                 记一次Oracle数据库慢查询SQL优化
@@ -217,7 +221,9 @@ exit
 
 <!-- 文章评论 -->
 
-  <script src="/js/comment.js"></script>
+  
+<script src="/js/comment.js?v=1616552640627.js"></script>
+
   <div id="comments" class="comment">
     <!--
     <div class="sign-bar">
@@ -294,10 +300,37 @@ exit
   </script>
 
 
+
             </div>
         </section>
         <!-- 侧栏部分 -->
 <aside class="sidebar">
+    
+    <section class="widget">
+        <h3 class="widget-hd"><strong>文章搜索</strong></h3>
+        <div class="search-form">
+  <form
+    id="searchForm"
+    method="GET"
+    action="https://www.baidu.com/s"
+    ectype="application/x-www-form-urlencoded"
+    target="_blank"
+    autocomplete="false"
+    onsubmit="javascript: return false;">
+    <input
+      id="searchKeyword"
+      type="text"
+      class="form-control"
+      placeholder="输入关键字搜索"
+      autocomplete="false"
+    />
+    <input id="searchKeywordHidden" type="hidden" name="wd" />
+    <input id="searchButton" class="btn" type="submit" value="搜索" />
+  </form>
+</div>
+    </section>
+    
+
     <section class="widget">
         <h3 class="widget-hd"><strong>文章分类</strong></h3>
         <!-- 文章分类 -->
@@ -310,27 +343,12 @@ exit
     
     <li>
         <a href="/categories/back-end/">后端</a>
-        <span class="badge">(13)</span>
+        <span class="badge">(18)</span>
     </li>
     
     <li>
         <a href="/categories/other/">其他</a>
         <span class="badge">(3)</span>
-    </li>
-    
-    <li>
-        <a href="/categories/categorie/">categorie</a>
-        <span class="badge">(2)</span>
-    </li>
-    
-    <li>
-        <a href="/categories/后台/">后台</a>
-        <span class="badge">(1)</span>
-    </li>
-    
-    <li>
-        <a href="/categories/后台/版本控制/">版本控制</a>
-        <span class="badge">(1)</span>
     </li>
     
 </ul>
@@ -342,15 +360,19 @@ exit
         <!-- 文章标签 -->
 <div class="widget-bd tag-wrap">
   
-    <a class="tag-item" href="/tags/es5-6/" title="es5/6">es5/6 (1)</a>
+    <a class="tag-item" href="/tags/git/" title="git">git (4)</a>
   
-    <a class="tag-item" href="/tags/linux/" title="linux">linux (1)</a>
+    <a class="tag-item" href="/tags/sql/" title="sql">sql (3)</a>
   
     <a class="tag-item" href="/tags/tomcat/" title="tomcat">tomcat (2)</a>
   
-    <a class="tag-item" href="/tags/git/" title="git">git (4)</a>
+    <a class="tag-item" href="/tags/linux/" title="linux">linux (2)</a>
   
     <a class="tag-item" href="/tags/gitlab/" title="gitlab">gitlab (2)</a>
+  
+    <a class="tag-item" href="/tags/springboot/" title="springboot">springboot (2)</a>
+  
+    <a class="tag-item" href="/tags/es5-6/" title="es5/6">es5/6 (1)</a>
   
     <a class="tag-item" href="/tags/ehcache/" title="ehcache">ehcache (1)</a>
   
@@ -360,25 +382,23 @@ exit
   
     <a class="tag-item" href="/tags/blog/" title="blog">blog (1)</a>
   
-    <a class="tag-item" href="/tags/tag/" title="tag">tag (2)</a>
+    <a class="tag-item" href="/tags/npm/" title="npm">npm (1)</a>
   
-    <a class="tag-item" href="/tags/Maven/" title="Maven">Maven (1)</a>
-  
-    <a class="tag-item" href="/tags/NPM/" title="NPM">NPM (1)</a>
+    <a class="tag-item" href="/tags/maven/" title="maven">maven (1)</a>
   
     <a class="tag-item" href="/tags/oracle/" title="oracle">oracle (1)</a>
   
-    <a class="tag-item" href="/tags/sql/" title="sql">sql (2)</a>
-  
     <a class="tag-item" href="/tags/proxy/" title="proxy">proxy (1)</a>
   
-    <a class="tag-item" href="/tags/软件工具/" title="软件工具">软件工具 (1)</a>
+    <a class="tag-item" href="/tags/redis/" title="redis">redis (1)</a>
   
-    <a class="tag-item" href="/tags/springboot/" title="springboot">springboot (1)</a>
+    <a class="tag-item" href="/tags/reprint/" title="reprint">reprint (1)</a>
+  
+    <a class="tag-item" href="/tags/Software%E3%80%81Tool/" title="Software、Tool">Software、Tool (1)</a>
   
     <a class="tag-item" href="/tags/svn/" title="svn">svn (1)</a>
   
-    <a class="tag-item" href="/tags/windows文件夹共享/" title="windows文件夹共享">windows文件夹共享 (1)</a>
+    <a class="tag-item" href="/tags/windows%E6%96%87%E4%BB%B6%E5%A4%B9%E5%85%B1%E4%BA%AB/" title="windows文件夹共享">windows文件夹共享 (1)</a>
   
 </div>
     </section>
@@ -394,7 +414,7 @@ exit
 <ul class="widget-bd">
     
         <li>
-            <a href="https://www.baidu.com" target="_blank" title="百度搜索">百度</a>
+            <a href="https://gitee.com/z525989" target="_blank" title="Profile">Sakura Profile</a>
         </li>
     
 </ul>
@@ -408,7 +428,7 @@ exit
     <footer class="footer">
     &copy;
     
-        2018-2020
+        2018-2021
     
 
     <a href="/">Ycoffee</a>
@@ -421,6 +441,9 @@ exit
 
     <!--博客js脚本 -->
     <!-- 这里放网站js脚本 -->
-<script src="/js/main.js"></script>
+
+<script src="/js/main.js?v=1616552640788.js"></script>
+
+
 </body>
 </html>

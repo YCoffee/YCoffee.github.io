@@ -1,40 +1,41 @@
 <!doctype html>
 <html lang="zh-CN">
-<head><meta name="generator" content="Hexo 3.8.0">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
-    <meta name="baidu-site-verification" content="dIcXMeY8Ya">
+<head>
+    <meta charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8" >
+    <meta name="baidu-site-verification" content="dIcXMeY8Ya" />
     
     <title>ehcache | CoffeeY Blog</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-    <meta name="keywords" content="Java 后端 Vue">
-    <meta name="description" content="Coffee个人记录博客">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" >
+    <meta name="keywords" content="Java 后端 Vue" >
+    <meta name="description" content="Coffee个人记录博客" >
 
     
-    <link rel="alternative" href="/atom.xml" title="CoffeeY Blog" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="CoffeeY Blog" type="application/atom+xml" >
     
     
-    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="icon" href="/favicon.ico" >
     
-    <link rel="stylesheet" href="/css/style.css">
+    
+<link rel="stylesheet" href="/css/style.css?v=1616552640785.css">
+
     <!--[if lt IE 9]>
-    <script src="/js/html5.js"></script>
+    
+<script src="/js/html5.js"></script>
+
     <![endif]-->
     
-<script>
-    var _hmt = _hmt || [];
-    (function() {
-        var hm = document.createElement("script");
-        hm.src = "//hm.baidu.com/hm.js?fd459238242776d173cdc64918fb32f2";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-    })();
-</script>
 
+<meta name="generator" content="Hexo 5.4.0"></head>
 
-</head>
-</html>
 <body class="home">
+    <!--[if lt IE 9]>
+    <div class="browsehappy">
+        当前网页 <strong>不支持</strong>
+        你正在使用的浏览器. 为了正常的访问, 请 <a target="_blank" rel="noopener" href="http://browsehappy.com/">升级你的浏览器</a>.
+    </div>
+    <![endif]-->
+
     <!-- 博客头部 -->
     <header class="header">
     <section class="container header-main">
@@ -46,23 +47,23 @@
                 </div>
             </a>
         </div>
-        <div class="dropnav icon-paragraph-justify" id="JELON__btnDropNav"></div>
+        <div class="dropnav iconfont icon-nav" id="JELON__btnDropNav"></div>
         <ul class="menu hidden" id="JELON__menu">
             
             <li rel="/2020/02/17/ehcache/index.html" class="item ">
-                <a href="/" title="首页" class="icon-home">&nbsp;首页</a>
+                <a href="/" title="首页" class="iconfont icon-home">&nbsp;首页</a>
             </li>
             
             <li rel="/2020/02/17/ehcache/index.html" class="item ">
-                <a href="/code/" title="实验室" class="icon-lab">&nbsp;实验室</a>
+                <a href="/archives/" title="归档" class="iconfont icon-archives">&nbsp;归档</a>
             </li>
             
             <li rel="/2020/02/17/ehcache/index.html" class="item ">
-                <a href="/about/" title="关于" class="icon-about">&nbsp;关于</a>
+                <a href="/about/" title="关于" class="iconfont icon-staff">&nbsp;关于</a>
             </li>
             
             <li rel="/2020/02/17/ehcache/index.html" class="item ">
-                <a href="/comment/" title="留言" class="icon-comment">&nbsp;留言</a>
+                <a href="/comment/" title="留言" class="iconfont icon-comment">&nbsp;留言</a>
             </li>
             
         </ul>
@@ -75,21 +76,21 @@
                         <a href="https://github.com/YCoffee" target="_blank">Github</a>
                         |
                     
-                        <a href target="_blank">Reserved Link Location</a>
+                        <a href="" target="_blank">Reserved Link Location</a>
                         
                     
                 </p>
                 <p class="sns">
                     
                         <!-- <a href="" class="sinaweibo" target="_blank"><b>■</b> Reserved</a> -->
-                        <a href="javascript: void(0);" class="sinaweibo" target="_blank"><b>■</b> Reserved</a>
+						<a href="javascript: void(0);" class="sinaweibo" target="_blank"><b>■</b> Reserved</a>
                     
                         <!-- <a href="" class="qqweibo" target="_blank"><b>■</b> Reserved</a> -->
-                        <a href="javascript: void(0);" class="qqweibo" target="_blank"><b>■</b> Reserved</a>
+						<a href="javascript: void(0);" class="qqweibo" target="_blank"><b>■</b> Reserved</a>
                     
                     <a href="javascript: void(0);" class="wechat">
                         <b>■</b>
-                        Reserved
+                        微信
                         <span class="popover">
                             <img src="/img/wechat.png" width="120" height="120" alt="我的微信号">
                             <i class="arrow"></i>
@@ -99,7 +100,7 @@
                 
             </div>
             <div class="avatar fr">
-                <img src="/img/coffee.gif" alt="avatar" title="Coffee">
+                <img src="/img/coffee.gif" alt="avatar" title="Jelon" >
             </div>
         </div>
     </section>
@@ -117,35 +118,45 @@
         <h3 class="post-title"><span>ehcache</span></h3>
     </header>
     <p class="post-meta text-center">
-        CoffeeY 发表于
+        Jelon 发表于
         <time datetime="2020-02-17T07:12:54.000Z">2020-02-17</time>
     </p>
-    <div class="post-content">
-        <h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>ehcache.xml<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">ehcache</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">	     磁盘存储:将缓存中暂时不使用的对象,转移到硬盘,类似于Windows系统的虚拟内存</span></span><br><span class="line"><span class="comment">	      path:指定在硬盘上存储对象的路径</span></span><br><span class="line"><span class="comment">	 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">diskStore</span> <span class="attr">path</span>=<span class="string">"D:\ehcache"</span> /&gt;</span></span><br><span class="line">	</span><br><span class="line">	<span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">	    defaultCache:默认的缓存配置信息,如果不加特殊说明,则所有对象按照此配置项处理</span></span><br><span class="line"><span class="comment">	    maxElementsInMemory:设置了缓存的上限,最多存储多少个记录对象</span></span><br><span class="line"><span class="comment">	    eternal:代表对象是否永不过期</span></span><br><span class="line"><span class="comment">	    overflowToDisk:当内存中Element数量达到maxElementsInMemory时，Ehcache将会Element写到磁盘中</span></span><br><span class="line"><span class="comment">	 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">defaultCache</span></span></span><br><span class="line"><span class="tag">	  <span class="attr">maxElementsInMemory</span>=<span class="string">"100"</span></span></span><br><span class="line"><span class="tag">	  <span class="attr">eternal</span>=<span class="string">"true"</span></span></span><br><span class="line"><span class="tag">	  <span class="attr">overflowToDisk</span>=<span class="string">"true"</span>/&gt;</span></span><br><span class="line">     </span><br><span class="line">    <span class="tag">&lt;<span class="name">cache</span> </span></span><br><span class="line"><span class="tag">      <span class="attr">name</span>=<span class="string">"a"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">maxElementsInMemory</span>=<span class="string">"100"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">eternal</span>=<span class="string">"true"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">overflowToDisk</span>=<span class="string">"true"</span>/&gt;</span></span><br><span class="line">        </span><br><span class="line">    <span class="tag">&lt;/<span class="name">ehcache</span>&gt;</span></span><br><span class="line"></span><br><span class="line">cache元素的属性：  </span><br><span class="line"></span><br><span class="line">name：缓存名称  </span><br><span class="line"></span><br><span class="line">maxElementsInMemory：内存中最大缓存对象数  </span><br><span class="line"></span><br><span class="line">maxElementsOnDisk：硬盘中最大缓存对象数，若是0表示无穷大  </span><br><span class="line"></span><br><span class="line">eternal：true表示对象永不过期，此时会忽略timeToIdleSeconds和timeToLiveSeconds属性，默认为false  </span><br><span class="line"></span><br><span class="line">overflowToDisk：true表示当内存缓存的对象数目达到了maxElementsInMemory界限后，会把溢出的对象写到硬盘缓存中。注意：如果缓存的对象要写入到硬盘中的话，则该对象必须实现了Serializable接口才行。  </span><br><span class="line"></span><br><span class="line">diskSpoolBufferSizeMB：磁盘缓存区大小，默认为30MB。每个Cache都应该有自己的一个缓存区。  </span><br><span class="line"></span><br><span class="line">diskPersistent：是否缓存虚拟机重启期数据  </span><br><span class="line"></span><br><span class="line">diskExpiryThreadIntervalSeconds：磁盘失效线程运行时间间隔，默认为120秒  </span><br><span class="line"></span><br><span class="line">timeToIdleSeconds： 设定允许对象处于空闲状态的最长时间，以秒为单位。当对象自从最近一次被访问后，如果处于空闲状态的时间超过了timeToIdleSeconds属性值，这个对象就会过期，EHCache将把它从缓存中清空。只有当eternal属性为false，该属性才有效。如果该属性值为0，则表示对象可以无限期地处于空闲状态  </span><br><span class="line"></span><br><span class="line">timeToLiveSeconds：设定对象允许存在于缓存中的最长时间，以秒为单位。当对象自从被存放到缓存中后，如果处于缓存中的时间超过了 timeToLiveSeconds属性值，这个对象就会过期，EHCache将把它从缓存中清除。只有当eternal属性为false，该属性才有效。如果该属性值为0，则表示对象可以无限期地存在于缓存中。timeToLiveSeconds必须大于timeToIdleSeconds属性，才有意义  </span><br><span class="line"></span><br><span class="line">memoryStoreEvictionPolicy：当达到maxElementsInMemory限制时，Ehcache将会根据指定的策略去清理内存。可选策略有：LRU（最近最少使用，默认策略）、FIFO（先进先出）、LFU（最少访问次数）。</span><br></pre></td></tr></table></figure></p>
+    <div id="JELON__articlePostContent" class="post-content">
+        <h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>ehcache.xml</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">ehcache</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">	     磁盘存储:将缓存中暂时不使用的对象,转移到硬盘,类似于Windows系统的虚拟内存</span></span><br><span class="line"><span class="comment">	      path:指定在硬盘上存储对象的路径</span></span><br><span class="line"><span class="comment">	 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">diskStore</span> <span class="attr">path</span>=<span class="string">&quot;D:\ehcache&quot;</span> /&gt;</span></span><br><span class="line">	</span><br><span class="line">	<span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">	    defaultCache:默认的缓存配置信息,如果不加特殊说明,则所有对象按照此配置项处理</span></span><br><span class="line"><span class="comment">	    maxElementsInMemory:设置了缓存的上限,最多存储多少个记录对象</span></span><br><span class="line"><span class="comment">	    eternal:代表对象是否永不过期</span></span><br><span class="line"><span class="comment">	    overflowToDisk:当内存中Element数量达到maxElementsInMemory时，Ehcache将会Element写到磁盘中</span></span><br><span class="line"><span class="comment">	 --&gt;</span></span><br><span class="line">	&lt;defaultCache</span><br><span class="line">	  maxElementsInMemory=&quot;100&quot;</span><br><span class="line">	  eternal=&quot;true&quot;</span><br><span class="line">	  overflowToDisk=&quot;true&quot;/&gt;</span><br><span class="line">     </span><br><span class="line">    <span class="tag">&lt;<span class="name">cache</span> </span></span><br><span class="line"><span class="tag">      <span class="attr">name</span>=<span class="string">&quot;a&quot;</span></span></span><br><span class="line"><span class="tag">      <span class="attr">maxElementsInMemory</span>=<span class="string">&quot;100&quot;</span></span></span><br><span class="line"><span class="tag">      <span class="attr">eternal</span>=<span class="string">&quot;true&quot;</span></span></span><br><span class="line"><span class="tag">      <span class="attr">overflowToDisk</span>=<span class="string">&quot;true&quot;</span>/&gt;</span></span><br><span class="line">        </span><br><span class="line">    <span class="tag">&lt;/<span class="name">ehcache</span>&gt;</span></span><br><span class="line"></span><br><span class="line">cache元素的属性：  </span><br><span class="line"></span><br><span class="line">name：缓存名称  </span><br><span class="line"></span><br><span class="line">maxElementsInMemory：内存中最大缓存对象数  </span><br><span class="line"></span><br><span class="line">maxElementsOnDisk：硬盘中最大缓存对象数，若是0表示无穷大  </span><br><span class="line"></span><br><span class="line">eternal：true表示对象永不过期，此时会忽略timeToIdleSeconds和timeToLiveSeconds属性，默认为false  </span><br><span class="line"></span><br><span class="line">overflowToDisk：true表示当内存缓存的对象数目达到了maxElementsInMemory界限后，会把溢出的对象写到硬盘缓存中。注意：如果缓存的对象要写入到硬盘中的话，则该对象必须实现了Serializable接口才行。  </span><br><span class="line"></span><br><span class="line">diskSpoolBufferSizeMB：磁盘缓存区大小，默认为30MB。每个Cache都应该有自己的一个缓存区。  </span><br><span class="line"></span><br><span class="line">diskPersistent：是否缓存虚拟机重启期数据  </span><br><span class="line"></span><br><span class="line">diskExpiryThreadIntervalSeconds：磁盘失效线程运行时间间隔，默认为120秒  </span><br><span class="line"></span><br><span class="line">timeToIdleSeconds： 设定允许对象处于空闲状态的最长时间，以秒为单位。当对象自从最近一次被访问后，如果处于空闲状态的时间超过了timeToIdleSeconds属性值，这个对象就会过期，EHCache将把它从缓存中清空。只有当eternal属性为false，该属性才有效。如果该属性值为0，则表示对象可以无限期地处于空闲状态  </span><br><span class="line"></span><br><span class="line">timeToLiveSeconds：设定对象允许存在于缓存中的最长时间，以秒为单位。当对象自从被存放到缓存中后，如果处于缓存中的时间超过了 timeToLiveSeconds属性值，这个对象就会过期，EHCache将把它从缓存中清除。只有当eternal属性为false，该属性才有效。如果该属性值为0，则表示对象可以无限期地存在于缓存中。timeToLiveSeconds必须大于timeToIdleSeconds属性，才有意义  </span><br><span class="line"></span><br><span class="line">memoryStoreEvictionPolicy：当达到maxElementsInMemory限制时，Ehcache将会根据指定的策略去清理内存。可选策略有：LRU（最近最少使用，默认策略）、FIFO（先进先出）、LFU（最少访问次数）。  </span><br></pre></td></tr></table></figure>
+
 <h2 id="简单使用"><a href="#简单使用" class="headerlink" title="简单使用"></a>简单使用</h2><p>maven引入</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>net.sf.ehcache<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>ehcache<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">version</span>&gt;</span>2.10.3<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
 <p>测试代码</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 根据ehcache.xml配置文件创建Cache管理器</span></span><br><span class="line">    CacheManager manager=CacheManager.create(<span class="string">"./src/main/resources/ehcache.xml"</span>);</span><br><span class="line">    Cache c=manager.getCache(<span class="string">"a"</span>); <span class="comment">// 获取指定Cache</span></span><br><span class="line">    Element e=<span class="keyword">new</span> Element(<span class="string">"test"</span>,<span class="string">"测试"</span>); <span class="comment">// 实例化一个元素</span></span><br><span class="line">    c.put(e); <span class="comment">// 把一个元素添加到Cache中</span></span><br><span class="line">     </span><br><span class="line">    Element e2=c.get(<span class="string">"test"</span>); <span class="comment">// 根据Key获取缓存元素</span></span><br><span class="line">    System.out.println(e2);</span><br><span class="line">    System.out.println(e2.getObjectValue());</span><br><span class="line">     </span><br><span class="line">    c.flush(); <span class="comment">// 刷新缓存</span></span><br><span class="line">    manager.shutdown(); <span class="comment">// 关闭缓存管理器</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 根据ehcache.xml配置文件创建Cache管理器</span></span><br><span class="line">    CacheManager manager=CacheManager.create(<span class="string">&quot;./src/main/resources/ehcache.xml&quot;</span>);</span><br><span class="line">    Cache c=manager.getCache(<span class="string">&quot;a&quot;</span>); <span class="comment">// 获取指定Cache</span></span><br><span class="line">    Element e=<span class="keyword">new</span> Element(<span class="string">&quot;test&quot;</span>,<span class="string">&quot;测试&quot;</span>); <span class="comment">// 实例化一个元素</span></span><br><span class="line">    c.put(e); <span class="comment">// 把一个元素添加到Cache中</span></span><br><span class="line">     </span><br><span class="line">    Element e2=c.get(<span class="string">&quot;test&quot;</span>); <span class="comment">// 根据Key获取缓存元素</span></span><br><span class="line">    System.out.println(e2);</span><br><span class="line">    System.out.println(e2.getObjectValue());</span><br><span class="line">     </span><br><span class="line">    c.flush(); <span class="comment">// 刷新缓存</span></span><br><span class="line">    manager.shutdown(); <span class="comment">// 关闭缓存管理器</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h2 id="SpringBoot中使用"><a href="#SpringBoot中使用" class="headerlink" title="SpringBoot中使用"></a>SpringBoot中使用</h2><h3 id="一、使用注解的方式（更简洁，代码量少）"><a href="#一、使用注解的方式（更简洁，代码量少）" class="headerlink" title="一、使用注解的方式（更简洁，代码量少）"></a>一、使用注解的方式（更简洁，代码量少）</h3><p><strong>1、引入pom依赖，springboot缓存支持和ehcache</strong></p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- Spring Boot 缓存--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-cache<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- Ehcache --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>net.sf.ehcache<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>ehcache<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
 <p><strong>2、启动类添加@EnableCaching注解以及application.properties配置文件增加配置</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 配置ehcache缓存</span><br><span class="line">spring.cache.type=ehcache</span><br><span class="line"># 指定ehcache配置文件路径</span><br><span class="line">spring.cache.ehcache.config=classpath:/ehcache.xml</span><br></pre></td></tr></table></figure>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 配置ehcache缓存</span></span><br><span class="line"><span class="meta">spring.cache.type</span>=<span class="string">ehcache</span></span><br><span class="line"><span class="comment"># 指定ehcache配置文件路径</span></span><br><span class="line"><span class="meta">spring.cache.ehcache.config</span>=<span class="string">classpath:/ehcache.xml</span></span><br></pre></td></tr></table></figure>
+
 <p><strong>3、添加ehcache.xml文件在resources文件夹下</strong></p>
 <p>文件内容参照上方</p>
-<p><strong>4、使用注解实现缓存功能：@Cacheable（添加操作），@CachePut（修改操作），@CacheEvict（删除操作） </strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tk.coffeey.dao.UserDao;</span><br><span class="line"><span class="keyword">import</span> tk.coffeey.entity.User;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line"><span class="keyword">import</span> org.springframework.cache.annotation.CacheEvict;</span><br><span class="line"><span class="keyword">import</span> org.springframework.cache.annotation.CachePut;</span><br><span class="line"><span class="keyword">import</span> org.springframework.cache.annotation.Cacheable;</span><br><span class="line"><span class="keyword">import</span> org.springframework.cache.annotation.Caching;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Service;</span><br><span class="line"><span class="keyword">import</span> org.springframework.transaction.annotation.Transactional;</span><br><span class="line"> </span><br><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="meta">@Transactional</span><span class="comment">//添加事务</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserServiceImpl</span> <span class="keyword">implements</span> <span class="title">UserService</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> UserDao userDao;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">UserserviceImpl</span><span class="params">(UserDao userDao)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.userDao = userDao;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="meta">@Cacheable</span>(value=<span class="string">"users"</span>,key = <span class="string">"#id"</span>)</span><br><span class="line">	<span class="comment">//value表示缓存的名称</span></span><br><span class="line">	<span class="comment">//key表示缓存的key，可以为空，也可以用el表达式。支持四种：#参数名(#id)，#p+参数index(#p0)，#参数的属性(user.id),#p+参数index(#p0.id)</span></span><br><span class="line">	<span class="comment">//condition表示缓存的条件，可以为空，也可以用el表达式，例如：condition="#user.id&gt;0"(只缓存id大于0的)</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> User <span class="title">get</span><span class="params">(Long id)</span> </span>&#123;</span><br><span class="line">		User user=userDao.getUser(<span class="number">1L</span>);</span><br><span class="line">		System.out.println(<span class="string">"1111111111111111111111111"</span>);</span><br><span class="line">		<span class="keyword">return</span> user;</span><br><span class="line">	&#125;</span><br><span class="line"> </span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="meta">@CachePut</span>(value = <span class="string">"users"</span>)</span><br><span class="line">	<span class="comment">//和@Cacheable差不多：唯一的区别是@Cacheable会先判断缓存元素是否存在，再决定是直接返回还是缓存，而@CachePut总是会缓存数据</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> User <span class="title">save</span><span class="params">(Long id)</span> </span>&#123;</span><br><span class="line">		User user=<span class="keyword">new</span> User();</span><br><span class="line">		System.out.println(<span class="string">"222222"</span>);</span><br><span class="line">		<span class="keyword">return</span> user;</span><br><span class="line">	&#125;</span><br><span class="line"> </span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="meta">@CacheEvict</span>(value=<span class="string">"users"</span>,key = <span class="string">"#id"</span>)</span><br><span class="line">	<span class="comment">//value表示缓存的名称</span></span><br><span class="line">	<span class="comment">//key表示缓存的key，可以为空，也可以用el表达式。支持四种：#参数名(#id)，#p+参数index(#p0)，#参数的属性(user.id),#p+参数index(#p0.id)</span></span><br><span class="line">	<span class="comment">//allEntries表示是否需要清除所有的元素，默认为false</span></span><br><span class="line">	<span class="comment">//beforeInvocation表示是否需要在执行此删除方法之前删除缓存</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">delete</span><span class="params">(Long id)</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"33333333333"</span>);</span><br><span class="line">	&#125;</span><br><span class="line"> </span><br><span class="line">	<span class="comment">//四、@Caching</span></span><br><span class="line">	<span class="comment">//可以通过@Caching注解组合多个注解集合在一个方法上</span></span><br><span class="line">	<span class="comment">//这个注解可以组合多个注解，从而实现自定义注解</span></span><br><span class="line"> </span><br><span class="line">	<span class="comment">//自定义注解</span></span><br><span class="line"><span class="comment">/*	@Target(&#123;ElementType.TYPE, ElementType.METHOD&#125;)</span></span><br><span class="line"><span class="comment">	@Retention(RetentionPolicy.RUNTIME)</span></span><br><span class="line"><span class="comment">	@Cacheable(value="users")</span></span><br><span class="line"><span class="comment">	public @interface MyCacheable &#123;</span></span><br><span class="line"><span class="comment">	&#125;*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>**4、使用注解实现缓存功能：@Cacheable（添加操作），@CachePut（修改操作），@CacheEvict（删除操作） **</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tk.coffeey.dao.UserDao;</span><br><span class="line"><span class="keyword">import</span> tk.coffeey.entity.User;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line"><span class="keyword">import</span> org.springframework.cache.annotation.CacheEvict;</span><br><span class="line"><span class="keyword">import</span> org.springframework.cache.annotation.CachePut;</span><br><span class="line"><span class="keyword">import</span> org.springframework.cache.annotation.Cacheable;</span><br><span class="line"><span class="keyword">import</span> org.springframework.cache.annotation.Caching;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Service;</span><br><span class="line"><span class="keyword">import</span> org.springframework.transaction.annotation.Transactional;</span><br><span class="line"> </span><br><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="meta">@Transactional</span><span class="comment">//添加事务</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserServiceImpl</span> <span class="keyword">implements</span> <span class="title">UserService</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> UserDao userDao;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">UserserviceImpl</span><span class="params">(UserDao userDao)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.userDao = userDao;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="meta">@Cacheable(value=&quot;users&quot;,key = &quot;#id&quot;)</span></span><br><span class="line">	<span class="comment">//value表示缓存的名称</span></span><br><span class="line">	<span class="comment">//key表示缓存的key，可以为空，也可以用el表达式。支持四种：#参数名(#id)，#p+参数index(#p0)，#参数的属性(user.id),#p+参数index(#p0.id)</span></span><br><span class="line">	<span class="comment">//condition表示缓存的条件，可以为空，也可以用el表达式，例如：condition=&quot;#user.id&gt;0&quot;(只缓存id大于0的)</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> User <span class="title">get</span><span class="params">(Long id)</span> </span>&#123;</span><br><span class="line">		User user=userDao.getUser(<span class="number">1L</span>);</span><br><span class="line">		System.out.println(<span class="string">&quot;1111111111111111111111111&quot;</span>);</span><br><span class="line">		<span class="keyword">return</span> user;</span><br><span class="line">	&#125;</span><br><span class="line"> </span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="meta">@CachePut(value = &quot;users&quot;)</span></span><br><span class="line">	<span class="comment">//和@Cacheable差不多：唯一的区别是@Cacheable会先判断缓存元素是否存在，再决定是直接返回还是缓存，而@CachePut总是会缓存数据</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> User <span class="title">save</span><span class="params">(Long id)</span> </span>&#123;</span><br><span class="line">		User user=<span class="keyword">new</span> User();</span><br><span class="line">		System.out.println(<span class="string">&quot;222222&quot;</span>);</span><br><span class="line">		<span class="keyword">return</span> user;</span><br><span class="line">	&#125;</span><br><span class="line"> </span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="meta">@CacheEvict(value=&quot;users&quot;,key = &quot;#id&quot;)</span></span><br><span class="line">	<span class="comment">//value表示缓存的名称</span></span><br><span class="line">	<span class="comment">//key表示缓存的key，可以为空，也可以用el表达式。支持四种：#参数名(#id)，#p+参数index(#p0)，#参数的属性(user.id),#p+参数index(#p0.id)</span></span><br><span class="line">	<span class="comment">//allEntries表示是否需要清除所有的元素，默认为false</span></span><br><span class="line">	<span class="comment">//beforeInvocation表示是否需要在执行此删除方法之前删除缓存</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">delete</span><span class="params">(Long id)</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;33333333333&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line"> </span><br><span class="line">	<span class="comment">//四、@Caching</span></span><br><span class="line">	<span class="comment">//可以通过@Caching注解组合多个注解集合在一个方法上</span></span><br><span class="line">	<span class="comment">//这个注解可以组合多个注解，从而实现自定义注解</span></span><br><span class="line"> </span><br><span class="line">	<span class="comment">//自定义注解</span></span><br><span class="line"><span class="comment">/*	@Target(&#123;ElementType.TYPE, ElementType.METHOD&#125;)</span></span><br><span class="line"><span class="comment">	@Retention(RetentionPolicy.RUNTIME)</span></span><br><span class="line"><span class="comment">	@Cacheable(value=&quot;users&quot;)</span></span><br><span class="line"><span class="comment">	public @interface MyCacheable &#123;</span></span><br><span class="line"><span class="comment">	&#125;*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h3 id="二、普通方式（更灵活）"><a href="#二、普通方式（更灵活）" class="headerlink" title="二、普通方式（更灵活）"></a>二、普通方式（更灵活）</h3><p><strong>1、引入pom依赖，ehcache</strong></p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- Ehcache --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>net.sf.ehcache<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>ehcache<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
 <p><strong>2、启动类添加@EnableCaching注解，application.properties配置文件增加配置（同上）</strong></p>
 <p><strong>3、添加ehcache.xml文件在resources文件夹下（同上）</strong></p>
 <p><strong>4、service方法使用如下：</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tk.coffeey.dao.UserDao;</span><br><span class="line"><span class="keyword">import</span> tk.coffeey.entity.User;</span><br><span class="line"><span class="keyword">import</span> net.sf.ehcache.Cache;</span><br><span class="line"><span class="keyword">import</span> net.sf.ehcache.CacheManager;</span><br><span class="line"><span class="keyword">import</span> net.sf.ehcache.Element;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line"><span class="keyword">import</span> org.springframework.cache.annotation.CacheEvict;</span><br><span class="line"><span class="keyword">import</span> org.springframework.cache.annotation.CachePut;</span><br><span class="line"><span class="keyword">import</span> org.springframework.cache.annotation.Cacheable;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Service;</span><br><span class="line"><span class="keyword">import</span> org.springframework.transaction.annotation.Transactional;</span><br><span class="line"> </span><br><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="meta">@Transactional</span><span class="comment">//添加事务</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserServiceImpl2</span> <span class="keyword">implements</span> <span class="title">UserService</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> UserDao userDao;</span><br><span class="line">    <span class="keyword">private</span> CacheManager cacheManager;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">UserServiceImpl2</span><span class="params">(UserDao userDao, CacheManager cacheManager)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.userDao = userDao;</span><br><span class="line">        <span class="keyword">this</span>.cacheManager = cacheManager;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> User <span class="title">get</span><span class="params">(Long id)</span> </span>&#123;</span><br><span class="line">        Cache cache = cacheManager.getCache(<span class="string">"users"</span>);</span><br><span class="line">        Element element = cache.get(id);</span><br><span class="line">        <span class="keyword">if</span>(element!=<span class="keyword">null</span>)&#123;<span class="comment">//如果缓存中存在</span></span><br><span class="line">            <span class="keyword">return</span> (User)element.getObjectValue();<span class="comment">//直接取缓存</span></span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            User user=userDao.getUser(<span class="number">1L</span>);</span><br><span class="line">            <span class="comment">//数据库查出后，存储到缓存</span></span><br><span class="line">            Element element2 = <span class="keyword">new</span> Element(id, user);</span><br><span class="line">            cache.put(element2);</span><br><span class="line">            <span class="keyword">return</span> user;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> User <span class="title">save</span><span class="params">(Long id)</span> </span>&#123;</span><br><span class="line">        User user=<span class="keyword">new</span> User();</span><br><span class="line">        <span class="comment">//直接存储缓存</span></span><br><span class="line">        Cache cache = cacheManager.getCache(<span class="string">"users"</span>);</span><br><span class="line">        Element element2 = <span class="keyword">new</span> Element(id, user);</span><br><span class="line">        cache.put(element2);</span><br><span class="line">        <span class="keyword">return</span> user;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">delete</span><span class="params">(Long id)</span> </span>&#123;</span><br><span class="line">        Cache cache = cacheManager.getCache(<span class="string">"users"</span>);</span><br><span class="line">        cache.remove(id);</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tk.coffeey.dao.UserDao;</span><br><span class="line"><span class="keyword">import</span> tk.coffeey.entity.User;</span><br><span class="line"><span class="keyword">import</span> net.sf.ehcache.Cache;</span><br><span class="line"><span class="keyword">import</span> net.sf.ehcache.CacheManager;</span><br><span class="line"><span class="keyword">import</span> net.sf.ehcache.Element;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line"><span class="keyword">import</span> org.springframework.cache.annotation.CacheEvict;</span><br><span class="line"><span class="keyword">import</span> org.springframework.cache.annotation.CachePut;</span><br><span class="line"><span class="keyword">import</span> org.springframework.cache.annotation.Cacheable;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Service;</span><br><span class="line"><span class="keyword">import</span> org.springframework.transaction.annotation.Transactional;</span><br><span class="line"> </span><br><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="meta">@Transactional</span><span class="comment">//添加事务</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserServiceImpl2</span> <span class="keyword">implements</span> <span class="title">UserService</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> UserDao userDao;</span><br><span class="line">    <span class="keyword">private</span> CacheManager cacheManager;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">UserServiceImpl2</span><span class="params">(UserDao userDao, CacheManager cacheManager)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.userDao = userDao;</span><br><span class="line">        <span class="keyword">this</span>.cacheManager = cacheManager;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> User <span class="title">get</span><span class="params">(Long id)</span> </span>&#123;</span><br><span class="line">        Cache cache = cacheManager.getCache(<span class="string">&quot;users&quot;</span>);</span><br><span class="line">        Element element = cache.get(id);</span><br><span class="line">        <span class="keyword">if</span>(element!=<span class="keyword">null</span>)&#123;<span class="comment">//如果缓存中存在</span></span><br><span class="line">            <span class="keyword">return</span> (User)element.getObjectValue();<span class="comment">//直接取缓存</span></span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            User user=userDao.getUser(<span class="number">1L</span>);</span><br><span class="line">            <span class="comment">//数据库查出后，存储到缓存</span></span><br><span class="line">            Element element2 = <span class="keyword">new</span> Element(id, user);</span><br><span class="line">            cache.put(element2);</span><br><span class="line">            <span class="keyword">return</span> user;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> User <span class="title">save</span><span class="params">(Long id)</span> </span>&#123;</span><br><span class="line">        User user=<span class="keyword">new</span> User();</span><br><span class="line">        <span class="comment">//直接存储缓存</span></span><br><span class="line">        Cache cache = cacheManager.getCache(<span class="string">&quot;users&quot;</span>);</span><br><span class="line">        Element element2 = <span class="keyword">new</span> Element(id, user);</span><br><span class="line">        cache.put(element2);</span><br><span class="line">        <span class="keyword">return</span> user;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">delete</span><span class="params">(Long id)</span> </span>&#123;</span><br><span class="line">        Cache cache = cacheManager.getCache(<span class="string">&quot;users&quot;</span>);</span><br><span class="line">        cache.remove(id);</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <blockquote>
 <p>需要注意，EhCache设置了元素过期时间，当元素过期时，EhCache并不会主动去清除缓存（内存）中的元素，当查询(get)时，EHCache才会把它从缓存中清空，如果一直未查询，则会一直存在于缓存中，可能会导致内存泄漏风险。</p>
 <p>查阅文档博客时，有查看提及到当元素超过maxElementsInMemory（内存中最大缓存对象数）时，会清除掉过期元素，暂且有待验证。</p>
 </blockquote>
 
     </div>
+    <p class="eof">-- EOF --</p>
     <p class="post-meta">
         <span class="post-cat">分类：
             <a class="cat-link" href="/categories/back-end/">后端</a>
@@ -168,7 +179,7 @@
       <a href="javascript: window.open('http://service.weibo.com/share/share.php?url=' + encodeURIComponent(location.href) + '&title=' + document.title + '&language=zh_cn');" class="share-icon weibo"></a>
       <a href="javascript: alert('请复制链接到微信并发送');" class="share-icon wechat"></a>
       <a href="javascript: window.open('http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=' + encodeURIComponent(location.href) + '&title=' + document.title);" class="share-icon qqzone"></a>
-      <a href="javascript: window.open('http://connect.qq.com/widget/shareqq/index.html?url=' + encodeURIComponent(location.href) + '&desc=CoffeeY个人博客&title=' + document.title + '&callback=' + encodeURIComponent(location.href));" class="share-icon qq"></a>
+      <a href="javascript: window.open('http://connect.qq.com/widget/shareqq/index.html?url=' + encodeURIComponent(location.href) + '&desc=Jelon个人博客&title=' + document.title + '&callback=' + encodeURIComponent(location.href));" class="share-icon qq"></a>
       <a href="javascript: window.open('http://shuo.douban.com/!service/share?href=' + encodeURIComponent(location.href) + '&name=' + document.title + '&text=' + document.title);" class="share-icon douban"></a>
     </div>
   </div>
@@ -179,7 +190,7 @@
 <div class="article-nav clearfix">
     
     <span class="prev fl">
-        上一篇<br>
+        上一篇<br >
         <a href="/2020/07/17/sql-statements/">
             
                 Mysql Create Or Update的两种方式
@@ -190,7 +201,7 @@
 
     
     <span class="next fr">
-        下一篇<br>
+        下一篇<br >
         <a href="/2020/01/23/proxy/">
             
                 各个PROXY记录
@@ -202,7 +213,9 @@
 
 <!-- 文章评论 -->
 
-  <script src="/js/comment.js"></script>
+  
+<script src="/js/comment.js?v=1616552640625.js"></script>
+
   <div id="comments" class="comment">
     <!--
     <div class="sign-bar">
@@ -279,10 +292,37 @@
   </script>
 
 
+
             </div>
         </section>
         <!-- 侧栏部分 -->
 <aside class="sidebar">
+    
+    <section class="widget">
+        <h3 class="widget-hd"><strong>文章搜索</strong></h3>
+        <div class="search-form">
+  <form
+    id="searchForm"
+    method="GET"
+    action="https://www.baidu.com/s"
+    ectype="application/x-www-form-urlencoded"
+    target="_blank"
+    autocomplete="false"
+    onsubmit="javascript: return false;">
+    <input
+      id="searchKeyword"
+      type="text"
+      class="form-control"
+      placeholder="输入关键字搜索"
+      autocomplete="false"
+    />
+    <input id="searchKeywordHidden" type="hidden" name="wd" />
+    <input id="searchButton" class="btn" type="submit" value="搜索" />
+  </form>
+</div>
+    </section>
+    
+
     <section class="widget">
         <h3 class="widget-hd"><strong>文章分类</strong></h3>
         <!-- 文章分类 -->
@@ -295,27 +335,12 @@
     
     <li>
         <a href="/categories/back-end/">后端</a>
-        <span class="badge">(13)</span>
+        <span class="badge">(18)</span>
     </li>
     
     <li>
         <a href="/categories/other/">其他</a>
         <span class="badge">(3)</span>
-    </li>
-    
-    <li>
-        <a href="/categories/categorie/">categorie</a>
-        <span class="badge">(2)</span>
-    </li>
-    
-    <li>
-        <a href="/categories/后台/">后台</a>
-        <span class="badge">(1)</span>
-    </li>
-    
-    <li>
-        <a href="/categories/后台/版本控制/">版本控制</a>
-        <span class="badge">(1)</span>
     </li>
     
 </ul>
@@ -327,15 +352,19 @@
         <!-- 文章标签 -->
 <div class="widget-bd tag-wrap">
   
-    <a class="tag-item" href="/tags/es5-6/" title="es5/6">es5/6 (1)</a>
+    <a class="tag-item" href="/tags/git/" title="git">git (4)</a>
   
-    <a class="tag-item" href="/tags/linux/" title="linux">linux (1)</a>
+    <a class="tag-item" href="/tags/sql/" title="sql">sql (3)</a>
   
     <a class="tag-item" href="/tags/tomcat/" title="tomcat">tomcat (2)</a>
   
-    <a class="tag-item" href="/tags/git/" title="git">git (4)</a>
+    <a class="tag-item" href="/tags/linux/" title="linux">linux (2)</a>
   
     <a class="tag-item" href="/tags/gitlab/" title="gitlab">gitlab (2)</a>
+  
+    <a class="tag-item" href="/tags/springboot/" title="springboot">springboot (2)</a>
+  
+    <a class="tag-item" href="/tags/es5-6/" title="es5/6">es5/6 (1)</a>
   
     <a class="tag-item" href="/tags/ehcache/" title="ehcache">ehcache (1)</a>
   
@@ -345,25 +374,23 @@
   
     <a class="tag-item" href="/tags/blog/" title="blog">blog (1)</a>
   
-    <a class="tag-item" href="/tags/tag/" title="tag">tag (2)</a>
+    <a class="tag-item" href="/tags/npm/" title="npm">npm (1)</a>
   
-    <a class="tag-item" href="/tags/Maven/" title="Maven">Maven (1)</a>
-  
-    <a class="tag-item" href="/tags/NPM/" title="NPM">NPM (1)</a>
+    <a class="tag-item" href="/tags/maven/" title="maven">maven (1)</a>
   
     <a class="tag-item" href="/tags/oracle/" title="oracle">oracle (1)</a>
   
-    <a class="tag-item" href="/tags/sql/" title="sql">sql (2)</a>
-  
     <a class="tag-item" href="/tags/proxy/" title="proxy">proxy (1)</a>
   
-    <a class="tag-item" href="/tags/软件工具/" title="软件工具">软件工具 (1)</a>
+    <a class="tag-item" href="/tags/redis/" title="redis">redis (1)</a>
   
-    <a class="tag-item" href="/tags/springboot/" title="springboot">springboot (1)</a>
+    <a class="tag-item" href="/tags/reprint/" title="reprint">reprint (1)</a>
+  
+    <a class="tag-item" href="/tags/Software%E3%80%81Tool/" title="Software、Tool">Software、Tool (1)</a>
   
     <a class="tag-item" href="/tags/svn/" title="svn">svn (1)</a>
   
-    <a class="tag-item" href="/tags/windows文件夹共享/" title="windows文件夹共享">windows文件夹共享 (1)</a>
+    <a class="tag-item" href="/tags/windows%E6%96%87%E4%BB%B6%E5%A4%B9%E5%85%B1%E4%BA%AB/" title="windows文件夹共享">windows文件夹共享 (1)</a>
   
 </div>
     </section>
@@ -379,7 +406,7 @@
 <ul class="widget-bd">
     
         <li>
-            <a href="https://www.baidu.com" target="_blank" title="百度搜索">百度</a>
+            <a href="https://gitee.com/z525989" target="_blank" title="Profile">Sakura Profile</a>
         </li>
     
 </ul>
@@ -393,7 +420,7 @@
     <footer class="footer">
     &copy;
     
-        2018-2020
+        2018-2021
     
 
     <a href="/">Ycoffee</a>
@@ -406,6 +433,9 @@
 
     <!--博客js脚本 -->
     <!-- 这里放网站js脚本 -->
-<script src="/js/main.js"></script>
+
+<script src="/js/main.js?v=1616552640786.js"></script>
+
+
 </body>
 </html>
