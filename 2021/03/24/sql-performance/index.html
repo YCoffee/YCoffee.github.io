@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8" >
     <meta name="baidu-site-verification" content="dIcXMeY8Ya" />
     
-    <title>sql-performance | CoffeeY Blog</title>
+    <title>SQL语句性能优化注意的52点 | CoffeeY Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" >
     <meta name="keywords" content="Java 后端 Vue" >
     <meta name="description" content="Coffee个人记录博客" >
@@ -17,7 +17,7 @@
     <link rel="icon" href="/favicon.ico" >
     
     
-<link rel="stylesheet" href="/css/style.css?v=1616552640772.css">
+<link rel="stylesheet" href="/css/style.css?v=1616553856351.css">
 
     <!--[if lt IE 9]>
     
@@ -115,7 +115,7 @@
 <!-- 文章 -->
 <article class="post article">
     <header class="text-center">
-        <h3 class="post-title"><span>sql-performance</span></h3>
+        <h3 class="post-title"><span>SQL语句性能优化注意的52点</span></h3>
     </header>
     <p class="post-meta text-center">
         Jelon 发表于
@@ -140,13 +140,12 @@
 <p>16、使用表的别名（Alias）：当在 SQL 语句中连接多个表时，请使用表的别名并把别名前缀于每个 Column 上。这样一来，就可以减少解析的时间并减少那些由 Column 歧义引起的语法错误。</p>
 <p>17、使用“临时表”暂存中间结果 ：</p>
 <p>简化 SQL 语句的重要方法就是采用临时表暂存中间结果。但是临时表的好处远远不止这些，将临时结果暂存在临时表，后面的查询就在 tempdb 中了，这可以避免程序中多次扫描主表，也大大减少了程序执行中“共享锁”阻塞“更新锁”，减少了阻塞，提高了并发性能。</p>
-<p>18、一些 SQL 查询语句应加上 nolock，读、写是会相互阻塞的，为了提高并发性能。对于一些查询，可以加上 nolock，这样读的时候可以允许写，但缺点是可能读到未提交的脏数据。</p>
-<p>使用 nolock 有3条原则：</p>
-<ul>
+<p>18、一些 SQL 查询语句应加上 nolock，读、写是会相互阻塞的，为了提高并发性能。对于一些查询，可以加上 nolock，这样读的时候可以允许写，但缺点是可能读到未提交的脏数据。<br>使用 nolock 有3条原则：</p>
+<ol>
 <li>查询的结果用于“插、删、改”的不能加 nolock；</li>
 <li>查询的表属于频繁发生页分裂的，慎用 nolock ；</li>
 <li>使用临时表一样可以保存“数据前影”，起到类似 Oracle 的 undo 表空间的功能，能采用临时表提高并发性能的，不要用 nolock。</li>
-</ul>
+</ol>
 <p>19、常见的简化规则如下：</p>
 <p>不要有超过 5 个以上的表连接（JOIN），考虑使用临时表或表变量存放中间结果。少用子查询，视图嵌套不要过深，一般视图嵌套不要超过 2 个为宜。</p>
 <p>20、将需要查询的结果预先计算好放在表中，查询的时候再Select。这在SQL7.0以前是最重要的手段，例如医院的住院费计算。</p>
@@ -279,6 +278,9 @@
 <p>对于某些文本字段，例如“省份”或者“性别”，我们可以将它们定义为 ENUM 类型。因为在 MySQL 中，ENUM 类型被当作数值型数据来处理，而数值型数据被处理起来的速度要比文本类型快得多。这样，我们又可以提高数据库的性能。</p>
 <p>51、字符串数据类型：char, varchar, text 选择区别。</p>
 <p>52、任何对列的操作都将导致表扫描，它包括数据库函数、计算表达式等等，查询时要尽可能将操作移至等号右边。</p>
+<blockquote>
+<p>reprint by <a target="_blank" rel="noopener" href="https://cnblogs.com/SimpleWu/p/9929043.html">https://cnblogs.com/SimpleWu/p/9929043.html</a></p>
+</blockquote>
 
     </div>
     <p class="eof">-- EOF --</p>
@@ -290,7 +292,9 @@
             标签：
             
     
-        <a href="/tags/sql/" title="sql">sql</a>
+        <a href="/tags/sql/" title="sql">sql</a> / 
+    
+        <a href="/tags/reprint/" title="reprint">reprint</a>
     
 
         </span>
@@ -335,7 +339,7 @@
 <!-- 文章评论 -->
 
   
-<script src="/js/comment.js?v=1616552640612.js"></script>
+<script src="/js/comment.js?v=1616553856172.js"></script>
 
   <div id="comments" class="comment">
     <!--
@@ -483,6 +487,8 @@
   
     <a class="tag-item" href="/tags/gitlab/" title="gitlab">gitlab (2)</a>
   
+    <a class="tag-item" href="/tags/reprint/" title="reprint">reprint (2)</a>
+  
     <a class="tag-item" href="/tags/springboot/" title="springboot">springboot (2)</a>
   
     <a class="tag-item" href="/tags/es5-6/" title="es5/6">es5/6 (1)</a>
@@ -495,17 +501,15 @@
   
     <a class="tag-item" href="/tags/blog/" title="blog">blog (1)</a>
   
-    <a class="tag-item" href="/tags/npm/" title="npm">npm (1)</a>
-  
     <a class="tag-item" href="/tags/maven/" title="maven">maven (1)</a>
+  
+    <a class="tag-item" href="/tags/npm/" title="npm">npm (1)</a>
   
     <a class="tag-item" href="/tags/oracle/" title="oracle">oracle (1)</a>
   
     <a class="tag-item" href="/tags/proxy/" title="proxy">proxy (1)</a>
   
     <a class="tag-item" href="/tags/redis/" title="redis">redis (1)</a>
-  
-    <a class="tag-item" href="/tags/reprint/" title="reprint">reprint (1)</a>
   
     <a class="tag-item" href="/tags/Software%E3%80%81Tool/" title="Software、Tool">Software、Tool (1)</a>
   
@@ -555,7 +559,7 @@
     <!--博客js脚本 -->
     <!-- 这里放网站js脚本 -->
 
-<script src="/js/main.js?v=1616552640774.js"></script>
+<script src="/js/main.js?v=1616553856352.js"></script>
 
 
 </body>
